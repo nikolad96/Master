@@ -12,12 +12,12 @@ import org.springframework.web.client.RestTemplate;
 public class MasterProjectApplication {
 
     @Bean
-    public RestTemplate getRestTemplate(){
+    public RestTemplate getRestTemplate() {
         return new RestTemplate();
     }
 
     public static void main(String[] args) {
-        
+
         SpringApplication.run(MasterProjectApplication.class, args
 
         );

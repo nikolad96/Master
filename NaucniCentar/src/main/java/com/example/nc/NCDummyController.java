@@ -1,7 +1,6 @@
 package com.example.nc;
 
 
-
 import org.apache.http.client.HttpClient;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.impl.client.HttpClients;
@@ -45,10 +44,10 @@ public class NCDummyController {
         File file = resource.getFile();
 
         FileInputStream is = new FileInputStream(path);
-        KeyStore trustStore =  KeyStore.getInstance(KeyStore.getDefaultType());
+        KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
         trustStore.load(is, password.toCharArray());
         SSLContext sslContext = new SSLContextBuilder()
-                .loadTrustMaterial( file, password.toCharArray())
+                .loadTrustMaterial(file, password.toCharArray())
                 .build();
         SSLConnectionSocketFactory socketFactory = new SSLConnectionSocketFactory(sslContext);
         HttpClient httpClient = HttpClients.custom()
@@ -59,15 +58,19 @@ public class NCDummyController {
         return new RestTemplate(factory);
     }
 
-    @RequestMapping(value="/test", method = RequestMethod.GET)
-    public ResponseEntity<String> test(){
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public ResponseEntity<String> test() {
         String requestBody = "Trazim placanje";
         HttpEntity<String> HttpRequest = new HttpEntity<String>(requestBody);
-        try{
+
+        //salje request ka banka service
+        try {
             RestTemplate r = restTemplate();
-            return r.postForEntity("https://localhost:8081/KP", HttpRequest, String.class);
-        }catch(Exception e){
-            return REST_template.postForEntity("https://localhost:8081/KP", HttpRequest, String.class);
+            System.out.println("usao u try");
+            return r.postForEntity("https://localhost:8083/bankaservice/banka-test", HttpRequest, String.class);
+        } catch (Exception e) {
+            System.out.println("usao u catch");
+            return REST_template.postForEntity("http://localhost:8083/bankaservice/banka-test", HttpRequest, String.class);
         }
 
 

@@ -1,4 +1,4 @@
-package com.master.demo;
+package com.example.bankaservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -11,17 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping(value = "/KP")
-public class KPDummyController {
+@RequestMapping(value = "/banka-test")
+public class BankaController {
+
     @Autowired
     RestTemplate REST_template;
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public ResponseEntity<String> test(@RequestBody String requestBody) {
-
-        HttpEntity<String> HTTP_request = new HttpEntity<String>(requestBody);
-        String responseBody = "Placeno";
-        return new ResponseEntity<String>(responseBody, HttpStatus.OK);
-//        return REST_template.postForEntity("http://localhost:8082/bank", HTTP_request, String.class);
+        HttpEntity<String> HReq=new HttpEntity<String>(requestBody);
+        System.out.println("usao u banka service");
+        //salje request ka banci
+        ResponseEntity<String> response = REST_template.postForEntity("http://localhost:8082/bank", HReq, String.class);
+        return response;
     }
 }

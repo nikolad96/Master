@@ -17,8 +17,9 @@ public class DummyBankController {
     RestTemplate REST_template;
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public ResponseEntity<String> test(@RequestBody String requestBody){
+    public ResponseEntity<String> test(@RequestBody String requestBody) {
         String responseBody = "Placeno";
+        System.out.println("usao u banku");
         return new ResponseEntity<String>(responseBody, HttpStatus.OK);
     }
 
