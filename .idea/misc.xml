@@ -3,15 +3,5 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
-  <component name="MavenProjectsManager">
-    <option name="originalFiles">
-      <list>
-        <option value="$PROJECT_DIR$/Banka/pom.xml" />
-        <option value="$PROJECT_DIR$/Eureka/pom.xml" />
-        <option value="$PROJECT_DIR$/MasterProject/pom.xml" />
-        <option value="$PROJECT_DIR$/NaucniCentar/pom.xml" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

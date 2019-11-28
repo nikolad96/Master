@@ -17,7 +17,10 @@ public class MasterProjectApplication {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(MasterProjectApplication.class, args);
+        
+        SpringApplication.run(MasterProjectApplication.class, args
+
+        );
     }
 
 }

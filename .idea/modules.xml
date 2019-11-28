@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Banka/banka.iml" filepath="$PROJECT_DIR$/Banka/banka.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MasterProject/demo.iml" filepath="$PROJECT_DIR$/MasterProject/demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Eureka/eureka.iml" filepath="$PROJECT_DIR$/Eureka/eureka.iml" />
-      <module fileurl="file://$PROJECT_DIR$/NaucniCentar/nc.iml" filepath="$PROJECT_DIR$/NaucniCentar/nc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Master.iml" filepath="$PROJECT_DIR$/.idea/Master.iml" />
     </modules>
   </component>
 </project>
