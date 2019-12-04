@@ -37,8 +37,8 @@ public class NCDummyController {
 
     public RestTemplate restTemplate() throws Exception {
         String password = "123456";
-        String resourcePath = "keystore/keystore.p12";
-        String path = "src/main/resources/keystore/keystore.p12";
+        String resourcePath = "keystore/trustnaucnac.p12";
+        String path = "src/main/resources/keystore/trustnaucnac.p12";
         Resource resource = new ClassPathResource(resourcePath);
 
         File file = resource.getFile();
@@ -69,7 +69,10 @@ public class NCDummyController {
             System.out.println("usao u try");
             return r.postForEntity("https://localhost:8085/banka-test", HttpRequest, String.class);
         } catch (Exception e) {
+
+            e.printStackTrace();
             System.out.println("usao u catch");
+
             return REST_template.postForEntity("https://localhost:8085/banka-test", HttpRequest, String.class);
         }
 

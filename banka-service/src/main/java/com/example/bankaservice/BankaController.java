@@ -41,8 +41,8 @@ public class BankaController {
 
     public RestTemplate restTemplate() throws Exception {
         String password = "123456";
-        String resourcePath = "keystore/keystore.p12";
-        String path = "src/main/resources/keystore/keystore.p12";
+        String resourcePath = "keystore/trustbankac.p12";
+        String path = "src/main/resources/keystore/trustbankac.p12";
         Resource resource = new ClassPathResource(resourcePath);
 
         File file = resource.getFile();
