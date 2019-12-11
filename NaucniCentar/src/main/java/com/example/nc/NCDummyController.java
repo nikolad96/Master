@@ -38,14 +38,14 @@ public class NCDummyController {
     public RestTemplate restTemplate() throws Exception {
         String password = "123456";
         String resourcePath = "keystore/trustnaucnac.p12";
-        String path = "src/main/resources/keystore/trustnaucnac.p12";
+//        String path = "src/main/resources/keystore/trustnaucnac.p12";
         Resource resource = new ClassPathResource(resourcePath);
 
         File file = resource.getFile();
 
-        FileInputStream is = new FileInputStream(path);
-        KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
-        trustStore.load(is, password.toCharArray());
+//        FileInputStream is = new FileInputStream(path);
+//        KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
+//        trustStore.load(is, password.toCharArray());
         SSLContext sslContext = new SSLContextBuilder()
                 .loadTrustMaterial(file, password.toCharArray())
                 .build();
