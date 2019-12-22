@@ -70,11 +70,11 @@ public class BankaController {
 //        ResponseEntity<String> response = REST_template.postForEntity("https://localhost:8082/bank", HReq, String.class);
 //        return response;
 
-        try{
-            RestTemplate r = restTemplate();
-            return r.postForEntity("https://localhost:8082/bank", HReq, String.class);
-        }catch(Exception e) {
-            return REST_template.postForEntity("https://localhost:8082/bank", HReq, String.class);
-        }
+//        try{
+//            RestTemplate r = restTemplate();
+//            return r.postForEntity("https://localhost:8082/bank", HReq, String.class);
+//        }catch(Exception e) {
+            return REST_template.postForEntity("http://localhost:8082/bank", HReq, String.class);
+//        }
     }
 }
