@@ -44,6 +44,7 @@ public class BitcoinController {
         responseBody = post_response.getBody();
         int transaction_id = (int) responseBody.get("id");
         String payment_url = (String) responseBody.get("payment_url");
+        System.out.println(payment_url);
 
         // POSALJI KORISNIKA NA PAYMENT SAJT
 
@@ -57,6 +58,12 @@ public class BitcoinController {
             String status = new String((String) get_response.getBody().get("status"));
 
             if (status.equals("paid")){
+                // PRINT INFO SUCCESS
+                break;
+            }
+
+            else if(status.equals("invalid") || status.equals("expired") || status.equals("canceled")){
+                // PRINT INFO INVALID EXPIRED OR CANCELED
                 break;
             }
 
@@ -69,4 +76,6 @@ public class BitcoinController {
         
         return get_response;
     }
+
+    public monitorTransaction()
 }
