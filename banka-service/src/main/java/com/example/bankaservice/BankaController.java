@@ -66,15 +66,14 @@ public class BankaController {
     public ResponseEntity<String> test(@RequestBody String requestBody) {
         HttpEntity<String> HReq=new HttpEntity<String>(requestBody);
         System.out.println("usao u banka service");
-        //salje request ka banci
-//        ResponseEntity<String> response = REST_template.postForEntity("https://localhost:8082/bank", HReq, String.class);
+        ResponseEntity<String> response = REST_template.postForEntity("https://localhost:8082/bank", HReq, String.class);
 //        return response;
 
-//        try{
-//            RestTemplate r = restTemplate();
-//            return r.postForEntity("https://localhost:8082/bank", HReq, String.class);
-//        }catch(Exception e) {
+        try{
+            RestTemplate r = restTemplate();
+            return r.postForEntity("https://localhost:8082/bank", HReq, String.class);
+        }catch(Exception e) {
             return REST_template.postForEntity("http://localhost:8082/bank", HReq, String.class);
-//        }
+        }
     }
 }

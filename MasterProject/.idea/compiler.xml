@@ -6,16 +6,37 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="banka-service" />
         <module name="demo" />
+        <module name="sellers" />
+        <module name="eureka" />
+        <module name="paypal-service" />
+        <module name="zuul-service" />
+        <module name="banka" />
+        <module name="NaucniCentar" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="banka" target="1.8" />
+      <module name="banka-service" target="1.8" />
       <module name="demo" target="1.8" />
+      <module name="eureka" target="1.8" />
+      <module name="NaucniCentar" target="1.8" />
+      <module name="paypal-service" target="1.8" />
+      <module name="sellers" target="1.8" />
+      <module name="zuul-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="NaucniCentar" options="-parameters" />
+      <module name="banka" options="-parameters" />
+      <module name="banka-service" options="-parameters" />
       <module name="demo" options="-parameters" />
+      <module name="eureka" options="-parameters" />
+      <module name="paypal-service" options="-parameters" />
+      <module name="sellers" options="-parameters" />
+      <module name="zuul-service" options="-parameters" />
     </option>
   </component>
 </project>

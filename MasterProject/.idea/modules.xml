@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../NaucniCentar/NaucniCentar.iml" filepath="$PROJECT_DIR$/../NaucniCentar/NaucniCentar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Banka/banka.iml" filepath="$PROJECT_DIR$/../Banka/banka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../banka-service/banka-service.iml" filepath="$PROJECT_DIR$/../banka-service/banka-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo.iml" filepath="$PROJECT_DIR$/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Eureka/eureka.iml" filepath="$PROJECT_DIR$/../Eureka/eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../paypal-service/paypal-service.iml" filepath="$PROJECT_DIR$/../paypal-service/paypal-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sellers/sellers.iml" filepath="$PROJECT_DIR$/../sellers/sellers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../zuul-service/zuul-service.iml" filepath="$PROJECT_DIR$/../zuul-service/zuul-service.iml" />
     </modules>
   </component>
 </project>

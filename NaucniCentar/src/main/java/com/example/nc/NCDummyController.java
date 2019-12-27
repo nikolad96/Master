@@ -64,17 +64,17 @@ public class NCDummyController {
         HttpEntity<String> HttpRequest = new HttpEntity<String>(requestBody);
 
         //salje request ka banka service
-//        try {
-//            RestTemplate r = restTemplate();
-//            System.out.println("usao u try");
-//            return r.postForEntity("https://localhost:8085/banka-test", HttpRequest, String.class);
-//        } catch (Exception e) {
+        try {
+            RestTemplate r = restTemplate();
+            System.out.println("usao u try");
+            return r.postForEntity("https://localhost:8085/banka-test", HttpRequest, String.class);
+        } catch (Exception e) {
 
-//            e.printStackTrace();
+            e.printStackTrace();
             System.out.println("usao u catch");
 
             return REST_template.postForEntity("http://localhost:8086/banka-service/banka-test", HttpRequest, String.class);
-//        }
+        }
 
 
     }
