@@ -39,42 +39,41 @@ public class BankaController {
     @Autowired
     RestTemplate REST_template;
 
-    public RestTemplate restTemplate() throws Exception {
-        String password = "123456";
-        String resourcePath = "keystore/trustbankac.p12";
-        String path = "src/main/resources/keystore/trustbankac.p12";
-        Resource resource = new ClassPathResource(resourcePath);
-
-        File file = resource.getFile();
-
-        FileInputStream is = new FileInputStream(path);
-        KeyStore trustStore =  KeyStore.getInstance(KeyStore.getDefaultType());
-        trustStore.load(is, password.toCharArray());
-        SSLContext sslContext = new SSLContextBuilder()
-                .loadTrustMaterial( file, password.toCharArray())
-                .build();
-        SSLConnectionSocketFactory socketFactory = new SSLConnectionSocketFactory(sslContext);
-        HttpClient httpClient = HttpClients.custom()
-                .setSSLSocketFactory(socketFactory)
-                .build();
-        HttpComponentsClientHttpRequestFactory factory =
-                new HttpComponentsClientHttpRequestFactory(httpClient);
-        return new RestTemplate(factory);
-    }
+//    public RestTemplate restTemplate() throws Exception {
+//        String password = "123456";
+//        String resourcePath = "keystore/trustbankac.p12";
+//        String path = "src/main/resources/keystore/trustbankac.p12";
+//        Resource resource = new ClassPathResource(resourcePath);
+//
+//        File file = resource.getFile();
+//
+//        FileInputStream is = new FileInputStream(path);
+//        KeyStore trustStore =  KeyStore.getInstance(KeyStore.getDefaultType());
+//        trustStore.load(is, password.toCharArray());
+//        SSLContext sslContext = new SSLContextBuilder()
+//                .loadTrustMaterial( file, password.toCharArray())
+//                .build();
+//        SSLConnectionSocketFactory socketFactory = new SSLConnectionSocketFactory(sslContext);
+//        HttpClient httpClient = HttpClients.custom()
+//                .setSSLSocketFactory(socketFactory)
+//                .build();
+//        HttpComponentsClientHttpRequestFactory factory =
+//                new HttpComponentsClientHttpRequestFactory(httpClient);
+//        return new RestTemplate(factory);
+//    }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public ResponseEntity<String> test(@RequestBody String requestBody) {
         HttpEntity<String> HReq=new HttpEntity<String>(requestBody);
         System.out.println("usao u banka service");
-        //salje request ka banci
 //        ResponseEntity<String> response = REST_template.postForEntity("https://localhost:8082/bank", HReq, String.class);
-//        return response;
-
+////        return response;
+//
 //        try{
 //            RestTemplate r = restTemplate();
 //            return r.postForEntity("https://localhost:8082/bank", HReq, String.class);
 //        }catch(Exception e) {
-            return REST_template.postForEntity("http://localhost:8082/bank", HReq, String.class);
+            return REST_template.postForEntity("https://localhost:8082/bank", HReq, String.class);
 //        }
     }
 }
