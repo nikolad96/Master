@@ -1,0 +1,11 @@
+<h1>KP</h1>
+
+<select name="odabir_placanja" ng-model="userSelect">
+  <option value="">--Select--</option>
+  <option value="bank">Bank</option>
+  <option value="paypal">PayPal</option>
+  <option value="btc">Bitcoin</option>
+</select>
+
+
+<button ng-click="sendToBackend(userSelect.value())">Submit</button>
