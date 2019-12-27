@@ -24,10 +24,12 @@ import java.util.Set;
 @RequestMapping(value = "/bitcoin-service")
 public class BitcoinController {
 
+    private String API_token = new String("szx5-PgTdEAggxxp1Fy9zxNZv6VFBWCBELsrtyF7");
+
     @Autowired
     RestTemplate REST_template;
 
-    @RequestMapping(value = "/test", method = RequestMethod.POST)
+    @RequestMapping(value = "/start", method = RequestMethod.POST)
     public ResponseEntity<JSONObject> test(@RequestBody String requestBody) throws Exception{
        // CoingateReqDTO body = new CoingateReqDTO("1", 0.00001, "EUR", "EUR");
         JSONObject body = new JSONObject();
@@ -36,7 +38,6 @@ public class BitcoinController {
         body.put("price_currency", "EUR");
         body.put("receive_currency", "EUR");
         HttpHeaders post_header = new HttpHeaders();
-        String API_token = new String("szx5-PgTdEAggxxp1Fy9zxNZv6VFBWCBELsrtyF7");
         post_header.set("Authorization", "Token " + API_token);
         HttpEntity<JSONObject> post_request = new HttpEntity<JSONObject>(body, post_header);
         ResponseEntity<JSONObject> post_response = REST_template.postForEntity("https://api-sandbox.coingate.com/v2/orders", post_request, JSONObject.class);
@@ -44,27 +45,33 @@ public class BitcoinController {
         responseBody = post_response.getBody();
         int transaction_id = (int) responseBody.get("id");
         String payment_url = (String) responseBody.get("payment_url");
-        System.out.println(payment_url);
+        return post_response;
+       // System.out.println(payment_url);
 
         // POSALJI KORISNIKA NA PAYMENT SAJT
 
-        ResponseEntity<JSONObject> get_response;
+    }
+
+    @RequestMapping(value = "/monitor", method = RequestMethod.POST)
+    public ResponseEntity<JSONObject> monitorTransaction(@RequestBody int id) throws Exception{
 
         while(true) {
             JSONObject get_body = new JSONObject();
-            get_body.put("id", transaction_id);
+            get_body.put("id", id);
+            HttpHeaders post_header = new HttpHeaders();
+            post_header.set("Authorization", "Token " + API_token);
             HttpEntity<JSONObject> get_request = new HttpEntity<>(get_body, post_header);
-            get_response = REST_template.exchange("https://api-sandbox.coingate.com/v2/orders/" + transaction_id, HttpMethod.GET, get_request, JSONObject.class);
+            ResponseEntity<JSONObject> get_response = REST_template.exchange("https://api-sandbox.coingate.com/v2/orders/" + id, HttpMethod.GET, get_request, JSONObject.class);
             String status = new String((String) get_response.getBody().get("status"));
 
             if (status.equals("paid")){
                 // PRINT INFO SUCCESS
-                break;
+                return get_response;
             }
 
             else if(status.equals("invalid") || status.equals("expired") || status.equals("canceled")){
                 // PRINT INFO INVALID EXPIRED OR CANCELED
-                break;
+                return get_response;
             }
 
             else {
@@ -73,9 +80,5 @@ public class BitcoinController {
             }
         }
 
-        
-        return get_response;
     }
-
-    public monitorTransaction()
 }
