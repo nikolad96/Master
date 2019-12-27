@@ -73,7 +73,7 @@ public class NCDummyController {
 //            e.printStackTrace();
 //            System.out.println("usao u catch");
 
-            return REST_template.postForEntity("https://localhost:8086/banka-service/banka-test", HttpRequest, String.class);
+            return REST_template.postForEntity("https://localhost:8086/banka-service/bankservice/payment", HttpRequest, String.class);
 //        }
 
 
