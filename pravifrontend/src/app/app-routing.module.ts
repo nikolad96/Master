@@ -5,7 +5,7 @@ import {KPComponent} from '../app/kp/kp.component';
 
 
 const routes: Routes = [
-  {path: '',
+  {path: 'NC',
    component: NCComponent}
    ,
    {path: 'KP-page',

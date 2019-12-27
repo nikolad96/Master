@@ -45,18 +45,20 @@ public class BitcoinController {
         responseBody = post_response.getBody();
         int transaction_id = (int) responseBody.get("id");
         String payment_url = (String) responseBody.get("payment_url");
+        System.out.println(payment_url);
         return post_response;
-       // System.out.println(payment_url);
+
 
         // POSALJI KORISNIKA NA PAYMENT SAJT
 
     }
 
     @RequestMapping(value = "/monitor", method = RequestMethod.POST)
-    public ResponseEntity<JSONObject> monitorTransaction(@RequestBody int id) throws Exception{
+    public ResponseEntity<JSONObject> monitorTransaction(@RequestBody String arg_id) throws Exception{
 
         while(true) {
             JSONObject get_body = new JSONObject();
+            int id = Integer.parseInt(arg_id);
             get_body.put("id", id);
             HttpHeaders post_header = new HttpHeaders();
             post_header.set("Authorization", "Token " + API_token);
