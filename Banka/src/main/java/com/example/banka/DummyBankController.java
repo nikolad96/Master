@@ -29,7 +29,7 @@ import java.security.KeyStore;
 import java.util.Collections;
 
 @RestController
-@RequestMapping(value = "/bank")
+@RequestMapping(value = "/bank-test")
 public class DummyBankController {
 
     @Autowired
