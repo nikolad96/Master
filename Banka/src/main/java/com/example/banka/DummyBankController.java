@@ -35,28 +35,28 @@ public class DummyBankController {
     @Autowired
     RestTemplate REST_template;
 
-    public RestTemplate restTemplate() throws Exception {
-        String password = "123456";
-        String resourcePath = "keystore/keystore.p12";
-        String path = "src/main/resources/keystore/keystore.p12";
-        Resource resource = new ClassPathResource(resourcePath);
-
-        File file = resource.getFile();
-
-        FileInputStream is = new FileInputStream(path);
-        KeyStore trustStore =  KeyStore.getInstance(KeyStore.getDefaultType());
-        trustStore.load(is, password.toCharArray());
-        SSLContext sslContext = new SSLContextBuilder()
-                .loadTrustMaterial( file, password.toCharArray())
-                .build();
-        SSLConnectionSocketFactory socketFactory = new SSLConnectionSocketFactory(sslContext);
-        HttpClient httpClient = HttpClients.custom()
-                .setSSLSocketFactory(socketFactory)
-                .build();
-        HttpComponentsClientHttpRequestFactory factory =
-                new HttpComponentsClientHttpRequestFactory(httpClient);
-        return new RestTemplate(factory);
-    }
+//    public RestTemplate restTemplate() throws Exception {
+//        String password = "123456";
+//        String resourcePath = "keystore/keystore.p12";
+//        String path = "src/main/resources/keystore/keystore.p12";
+//        Resource resource = new ClassPathResource(resourcePath);
+//
+//        File file = resource.getFile();
+//
+//        FileInputStream is = new FileInputStream(path);
+//        KeyStore trustStore =  KeyStore.getInstance(KeyStore.getDefaultType());
+//        trustStore.load(is, password.toCharArray());
+//        SSLContext sslContext = new SSLContextBuilder()
+//                .loadTrustMaterial( file, password.toCharArray())
+//                .build();
+//        SSLConnectionSocketFactory socketFactory = new SSLConnectionSocketFactory(sslContext);
+//        HttpClient httpClient = HttpClients.custom()
+//                .setSSLSocketFactory(socketFactory)
+//                .build();
+//        HttpComponentsClientHttpRequestFactory factory =
+//                new HttpComponentsClientHttpRequestFactory(httpClient);
+//        return new RestTemplate(factory);
+//    }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public ResponseEntity<String> test(@RequestBody String requestBody) {

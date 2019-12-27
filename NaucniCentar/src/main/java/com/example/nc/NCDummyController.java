@@ -35,46 +35,46 @@ public class NCDummyController {
     @Autowired
     public RestTemplate REST_template;
 
-    public RestTemplate restTemplate() throws Exception {
-        String password = "123456";
-        String resourcePath = "keystore/trustnaucnac.p12";
-//        String path = "src/main/resources/keystore/trustnaucnac.p12";
-        Resource resource = new ClassPathResource(resourcePath);
-
-        File file = resource.getFile();
-
-//        FileInputStream is = new FileInputStream(path);
-//        KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
-//        trustStore.load(is, password.toCharArray());
-        SSLContext sslContext = new SSLContextBuilder()
-                .loadTrustMaterial(file, password.toCharArray())
-                .build();
-        SSLConnectionSocketFactory socketFactory = new SSLConnectionSocketFactory(sslContext);
-        HttpClient httpClient = HttpClients.custom()
-                .setSSLSocketFactory(socketFactory)
-                .build();
-        HttpComponentsClientHttpRequestFactory factory =
-                new HttpComponentsClientHttpRequestFactory(httpClient);
-        return new RestTemplate(factory);
-    }
+//    public RestTemplate restTemplate() throws Exception {
+//        String password = "123456";
+//        String resourcePath = "keystore/trustnaucnac.p12";
+////        String path = "src/main/resources/keystore/trustnaucnac.p12";
+//        Resource resource = new ClassPathResource(resourcePath);
+//
+//        File file = resource.getFile();
+//
+////        FileInputStream is = new FileInputStream(path);
+////        KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
+////        trustStore.load(is, password.toCharArray());
+//        SSLContext sslContext = new SSLContextBuilder()
+//                .loadTrustMaterial(file, password.toCharArray())
+//                .build();
+//        SSLConnectionSocketFactory socketFactory = new SSLConnectionSocketFactory(sslContext);
+//        HttpClient httpClient = HttpClients.custom()
+//                .setSSLSocketFactory(socketFactory)
+//                .build();
+//        HttpComponentsClientHttpRequestFactory factory =
+//                new HttpComponentsClientHttpRequestFactory(httpClient);
+//        return new RestTemplate(factory);
+//    }
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public ResponseEntity<String> test() {
         String requestBody = "Trazim placanje";
         HttpEntity<String> HttpRequest = new HttpEntity<String>(requestBody);
 
-        //salje request ka banka service
-        try {
-            RestTemplate r = restTemplate();
-            System.out.println("usao u try");
-            return r.postForEntity("https://localhost:8085/banka-test", HttpRequest, String.class);
-        } catch (Exception e) {
+//        //salje request ka banka service
+//        try {
+//            RestTemplate r = restTemplate();
+//            System.out.println("usao u try");
+//            return r.postForEntity("https://localhost:8085/banka-test", HttpRequest, String.class);
+//        } catch (Exception e) {
+//
+//            e.printStackTrace();
+//            System.out.println("usao u catch");
 
-            e.printStackTrace();
-            System.out.println("usao u catch");
-
-            return REST_template.postForEntity("http://localhost:8086/banka-service/banka-test", HttpRequest, String.class);
-        }
+            return REST_template.postForEntity("https://localhost:8086/banka-service/banka-test", HttpRequest, String.class);
+//        }
 
 
     }

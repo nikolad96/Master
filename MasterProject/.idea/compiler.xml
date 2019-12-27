@@ -8,19 +8,23 @@
         <outputRelativeToContentRoot value="true" />
         <module name="banka-service" />
         <module name="demo" />
+        <module name="load-balancer" />
         <module name="sellers" />
         <module name="eureka" />
-        <module name="paypal-service" />
+        <module name="NaucniCentar" />
+        <module name="bitcoin-service" />
         <module name="zuul-service" />
         <module name="banka" />
-        <module name="NaucniCentar" />
+        <module name="paypal-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="banka" target="1.8" />
       <module name="banka-service" target="1.8" />
+      <module name="bitcoin-service" target="1.8" />
       <module name="demo" target="1.8" />
       <module name="eureka" target="1.8" />
+      <module name="load-balancer" target="1.8" />
       <module name="NaucniCentar" target="1.8" />
       <module name="paypal-service" target="1.8" />
       <module name="sellers" target="1.8" />
@@ -32,8 +36,10 @@
       <module name="NaucniCentar" options="-parameters" />
       <module name="banka" options="-parameters" />
       <module name="banka-service" options="-parameters" />
+      <module name="bitcoin-service" options="-parameters" />
       <module name="demo" options="-parameters" />
       <module name="eureka" options="-parameters" />
+      <module name="load-balancer" options="-parameters" />
       <module name="paypal-service" options="-parameters" />
       <module name="sellers" options="-parameters" />
       <module name="zuul-service" options="-parameters" />
