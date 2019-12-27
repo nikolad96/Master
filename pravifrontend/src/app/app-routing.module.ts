@@ -6,7 +6,7 @@ import {PaypalComponent} from "./component/paypal/paypal.component";
 
 
 const routes: Routes = [
-  {path: '',
+  {path: 'NC',
    component: NCComponent}
    ,
    {path: 'KP-page',
