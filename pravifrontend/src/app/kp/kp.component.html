@@ -1,0 +1,39 @@
+<!-- <body>
+
+<h1>KP</h1>
+
+<select name="odabir_placanja" ng-model="userSelect">
+  <option value="">--Select--</option>
+  <option value="bank">Bank</option>
+  <option value="paypal">PayPal</option>
+  <option value="btc">Bitcoin</option>
+</select>
+
+
+<button ng-click="sendToBackend(userSelect.value())">Submit</button>
+</body> -->
+<body>
+
+<h1>NC</h1>
+
+<p>Izaberite casopis!</p>
+
+<div>
+<select name="odabir_casopisa" ng-model="userSelect" onchange="showSelectBox(this.options[this.selectedIndex].value)">
+  <option value="">--Select--</option>
+  <option value="1">Casopis 1</option>
+</select>
+</div>
+
+<div id="div1">
+  <select name="odabir_rada" ng-model="userSelect">
+    <option value="">--Select--</option>
+    <option value="1">Rad broj 1</option>
+  </select>
+</div>
+
+
+<button (click)="nextPage()">Next</button>
+
+
+</body>
