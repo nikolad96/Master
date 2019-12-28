@@ -56,7 +56,7 @@ public class PaymentController {
             transaction = transactionService.save(transaction);
         }
 
-        //staviti u neku klasu merchantOrderId, paymentId, paymentUrl
+        response.getBody().setMerchantOrderId(transaction.getId());
 
         return response;
     }

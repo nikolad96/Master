@@ -1,4 +1,4 @@
-package com.example.bankaservice.dto;
+package com.example.nc.dto;
 
 public class PaymentResponseDTO {
 
@@ -30,11 +30,7 @@ public class PaymentResponseDTO {
         this.paymentId = paymentId;
     }
 
-    public Integer getMerchantOrderId() {
-        return merchantOrderId;
-    }
+    public Integer getMerchantOrderId() { return merchantOrderId; }
 
-    public void setMerchantOrderId(Integer merchantOrderId) {
-        this.merchantOrderId = merchantOrderId;
-    }
+    public void setMerchantOrderId(Integer merchantOrderId) { this.merchantOrderId = merchantOrderId; }
 }

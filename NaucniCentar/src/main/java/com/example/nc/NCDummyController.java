@@ -1,6 +1,8 @@
 package com.example.nc;
 
 
+import com.example.nc.dto.PaymentDTO;
+import com.example.nc.dto.PaymentResponseDTO;
 import org.apache.http.client.HttpClient;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.impl.client.HttpClients;
@@ -75,7 +77,25 @@ public class NCDummyController {
 
             return REST_template.postForEntity("https://localhost:8086/banka-service/bankservice/payment", HttpRequest, String.class);
 //        }
+    }
 
+    @RequestMapping(value = "/paymentBankSuccess", method = RequestMethod.GET)
+    public ResponseEntity<PaymentResponseDTO> paymentBankSuccess() {
 
+        PaymentDTO paymentDTO = new PaymentDTO();
+        paymentDTO.setAmount(300);
+        paymentDTO.setMerchantId("3");
+        HttpEntity<PaymentDTO> HttpRequest = new HttpEntity<PaymentDTO>(paymentDTO);
+        return REST_template.postForEntity("https://localhost:8086/banka-service/bankservice/payment", HttpRequest, PaymentResponseDTO.class);
+    }
+
+    @RequestMapping(value = "/paymentBankUnsuccess", method = RequestMethod.GET)
+    public ResponseEntity<PaymentResponseDTO> paymentBankUnsuccess() {
+
+        PaymentDTO paymentDTO = new PaymentDTO();
+        paymentDTO.setAmount(10000);
+        paymentDTO.setMerchantId("3");
+        HttpEntity<PaymentDTO> HttpRequest = new HttpEntity<PaymentDTO>(paymentDTO);
+        return REST_template.postForEntity("https://localhost:8086/banka-service/bankservice/payment", HttpRequest, PaymentResponseDTO.class);
     }
 }

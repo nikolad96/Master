@@ -91,6 +91,7 @@ public class BankController {
         if(accounts.size() == 0 || accounts.size() > 1){
             System.out.println("Greska u podacima kartice.");
             cardResponseDTO.setState(TransactionState.ERROR);
+            cardResponseDTO.setUrl("error");
 
             transaction.setState(TransactionState.ERROR);
             transaction = transactionService.save(transaction);
@@ -111,6 +112,7 @@ public class BankController {
                  transaction = transactionService.save(transaction);
 
                  cardResponseDTO.setState(TransactionState.SUCCESS);
+                 cardResponseDTO.setUrl("success");
              }else{
                  System.out.println("Nema dovoljno sredstava na kartici.");
 
@@ -118,11 +120,12 @@ public class BankController {
                  transaction = transactionService.save(transaction);
 
                  cardResponseDTO.setState(TransactionState.NOT_ENOUGH_MONEY);
+                 cardResponseDTO.setUrl("not_enough_money");
 
              }
 
             HttpEntity<CardResponseDTO> HReq=new HttpEntity<CardResponseDTO>(cardResponseDTO);
-            restTemplate.postForEntity("http://localhost:8085/bankservice/paymentComplete", HReq, CardResponseDTO.class);
+            restTemplate.postForEntity("https://localhost:8085/bankservice/paymentComplete", HReq, CardResponseDTO.class);
 
             return new ResponseEntity<CardResponseDTO>(cardResponseDTO, HttpStatus.OK);
         }

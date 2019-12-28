@@ -7,6 +7,10 @@
     <file url="file://$PROJECT_DIR$/MasterProject" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/NaucniCentar" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/banka-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bitcoin-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/load-balancer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/paypal-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sellers" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zuul-service" charset="UTF-8" />
   </component>
 </project>
