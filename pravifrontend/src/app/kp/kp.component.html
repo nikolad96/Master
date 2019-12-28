@@ -1,8 +1,8 @@
  <body>
-
+<div class="message">
 <h1>KP</h1>
 
-<select name="odabir_placanja" ng-model="userSelect">
+<select name="odabir_placanja" [(ngModel)]="userSelect">
   <option value="">--Select--</option>
   <option value="bankSuccess">Bank Success</option>
   <option value="bankUnSuccess">Bank Unsuccess</option>
@@ -13,8 +13,10 @@
 
 
 
-<button ng-click="sendToBackend(userSelect.value())">Submit</button>
+<button (click)="sendToBackend(userSelect)">Submit</button>
+</div>
 </body>
+
 <!--<body>-->
 
 <!--<h1>NC</h1>-->

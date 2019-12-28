@@ -15,7 +15,7 @@ export class KPComponent implements OnInit {
   private payment_url_bank;
   private payment_id_bank;
   private merchant_order_id_bank;
-
+  userModel: string;
 
   constructor(private service: HttpServiceService, private http: HttpClient) { }
 
@@ -23,6 +23,9 @@ export class KPComponent implements OnInit {
   }
 
   sendToBackend(option){
+    console.log(option);
+    // window.location.href = 'paypal';
+
     switch(option) {
       case "bankSuccess":
            this.http.get('https://localhost:8084/dummyNC/paymentBankSuccess').subscribe(

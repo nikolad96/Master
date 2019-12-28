@@ -21,7 +21,7 @@ export class PaypalCancelComponent implements OnInit {
     return this.http.post(this.url + 'paypal/complete/cancel' , 'canceled')
       .subscribe(response => {
         console.log(response);
-        setTimeout(function () {
+        setTimeout(function() {
           if (true) {
           }
         }, 5000);
