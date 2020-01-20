@@ -2,35 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cb43b3f-1e91-4f85-8025-0a39056cbe8c" name="Default Changelist" comment="banka">
-      <change afterPath="$PROJECT_DIR$/NaucniCentar/src/main/java/com/example/nc/dto/PaymentDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NaucniCentar/src/main/java/com/example/nc/dto/PaymentResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Master.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_test_5_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_2_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/banka.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/banka.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/BankaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/BankaApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/controller/BankController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Banka/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/META-INF/banka.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Banka/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/BankaApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/BankaApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/controller/BankController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/controller/BankController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NaucniCentar/src/main/java/com/example/nc/NCDummyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/NaucniCentar/src/main/java/com/example/nc/NCDummyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NaucniCentar/target/classes/META-INF/nc.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/NaucniCentar/target/classes/META-INF/nc.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NaucniCentar/target/classes/com/example/nc/NCDummyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/NaucniCentar/target/classes/com/example/nc/NCDummyController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/dto/PaymentResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/dto/PaymentResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/banka-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/SellersApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/SellersApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sellers/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sellers/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +53,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/sellers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -124,7 +101,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.BankaApplication">
+  <component name="RunManager" selected="Spring Boot.SellersApplication">
     <configuration name="E2E Tests (frontend)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/pravifrontend/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -223,17 +200,7 @@
       <serviceView>
         <option name="contentProportion" value="0.1987705" />
         <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@795d9c80" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@795d9c80" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d573e12e" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-          </expand>
+          <expand />
           <select />
         </treeState>
       </serviceView>
@@ -253,7 +220,8 @@
       <workItem from="1574769432570" duration="497000" />
       <workItem from="1574769968856" duration="25000" />
       <workItem from="1574975912182" duration="6927000" />
-      <workItem from="1577484115350" duration="4559000" />
+      <workItem from="1577484115350" duration="10834000" />
+      <workItem from="1578226933356" duration="313000" />
     </task>
     <servers />
   </component>
