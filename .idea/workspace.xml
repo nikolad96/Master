@@ -2,12 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cb43b3f-1e91-4f85-8025-0a39056cbe8c" name="Default Changelist" comment="banka">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banka-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/CORSFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/CORSFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MasterProject/target/classes/keystore/bankaappc.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MasterProject/target/classes/keystore/naucnac.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/PayPalDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/keystore/bankaappc.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/keystore/bankac.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/keystore/keystore.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/keystore/naucnac.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/keystore/trustbankaappc.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/keystore/trustbankac.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/keystore/trustnaucnac.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/keystore/trustnaucni.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/src/app/component/bank-page/bank-page.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/src/app/component/bank-page/bank-page.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/src/app/component/bank-page/bank-page.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/src/app/component/bank-page/bank-page.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/src/app/component/paypal-cancel/paypal-cancel.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/src/app/component/paypal-cancel/paypal-cancel.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/src/app/component/paypal-cancel/paypal-cancel.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/src/app/component/paypal-cancel/paypal-cancel.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/src/app/component/paypal-red/paypal-red.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/src/app/component/paypal-red/paypal-red.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/src/app/component/paypal-red/paypal-red.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/src/app/component/paypal-red/paypal-red.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/src/app/model/CardRequestDTO.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pravifrontend/src/app/model/paypalDTO.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/controller/SellersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/dto/SellerDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/repo/PaymentMethodRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/repo/SellersRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/controller/BankController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/controller/BankController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MasterProject/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/MasterProject/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitcoin-service/src/main/java/com/example/bitcoinservice/BitcoinServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/bitcoin-service/src/main/java/com/example/bitcoinservice/BitcoinServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitcoin-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bitcoin-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paypal-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/paypal-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/PayPalClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/PayPalClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/PayPalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/PayPalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/PaypalServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/PaypalServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paypal-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/paypal-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pravifrontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/pravifrontend/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pravifrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/pravifrontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pravifrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/pravifrontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pravifrontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pravifrontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pravifrontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pravifrontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pravifrontend/src/app/component/paypal/paypal.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/pravifrontend/src/app/component/paypal/paypal.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pravifrontend/src/app/component/paypal/paypal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pravifrontend/src/app/component/paypal/paypal.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pravifrontend/src/app/kp/kp.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/pravifrontend/src/app/kp/kp.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pravifrontend/src/app/kp/kp.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/pravifrontend/src/app/kp/kp.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pravifrontend/src/app/kp/kp.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pravifrontend/src/app/kp/kp.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pravifrontend/src/app/nc/nc.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pravifrontend/src/app/nc/nc.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pravifrontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/pravifrontend/src/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/SellersApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/SellersApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sellers/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sellers/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -222,6 +270,7 @@
       <workItem from="1574975912182" duration="6927000" />
       <workItem from="1577484115350" duration="10834000" />
       <workItem from="1578226933356" duration="313000" />
+      <workItem from="1579523583668" duration="324000" />
     </task>
     <servers />
   </component>

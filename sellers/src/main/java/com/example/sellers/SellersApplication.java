@@ -9,10 +9,17 @@ import org.springframework.core.env.Environment;
 
 import javax.annotation.PostConstruct;
 import java.util.Properties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 @EnableEurekaClient
 @SpringBootApplication
 public class SellersApplication {
+
+    @Bean
+    public RestTemplate getRestTemplate(){
+        return new RestTemplate();
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(SellersApplication.class, args);

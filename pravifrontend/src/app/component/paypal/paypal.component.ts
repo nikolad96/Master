@@ -14,14 +14,19 @@ export class PaypalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.url = 'https://localhost:8087/';
-    // this.makePayment(5);
+    this.url = 'http://localhost:8087/';
+
   }
-  //
-  // makePayment(sum) {
-  //   return this.http.post(this.url + 'paypal/make/payment/' + sum, {})
-  //     .subscribe(response => {
-  //       console.log(response);
-  //     });
-  // }
+
+  makePayment(sum) {
+    return this.http.post(this.url + 'paypal/make/payment/' + sum, {})
+      .subscribe((response: any) => {
+        console.log(response);
+        window.location.href = response.redirect_url;
+      });
+  }
+
+  onSubmit() {
+    this.makePayment(5);
+  }
 }

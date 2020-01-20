@@ -38,8 +38,8 @@ public class PayPalClient {
         payment.setTransactions(transactions);
 
         RedirectUrls redirectUrls = new RedirectUrls();
-        redirectUrls.setCancelUrl("http://localhost:4200/cancel");
-        redirectUrls.setReturnUrl("http://localhost:4200/");
+        redirectUrls.setCancelUrl("http://localhost:4200/paypal/cancel");
+        redirectUrls.setReturnUrl("http://localhost:4200/paypal/red");
         payment.setRedirectUrls(redirectUrls);
         Payment createdPayment;
         try {
@@ -58,26 +58,45 @@ public class PayPalClient {
                 response.put("redirect_url", redirectUrl);
             }
         } catch (PayPalRESTException e) {
-            System.out.println("Error happened during payment creation!");
+            System.out.println("Neuspesno Kreiranje Payment-a");
         }
         return response;
     }
-    public Map<String, Object> completePayment(HttpServletRequest req){
+    public Map<String, Object> completePayment(PayPalDTO payPalDTO, HttpServletRequest req){
         Map<String, Object> response = new HashMap();
         Payment payment = new Payment();
-        payment.setId(req.getParameter("paymentId"));
+
+        Amount amount = new Amount();
+        amount.setCurrency("USD");
+        amount.setTotal("5");
+        Transaction transaction = new Transaction();
+        transaction.setAmount(amount);
+        List<Transaction> transactions = new ArrayList<Transaction>();
+        transactions.add(transaction);
+
+        payment.setTransactions(transactions);
+
+        payment.setIntent("sale");
+        payment.setId(payPalDTO.getPaymentId());
         PaymentExecution paymentExecution = new PaymentExecution();
-        paymentExecution.setPayerId(req.getParameter("payerId"));
+        paymentExecution.setPayerId(payPalDTO.getPayerId());
+        Payment createdPayment = new Payment();
         try {
             APIContext context = new APIContext(clientId, clientSecret, "sandbox");
-            Payment createdPayment = payment.execute(context, paymentExecution);
+            System.out.println("pre");
+            createdPayment = payment.execute(context, paymentExecution);
+            System.out.println("posle");
             if(createdPayment!=null){
+
                 response.put("status", "success");
-                response.put("payment", createdPayment);
+
+//                response.put("payment", createdPayment);
+                System.out.println("Uspesno Prosla Transakcija");
             }
         } catch (PayPalRESTException e) {
             System.err.println(e.getDetails());
         }
+
         return response;
     }
 }

@@ -18,7 +18,7 @@ export class NCComponent implements OnInit {
     }
   }
 
-  nextPage(){
+  nextPage() {
     window.location.href = 'KP-page';
   }
 
