@@ -9,20 +9,20 @@
   <form [formGroup]="form" >
 
     <div class="form-group">
-      <label for="pan">pan</label>
+      <label for="pan">Pan:</label>
       <input formControlName="pan" type="text" class="form-control" id="pan" required placeholder="Enter pan">
     </div>
     <div class="form-group">
-      <label for="cardholderName">cardholderName</label>
-      <input formControlName="cardholderName" type="text" class="form-control" id="cardholderName" required placeholder="Enter cardholderName">
+      <label for="cardholderName">Cardholder name:</label>
+      <input formControlName="cardholderName" type="text" class="form-control" id="cardholderName" required placeholder="Enter cardholder name">
     </div>
     <div class="form-group">
-      <label for="securityCode">securityCode</label>
-      <input formControlName="securityCode" type="text" class="form-control" id="securityCode" required placeholder="Enter securityCode">
+      <label for="securityCode">Security code:</label>
+      <input formControlName="securityCode" type="text" class="form-control" id="securityCode" required placeholder="Enter security code">
     </div>
     <div class="form-group">
-      <label for="expirationDate">expirationDate</label>
-      <input formControlName="expirationDate" type="text" class="form-control" id="expirationDate" required placeholder="Enter expirationDate">
+      <label for="expirationDate">Expiration date:</label>
+      <input formControlName="expirationDate" type="text" class="form-control" id="expirationDate" required placeholder="Enter expiration date">
     </div>
 
     <button type="submit" (click)="onSubmit()" class="btn btn-primary">Submit</button>

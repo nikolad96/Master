@@ -1,0 +1,49 @@
+<div style="color:cornflowerblue; text-align: center;">
+    <h2>Naucna centrala</h2>
+  </div>
+
+<div *ngIf="tasks.length != 0">
+    <div class="container">
+        <h3 >Pregled podataka novih casopisa</h3>
+    </div><br><br>
+
+    <div class="container" *ngFor="let task of tasks">
+        <form #f="ngForm">
+            <div *ngFor="let field of task.formFields" class="form-group row">
+                <label for={{field.id}} class="col-sm-5 col-form-label">{{field.label}}</label>
+                <div class="col-sm-5">
+                    <input type="text" name={{field.id}} class="form-control" *ngIf="field.type.name=='string'" [ngModel]=field.defaultValue readonly>
+                    <input type="checkbox" name={{field.id}} class="form-control"  *ngIf="field.type.name=='boolean'" [ngModel]=field.defaultValue>
+                    <select name={{field.id}} *ngIf="field.type.name=='enum' && field.id=='naucna_oblast1'" class="form-control" multiple readonly>
+                        <option *ngFor="let val of enumValuesNaucneOblasti" value={{val}}>
+                          {{field.type.values[val]}}
+                        </option>
+                    </select>
+                    <select name={{field.id}} *ngIf="field.type.name=='enum' && field.id=='recenzenti1'" class="form-control" multiple readonly>
+                        <option *ngFor="let val of enumValuesRecenzenti" value={{val}}>
+                          {{field.type.values[val]}}
+                        </option>
+                    </select>
+                    <select name={{field.id}} *ngIf="field.type.name=='enum' && field.id=='urednici1'" class="form-control" multiple readonly>
+                        <option *ngFor="let val of enumValuesUrednici" value={{val}}>
+                          {{field.type.values[val]}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="onSubmitForm(f.value, f, task.taskId)">Potvrdi</button>
+        </form><br><br>
+    </div><br><br>
+</div>
+
+<div *ngIf="tasks.length == 0">
+    <div class="container">
+        <br><h4 >Trenutno nema novih casopisa.</h4>
+    </div><br><br>
+</div>
+
+<div>
+    &nbsp;&nbsp;&nbsp;<button class="btn btn-primary" (click)="nazad()">Nazad</button>
+</div>
+
+

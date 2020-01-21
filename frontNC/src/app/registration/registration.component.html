@@ -1,0 +1,46 @@
+<div style="color:cornflowerblue; text-align: center;">
+  <h2>Naucna centrala</h2>
+</div>
+
+<div class= "container" *ngIf="show == 1">
+  <div>
+    <h3>Unos podataka o korisniku</h3><br>
+  </div>
+    <form [formGroup]="registrationForm" #f="ngForm">
+    
+        <div *ngFor="let field of formFields" class="form-group row">
+            <label for={{field.id}} class="col-sm-3 col-form-label">{{field.label}}</label>
+            <div class="col-sm-9">
+                <input type="text" formControlName={{field.id}} class="form-control" id={{field.id}} *ngIf="field.type.name=='string'" >
+                <input type="checkbox" checked="false" formControlName={{field.id}} class="form-control" id={{field.id}}  *ngIf="field.type.name=='boolean'">
+                <select name="field.id" *ngIf="field.type.name=='enum'" formControlName={{field.id}} class="form-control" multiple>
+                    <option *ngFor="let val of enumValues" value={{val}}>
+                      {{field.type.values[val]}}
+                    </option>
+                  </select>
+                <span *ngIf="field.id != 'titula' && field.id != 'recenzent'">
+                    <span *ngIf="registrationForm.get(field.id).hasError('required') && (registrationForm.get(field.id).dirty || registrationForm.get(field.id).touched)" style="color: red;">Ovo polje je obavezno.</span>
+                </span>
+                <span *ngIf="field.id == 'email' && postojiMail">
+                    <span style="color: red;">Postoji korisnik sa ovim e-mailom.</span>
+                </span>
+                <span *ngIf="field.id == 'username' && postojiUsername">
+                    <span style="color: red;">Postoji korisnik sa ovim username-om.</span>
+                </span>
+            </div>
+        </div>
+      
+      <button [disabled]="registrationForm.invalid" type="submit" id="confirmBtn" class="btn btn-primary" (click)="onSubmitRegistrationForm(f.value, f)">Registruj se</button>
+      <br><br>
+    </form>
+
+</div>
+
+<div class= "container" *ngIf="show == 2">
+    <br><br><h5>Vasi podaci se proveravaju. Dalja uputstva cete dobiti na mail.</h5><br>
+</div>
+
+<div>
+  &nbsp;&nbsp;&nbsp;<button class="btn btn-primary" (click)="nazad()">Nazad</button>
+</div>
+

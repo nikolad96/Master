@@ -1,0 +1,43 @@
+<div style="color:cornflowerblue; text-align: center;">
+    <h2>Naucna centrala</h2>
+  </div>
+  
+  <div class= "container">
+    <div>
+      <h3>Unos podataka o urednicima i recenzentima</h3><br>
+    </div>
+      <form [formGroup]="uredniciRecenzentiForm" #f="ngForm">
+      
+          <div *ngFor="let field of formFields" class="form-group row">
+              <label for={{field.id}} class="col-sm-3 col-form-label">{{field.label}}</label>
+              <div class="col-sm-9">
+                  <select name="field.id" *ngIf="field.type.name=='enum' && field.id=='urednici'" formControlName={{field.id}} class="form-control" multiple>
+                      <option *ngFor="let val of enumUrednici" value={{val}}>
+                        {{field.type.values[val]}}
+                      </option>
+                  </select>
+                  <select name="field.id" *ngIf="field.type.name=='enum' && field.id=='recenzenti'" formControlName={{field.id}} class="form-control" multiple>
+                    <option *ngFor="let val of enumRecenzenti" value={{val}}>
+                      {{field.type.values[val]}}
+                    </option>
+                  </select>
+                  <span>
+                      <span *ngIf="uredniciRecenzentiForm.get(field.id).hasError('required') && (uredniciRecenzentiForm.get(field.id).dirty || uredniciRecenzentiForm.get(field.id).touched)" style="color: red;">Ovo polje je obavezno.</span>
+                  </span>
+                  <span>
+                    <span *ngIf="field.id=='recenzenti' && errorRecenzenti" style="color: red;">Morate odabrati minimalno dva recenzenta.</span>
+                </span>
+              </div>
+          </div>
+        
+        <button [disabled]="uredniciRecenzentiForm.invalid" type="submit" id="confirmBtn" class="btn btn-primary" (click)="onSubmituredniciRecenzentiForm(f.value, f)">Dalje</button>
+        <br><br>
+      </form>
+  
+  </div>
+  
+  <div>
+    &nbsp;&nbsp;&nbsp;<button class="btn btn-primary" (click)="nazad()">Nazad</button>
+  </div>
+  
+  
