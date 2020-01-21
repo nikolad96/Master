@@ -1,7 +1,9 @@
 package com.example.sellers.controller;
 
 
+import com.example.sellers.dto.SellerBtcDTO;
 import com.example.sellers.dto.SellerDTO;
+import com.example.sellers.model.PaymentMethod;
 import com.example.sellers.model.Seller;
 import com.example.sellers.repo.SellersRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +62,17 @@ public class SellersController {
         seller.setName(dto.getName());
         seller.setPib(dto.getPib());
         seller.setPaymentMethods(dto.getPaymentMethods());
+
+        for(PaymentMethod pm : dto.getPaymentMethods()){
+            if(pm.getName().equals("bitcoin")){
+                SellerBtcDTO btcDto = new SellerBtcDTO();
+                btcDto.setId(dto.getId());
+                btcDto.setSecret(dto.getSecret());
+
+                ResponseEntity<SellerDTO> res = REST_template.postForEntity("http://localhost:8090/bitcoin-service/newSeller", btcDto, SellerDTO.class);
+
+            }
+        }
 
         try {
             sellersRepo.save(seller);

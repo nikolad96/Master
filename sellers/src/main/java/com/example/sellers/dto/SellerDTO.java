@@ -8,6 +8,16 @@ public class SellerDTO {
     private Integer id;
     private String name;
     private String pib;
+    private String secret;
+
+    public String getSecret() {
+        return secret;
+    }
+
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
+
     private List<PaymentMethod> paymentMethods;
 
     public Integer getId() {

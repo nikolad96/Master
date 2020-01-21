@@ -98,4 +98,9 @@ public class NCDummyController {
         HttpEntity<PaymentDTO> HttpRequest = new HttpEntity<PaymentDTO>(paymentDTO);
         return REST_template.postForEntity("https://localhost:8086/banka-service/bankservice/payment", HttpRequest, PaymentResponseDTO.class);
     }
+
+    @RequestMapping(value = "/newBtcPayment", method = RequestMethod.POST)
+    public ResponseEntity<PaymentResponseDTO> newBtcPayment(){
+
+    }
 }

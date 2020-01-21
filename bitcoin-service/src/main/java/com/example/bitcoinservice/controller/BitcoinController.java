@@ -1,11 +1,11 @@
 package com.example.bitcoinservice.controller;
 
 
-import com.example.bitcoinservice.dto.CoingateCreateRequestDTO;
-import com.example.bitcoinservice.dto.CoingateCreateResponseDTO;
-import com.example.bitcoinservice.dto.TransactionRequestDTO;
+import com.example.bitcoinservice.dto.*;
+import com.example.bitcoinservice.model.Seller;
 import com.example.bitcoinservice.model.Transaction;
 import com.example.bitcoinservice.model.TransactionStatus;
+import com.example.bitcoinservice.repo.SellerRepo;
 import com.example.bitcoinservice.repo.TransactionRepo;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +27,9 @@ public class BitcoinController {
 
     @Autowired
     RestTemplate REST_template;
+
+    @Autowired
+    private SellerRepo sellerRepo;
 
 //    @RequestMapping(value = "/start", method = RequestMethod.POST)
 //    public ResponseEntity<JSONObject> test(@RequestBody String requestBody) throws Exception{
@@ -52,6 +55,17 @@ public class BitcoinController {
 //
 //    }
 
+    @RequestMapping(value = "/newSeller", method = RequestMethod.POST)
+    public ResponseEntity<String> newSeller(@RequestBody NewSellerDTO dto){
+        Seller s = new Seller();
+        s.setId(dto.getId());
+        s.setSecret(dto.getSecret());
+
+        sellerRepo.save(s);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/transaction", method = RequestMethod.POST)
     public ResponseEntity<CoingateCreateResponseDTO> transaction(@RequestBody TransactionRequestDTO request){
         CoingateCreateRequestDTO coingateCreateRequest = new CoingateCreateRequestDTO();
@@ -63,8 +77,10 @@ public class BitcoinController {
         coingateCreateRequest.setPrice_currency("BTC");
         coingateCreateRequest.setReceive_currency("BTC");
 
+        Seller seller = sellerRepo.findOneById(request.getSeller_id());
+
         HttpHeaders coingateRequestHeader = new HttpHeaders();
-        coingateRequestHeader.set("Authorization", "Token " + API_token);
+        coingateRequestHeader.set("Authorization", "Token " + seller.getSecret());
         HttpEntity<CoingateCreateRequestDTO> coingateRequest = new HttpEntity<>(coingateCreateRequest, coingateRequestHeader);
         ResponseEntity<CoingateCreateResponseDTO> coingateResponse = REST_template.postForEntity("https://api-sandbox.coingate.com/v2/orders", coingateRequest, CoingateCreateResponseDTO.class);
         Transaction transaction = new Transaction();
@@ -82,14 +98,14 @@ public class BitcoinController {
     }
 
     @RequestMapping(value = "/monitor", method = RequestMethod.POST)
-    public ResponseEntity<JSONObject> monitorTransaction(@RequestBody String arg_id) throws Exception{
+    public ResponseEntity<JSONObject> monitorTransaction(@RequestBody MonitorCoingateDTO dto) throws Exception{
 
         while(true) {
             JSONObject get_body = new JSONObject();
-            int id = Integer.parseInt(arg_id);
+            int id = dto.getId();
             get_body.put("id", id);
             HttpHeaders post_header = new HttpHeaders();
-            post_header.set("Authorization", "Token " + API_token);
+            post_header.set("Authorization", "Token " + dto.getSecret());
             HttpEntity<JSONObject> get_request = new HttpEntity<>(get_body, post_header);
             ResponseEntity<JSONObject> get_response = REST_template.exchange("https://api-sandbox.coingate.com/v2/orders/" + id, HttpMethod.GET, get_request, JSONObject.class);
             String status = new String((String) get_response.getBody().get("status"));
