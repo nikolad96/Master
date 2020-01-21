@@ -11,4 +11,5 @@ public interface SellersRepo extends JpaRepository<Seller, String> {
 
     Seller findOneByName(String name);
     Seller findOneByPib(String pib);
+    Seller findOneById(Integer id);
 }
