@@ -86,7 +86,7 @@ public class NCDummyController {
         paymentDTO.setAmount(300);
         paymentDTO.setMerchantId("3");
         HttpEntity<PaymentDTO> HttpRequest = new HttpEntity<PaymentDTO>(paymentDTO);
-        return REST_template.postForEntity("https://localhost:8086/banka-service/bankservice/payment", HttpRequest, PaymentResponseDTO.class);
+        return REST_template.postForEntity("http://localhost:8086/banka-service/bankservice/payment", HttpRequest, PaymentResponseDTO.class);
     }
 
     @RequestMapping(value = "/paymentBankUnsuccess", method = RequestMethod.GET)
@@ -96,11 +96,11 @@ public class NCDummyController {
         paymentDTO.setAmount(10000);
         paymentDTO.setMerchantId("3");
         HttpEntity<PaymentDTO> HttpRequest = new HttpEntity<PaymentDTO>(paymentDTO);
-        return REST_template.postForEntity("https://localhost:8086/banka-service/bankservice/payment", HttpRequest, PaymentResponseDTO.class);
+        return REST_template.postForEntity("http://localhost:8086/banka-service/bankservice/payment", HttpRequest, PaymentResponseDTO.class);
     }
 
-    @RequestMapping(value = "/newBtcPayment", method = RequestMethod.POST)
-    public ResponseEntity<PaymentResponseDTO> newBtcPayment(){
-
-    }
+//    @RequestMapping(value = "/newBtcPayment", method = RequestMethod.POST)
+//    public ResponseEntity<PaymentResponseDTO> newBtcPayment(){
+//
+//    }
 }

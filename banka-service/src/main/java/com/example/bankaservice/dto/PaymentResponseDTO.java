@@ -4,7 +4,6 @@ public class PaymentResponseDTO {
 
     private String paymentUrl;
     private Integer paymentId;
-    private Integer merchantOrderId;
 
     public PaymentResponseDTO() {
     }
@@ -28,13 +27,5 @@ public class PaymentResponseDTO {
 
     public void setPaymentId(Integer paymentId) {
         this.paymentId = paymentId;
-    }
-
-    public Integer getMerchantOrderId() {
-        return merchantOrderId;
-    }
-
-    public void setMerchantOrderId(Integer merchantOrderId) {
-        this.merchantOrderId = merchantOrderId;
     }
 }

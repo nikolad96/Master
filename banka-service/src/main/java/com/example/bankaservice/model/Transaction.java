@@ -1,7 +1,5 @@
 package com.example.bankaservice.model;
 
-import com.example.bankaservice.dto.TransactionState;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -19,6 +17,7 @@ public class Transaction {
     private Date timestamp;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private TransactionState state;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

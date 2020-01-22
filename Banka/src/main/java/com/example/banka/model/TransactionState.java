@@ -1,4 +1,4 @@
-package com.example.banka.dto;
+package com.example.banka.model;
 
 public enum TransactionState {
     SUCCESS, FAILED, IN_PROCESS, NOT_ENOUGH_MONEY, ERROR

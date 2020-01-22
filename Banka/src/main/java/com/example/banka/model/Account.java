@@ -31,6 +31,9 @@ public class Account {
     @OneToOne(fetch = FetchType.LAZY)
     private Customer customer;
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Bank bank;
+
     public Account() {
     }
 
@@ -106,4 +109,8 @@ public class Account {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+    public Bank getBank() { return bank; }
+
+    public void setBank(Bank bank) { this.bank = bank; }
 }

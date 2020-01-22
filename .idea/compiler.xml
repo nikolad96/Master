@@ -13,9 +13,10 @@
         <module name="sellers" />
         <module name="eureka" />
         <module name="nc" />
-        <module name="bitcoin-service" />
-        <module name="zuul-service" />
+        <module name="payment-card-center" />
         <module name="banka" />
+        <module name="zuul-service" />
+        <module name="bitcoin-service" />
         <module name="paypal-service" />
       </profile>
     </annotationProcessing>
@@ -28,6 +29,7 @@
       <module name="load-balancer" target="1.8" />
       <module name="Master" target="1.8" />
       <module name="nc" target="1.8" />
+      <module name="payment-card-center" target="1.8" />
       <module name="paypal-service" target="1.8" />
       <module name="sellers" target="1.8" />
       <module name="zuul-service" target="1.8" />
@@ -43,6 +45,7 @@
       <module name="eureka" options="-parameters" />
       <module name="load-balancer" options="-parameters" />
       <module name="nc" options="-parameters" />
+      <module name="payment-card-center" options="-parameters" />
       <module name="paypal-service" options="-parameters" />
       <module name="sellers" options="-parameters" />
       <module name="zuul-service" options="-parameters" />

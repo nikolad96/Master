@@ -1,7 +1,5 @@
 package com.example.banka.model;
 
-import com.example.banka.dto.TransactionState;
-
 import javax.persistence.*;
 import java.util.Date;
 

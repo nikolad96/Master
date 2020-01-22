@@ -11,6 +11,7 @@ import java.util.List;
 public interface AccountRepository extends JpaRepository<Account, Integer> {
 
     Account findOneById(Integer id);
+    Account findOneByPan(String pan);
 
     //@Modifying
     @Query("select account from Account account where account.pan = ?1 and account.securityCode = ?2 and account.cardholderName = ?3 and account.expirationDate = ?4")

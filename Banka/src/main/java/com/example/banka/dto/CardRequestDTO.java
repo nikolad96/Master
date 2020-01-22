@@ -9,18 +9,16 @@ public class CardRequestDTO {
     private String cardholderName;
     private String expirationDate;
     private Integer paymentId;
-    private Integer merchantOrderId;
 
     public CardRequestDTO() {
     }
 
-    public CardRequestDTO(String pan, String securityCode, String cardholderName, String expirationDate, Integer paymentId, Integer merchantOrderId) {
+    public CardRequestDTO(String pan, String securityCode, String cardholderName, String expirationDate, Integer paymentId) {
         this.pan = pan;
         this.securityCode = securityCode;
         this.cardholderName = cardholderName;
         this.expirationDate = expirationDate;
         this.paymentId = paymentId;
-        this.merchantOrderId = merchantOrderId;
     }
 
     public String getPan() {
@@ -62,8 +60,4 @@ public class CardRequestDTO {
     public void setPaymentId(Integer paymentId) {
         this.paymentId = paymentId;
     }
-
-    public Integer getMerchantOrderId() { return merchantOrderId; }
-
-    public void setMerchantOrderId(Integer merchantOrderId) { this.merchantOrderId = merchantOrderId; }
 }
