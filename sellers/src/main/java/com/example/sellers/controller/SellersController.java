@@ -1,9 +1,11 @@
 package com.example.sellers.controller;
 
 
+import com.example.sellers.dto.PaymentMethodsDTO;
 import com.example.sellers.dto.SellerBtcDTO;
 import com.example.sellers.dto.SellerDTO;
 import com.example.sellers.model.PaymentMethod;
+import com.example.sellers.model.PaymentMethods;
 import com.example.sellers.model.Seller;
 import com.example.sellers.repo.SellersRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,6 +85,30 @@ public class SellersController {
 
         return new ResponseEntity(HttpStatus.OK);
 
+    }
+
+    @RequestMapping(value = "/getPaymentMethods", method = RequestMethod.POST, produces = "application/json")
+    public @ResponseBody PaymentMethodsDTO getPaymentMethods(@RequestBody PaymentMethodsDTO dto){
+        Seller s = sellersRepo.findOneById(dto.getId());
+        List<PaymentMethods> lista = new ArrayList<>();
+
+        for(PaymentMethod method : s.getPaymentMethods()){
+            if(method.getName().equals("bank")){
+                lista.add(PaymentMethods.BANK);
+            }
+
+            else if(method.getName().equals("paypal")){
+                lista.add(PaymentMethods.PAYPAL);
+            }
+
+            else if(method.getName().equals("bitcoin")){
+                lista.add(PaymentMethods.BITCOIN);
+            }
+        }
+
+        dto.setPaymentMethods(lista);
+
+        return dto;
     }
 
 
