@@ -18,7 +18,7 @@ public class Casopis {
     private String issn;
 
     @Column
-    private String naplataClanarine;
+    private NaplacujeClanarina naplataClanarine;
 
     @Column
     private Boolean aktiviran;
@@ -39,7 +39,7 @@ public class Casopis {
     public Casopis() {
     }
 
-    public Casopis(String naziv, String issn, String naplataClanarine, Boolean aktiviran) {
+    public Casopis(String naziv, String issn, NaplacujeClanarina naplataClanarine, Boolean aktiviran) {
         this.naziv = naziv;
         this.issn = issn;
         this.naplataClanarine = naplataClanarine;
@@ -70,11 +70,11 @@ public class Casopis {
         this.issn = issn;
     }
 
-    public String getNaplataClanarine() {
+    public NaplacujeClanarina getNaplataClanarine() {
         return naplataClanarine;
     }
 
-    public void setNaplataClanarine(String naplataClanarine) {
+    public void setNaplataClanarine(NaplacujeClanarina naplataClanarine) {
         this.naplataClanarine = naplataClanarine;
     }
 
@@ -114,7 +114,30 @@ public class Casopis {
         return recenzenti;
     }
 
+    public List<Rad> getRadovi() {
+        return radovi;
+    }
+
+    public void setRadovi(List<Rad> radovi) {
+        this.radovi = radovi;
+    }
+
+    public List<Korisnik> getKorisniciPlatili() {
+        return korisniciPlatili;
+    }
+
+    public void setKorisniciPlatili(List<Korisnik> korisniciPlatili) {
+        this.korisniciPlatili = korisniciPlatili;
+    }
+
     public void setRecenzenti(List<Korisnik> recenzenti) {
         this.recenzenti = recenzenti;
     }
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Rad> radovi = new ArrayList<>();
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Korisnik> korisniciPlatili = new ArrayList<>();
+
 }
