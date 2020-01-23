@@ -33,19 +33,19 @@ public class LoadBalancerApplication {
         return registrationBean;
     }
 
-    @Configuration
-    public class SSLConfig {
-
-        @Autowired
-        private Environment env;
-
-        @PostConstruct
-        private void configureSSL() {
-            Properties systemProps = System.getProperties();
-            systemProps.put("javax.net.ssl.trustStore", env.getProperty("trust.store"));
-            systemProps.put("javax.net.ssl.trustStorePassword",env.getProperty("trust.store.password"));
-            System.setProperties(systemProps);
-        }
-    }
+//    @Configuration
+//    public class SSLConfig {
+//
+//        @Autowired
+//        private Environment env;
+//
+//        @PostConstruct
+//        private void configureSSL() {
+//            Properties systemProps = System.getProperties();
+//            systemProps.put("javax.net.ssl.trustStore", env.getProperty("trust.store"));
+//            systemProps.put("javax.net.ssl.trustStorePassword",env.getProperty("trust.store.password"));
+//            System.setProperties(systemProps);
+//        }
+//    }
 
 }

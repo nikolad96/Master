@@ -2,23 +2,23 @@ package com.example.bankaservice.dto;
 
 public class PaymentDTO {
 
-    private String merchantId;
+    private Integer id;
     private double amount;
 
     public PaymentDTO() {
     }
 
-    public PaymentDTO(String merchantId, double amount) {
-        this.merchantId = merchantId;
+    public PaymentDTO(Integer id, double amount) {
+        this.id = id;
         this.amount = amount;
     }
 
-    public String getMerchantId() {
-        return merchantId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setMerchantId(String merchantId) {
-        this.merchantId = merchantId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public double getAmount() {

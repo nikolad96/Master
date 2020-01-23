@@ -2,23 +2,27 @@ package com.example.paymentcardcenter.dto;
 
 import com.example.paymentcardcenter.model.TransactionState;
 
+import java.util.Date;
+
 public class IssuerResponseDTO {
 
     private TransactionState state;
     private Integer acquirerOrderId;
-    private String acquirerTimestamp;
+    private Date acquirerTimestamp;
     private Integer issuerOrderId;
-    private String issuerTimestamp;
+    private Date issuerTimestamp;
+    private String message;
 
     public IssuerResponseDTO() {
     }
 
-    public IssuerResponseDTO(TransactionState state, Integer acquirerOrderId, String acquirerTimestamp, Integer issuerOrderId, String issuerTimestamp) {
+    public IssuerResponseDTO(TransactionState state, Integer acquirerOrderId, Date acquirerTimestamp, Integer issuerOrderId, Date issuerTimestamp, String message) {
         this.state = state;
         this.acquirerOrderId = acquirerOrderId;
         this.acquirerTimestamp = acquirerTimestamp;
         this.issuerOrderId = issuerOrderId;
         this.issuerTimestamp = issuerTimestamp;
+        this.message = message;
     }
 
     public TransactionState getState() {
@@ -37,11 +41,11 @@ public class IssuerResponseDTO {
         this.acquirerOrderId = acquirerOrderId;
     }
 
-    public String getAcquirerTimestamp() {
+    public Date getAcquirerTimestamp() {
         return acquirerTimestamp;
     }
 
-    public void setAcquirerTimestamp(String acquirerTimestamp) {
+    public void setAcquirerTimestamp(Date acquirerTimestamp) {
         this.acquirerTimestamp = acquirerTimestamp;
     }
 
@@ -53,11 +57,19 @@ public class IssuerResponseDTO {
         this.issuerOrderId = issuerOrderId;
     }
 
-    public String getIssuerTimestamp() {
+    public Date getIssuerTimestamp() {
         return issuerTimestamp;
     }
 
-    public void setIssuerTimestamp(String issuerTimestamp) {
+    public void setIssuerTimestamp(Date issuerTimestamp) {
         this.issuerTimestamp = issuerTimestamp;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

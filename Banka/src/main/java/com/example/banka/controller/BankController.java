@@ -35,18 +35,16 @@ public class BankController {
     @Autowired
     private AccountService accountService;
 
-    @RequestMapping(value = "/checkPayment", method = RequestMethod.POST)
+    @RequestMapping(value = "/checkPayment", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public ResponseEntity<?> checkPayment(@RequestBody PaymentRequestDTO paymentRequestDTO) {
-
-
-        boolean merchant_OK = false;
 
         Customer merchant = customerService.findOneByMerchantId(paymentRequestDTO.getMerchantId());
         System.out.println("merchantId: " + merchant.getMerchantId() + "; merchantPassword: " + merchant.getMerchantPassword());
         System.out.println("paymentRequest - merchantPassword: " + paymentRequestDTO.getMerchantPassword());
+        System.out.println("merchantOrderId: " + paymentRequestDTO.getMerchantOrderId());
 
         Transaction transaction = new Transaction();
-        transaction.setId(paymentRequestDTO.getMerchantOrderId());
+        transaction.setMerchantOrderId(paymentRequestDTO.getMerchantOrderId());
         transaction.setAmount(paymentRequestDTO.getAmount());
         transaction.setTimestamp(paymentRequestDTO.getMerchantTimestamp());
         transaction.setCustomer(merchant);
@@ -78,7 +76,7 @@ public class BankController {
     }
 
 
-    @RequestMapping(value = "/checkAccountAcquirer", method = RequestMethod.POST)
+    @RequestMapping(value = "/checkAccountAcquirer", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public ResponseEntity<?> checkAccountAcquirer(@RequestBody CardRequestDTO cardRequestDTO) {
 
         Transaction transaction = transactionService.findOneById(cardRequestDTO.getPaymentId());
@@ -98,7 +96,7 @@ public class BankController {
             pccRequestDTO.setCardRequestDTO(cardRequestDTO);
 
             //prosledjivanje zahteva ka pcc-u jer nisu iste banke
-            HttpEntity<PccRequestDTO> entity = new HttpEntity<>(pccRequestDTO);
+            HttpEntity<PccRequestDTO> entity = new HttpEntity<PccRequestDTO>(pccRequestDTO);
             ResponseEntity<IssuerResponseDTO> responseEntity = restTemplate.postForEntity("http://localhost:8091/pcc/forward", entity, IssuerResponseDTO.class);
             return responseEntity;
 
@@ -115,7 +113,8 @@ public class BankController {
             transaction = transactionService.save(transaction);
             updateTransactionBankService(transaction);
 
-            return new ResponseEntity<>("Greska u podacima kartice.", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<AcquirerResponseDTO>(new AcquirerResponseDTO(transaction.getId(), transaction.getTimestamp(), transaction.getState(),
+                    "Greska u podacima kartice."), HttpStatus.BAD_REQUEST);
         }else{
             System.out.println("Podaci sa kartice su dobri");
 
@@ -127,14 +126,15 @@ public class BankController {
                 transaction = transactionService.save(transaction);
                 updateTransactionBankService(transaction);
 
-                return new ResponseEntity<>("Kartica je istekla.", HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<AcquirerResponseDTO>(new AcquirerResponseDTO(transaction.getId(), transaction.getTimestamp(), transaction.getState(),
+                        "Kartica je istekla."), HttpStatus.BAD_REQUEST);
             }else{
                 System.out.println("Nije istekla kartica.");
 
                 if(account.getBalance() >= transaction.getAmount()){
                     System.out.println("Ima dovoljno sredstava na kartici.");
 
-                    account.setBalance(account.getBalance() - transaction.getAmount());
+//                    account.setBalance(account.getBalance() - transaction.getAmount());
                     account.setReserved(account.getReserved() + transaction.getAmount());
                     account = accountService.save(account);
 
@@ -148,14 +148,16 @@ public class BankController {
                     transaction = transactionService.save(transaction);
                     updateTransactionBankService(transaction);
 
-                    return new ResponseEntity<>("Nema dovoljno sredstava na kartici.", HttpStatus.BAD_REQUEST);
+                    return new ResponseEntity<AcquirerResponseDTO>(new AcquirerResponseDTO(transaction.getId(), transaction.getTimestamp(), transaction.getState(),
+                            "Nema dovoljno sredstava na kartici."), HttpStatus.BAD_REQUEST);
                 }
             }
-            return new ResponseEntity<>("Uspesna transakcija.", HttpStatus.OK);
+            return new ResponseEntity<AcquirerResponseDTO>(new AcquirerResponseDTO(transaction.getId(), transaction.getTimestamp(), transaction.getState(),
+                    "Uspesna transakcija."), HttpStatus.OK);
         }
     }
 
-    @RequestMapping(value = "/checkAccountIssuer", method = RequestMethod.POST)
+    @RequestMapping(value = "/checkAccountIssuer", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public ResponseEntity<?> checkAccountIssuer(@RequestBody PccRequestDTO pccRequestDTO) {
 
         CardRequestDTO cardRequestDTO = pccRequestDTO.getCardRequestDTO();
@@ -172,8 +174,8 @@ public class BankController {
             updateTransactionBankService(transaction);
             updateTransactionPcc(transaction);
 
-            return new ResponseEntity<>(new IssuerResponseDTO(transaction.getState(), transaction.getId(),
-                    transaction.getTimestamp(), transaction.getId(), transaction.getTimestamp()), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<IssuerResponseDTO>(new IssuerResponseDTO(transaction.getState(), transaction.getId(),
+                    transaction.getTimestamp(), transaction.getId(), transaction.getTimestamp(), "Greska u podacima kartice."), HttpStatus.OK);
         }else{
             System.out.println("Podaci sa kartice su dobri");
 
@@ -186,8 +188,8 @@ public class BankController {
                 updateTransactionBankService(transaction);
                 updateTransactionPcc(transaction);
 
-                return new ResponseEntity<>(new IssuerResponseDTO(transaction.getState(), transaction.getId(),
-                        transaction.getTimestamp(), transaction.getId(), transaction.getTimestamp()), HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<IssuerResponseDTO>(new IssuerResponseDTO(transaction.getState(), transaction.getId(),
+                        transaction.getTimestamp(), transaction.getId(), transaction.getTimestamp(), "Kartica je istekla."), HttpStatus.OK);
             }else{
                 System.out.println("Nije istekla kartica.");
 
@@ -205,17 +207,17 @@ public class BankController {
                     updateTransactionBankService(transaction);
                     updateTransactionPcc(transaction);
 
-                    return new ResponseEntity<>(new IssuerResponseDTO(transaction.getState(), transaction.getId(),
-                            transaction.getTimestamp(), transaction.getId(), transaction.getTimestamp()), HttpStatus.BAD_REQUEST);
+                    return new ResponseEntity<IssuerResponseDTO>(new IssuerResponseDTO(transaction.getState(), transaction.getId(),
+                            transaction.getTimestamp(), transaction.getId(), transaction.getTimestamp(), "Nema dovoljno sredstava na kartici."), HttpStatus.OK);
                 }
             }
-            return new ResponseEntity<>(new IssuerResponseDTO(transaction.getState(), transaction.getId(),
-                    transaction.getTimestamp(), transaction.getId(), transaction.getTimestamp()), HttpStatus.OK);
+            return new ResponseEntity<IssuerResponseDTO>(new IssuerResponseDTO(transaction.getState(), transaction.getId(),
+                    transaction.getTimestamp(), transaction.getId(), transaction.getTimestamp(), "Uspesna transakcija."), HttpStatus.OK);
         }
 
     }
 
-    @RequestMapping(value = "/executePayment", method = RequestMethod.POST)
+    @RequestMapping(value = "/executePayment", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public ResponseEntity<?> executePayment(@RequestBody CardRequestDTO cardRequestDTO) {
 
         Transaction transaction = transactionService.findOneById(cardRequestDTO.getPaymentId());
@@ -231,10 +233,10 @@ public class BankController {
         updateTransactionBankService(transaction);
         updateTransactionPcc(transaction);
 
-        AcquirerResponseDTO acquirerResponseDTO = new AcquirerResponseDTO(transaction.getId(), transaction.getId(),
+        FinalResponseDTO finalResponseDTO = new FinalResponseDTO(transaction.getId(), transaction.getId(),
                 transaction.getTimestamp(), transaction.getId(), transaction.getState());
 
-        return new ResponseEntity<>(acquirerResponseDTO, HttpStatus.OK);
+        return new ResponseEntity<FinalResponseDTO>(finalResponseDTO, HttpStatus.OK);
 
     }
 
@@ -266,7 +268,7 @@ public class BankController {
 
     private void updateTransactionBankService(Transaction transaction) {
         HttpEntity<TransactionStateDTO> entity = new HttpEntity<TransactionStateDTO>(new TransactionStateDTO(transaction.getState()));
-        ResponseEntity<String> responseEntity = restTemplate.exchange("http://localhost:8085/bankservice/updateTransaction/" + transaction.getId(),
+        ResponseEntity<String> responseEntity = restTemplate.exchange("http://localhost:8085/bankservice/updateTransaction/" + transaction.getMerchantOrderId(),
                 HttpMethod.PUT, entity, String.class);
     }
 

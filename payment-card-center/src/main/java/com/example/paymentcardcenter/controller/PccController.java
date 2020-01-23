@@ -23,7 +23,7 @@ public class PccController {
     @Autowired
     private TransactionService transactionService;
 
-    @RequestMapping(value = "/forward", method = RequestMethod.POST)
+    @RequestMapping(value = "/forward", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     private ResponseEntity<?> forward(@RequestBody PccRequestDTO pccRequestDTO) {
 
         if(!isValidRequest(pccRequestDTO)){
@@ -35,6 +35,7 @@ public class PccController {
         transaction.setAmount(pccRequestDTO.getAmount());
         transaction.setState(pccRequestDTO.getState());
         transaction.setTimestamp(pccRequestDTO.getAcquirerTimestamp());
+//        transaction.getCustomerId(pccRequestDTO);
         transaction = transactionService.save(transaction);
 
         HttpEntity<PccRequestDTO> entity = new HttpEntity<>(pccRequestDTO);

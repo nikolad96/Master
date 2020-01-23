@@ -2,66 +2,70 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cb43b3f-1e91-4f85-8025-0a39056cbe8c" name="Default Changelist" comment="banka">
-      <change afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/dto/AcquirerResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/dto/IssuerResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/dto/PccRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/dto/TransactionStateDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/model/Bank.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/dto/TransactionStateDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/PaymentCardCenterApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/controller/PccController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/dto/CardRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/dto/IssuerResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/dto/PccRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/dto/TransactionStateDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/model/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/model/Bank.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/model/Transaction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/model/TransactionState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/repository/AccountRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/repository/TransactionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/service/AccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/service/TransactionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/src/test/java/com/example/paymentcardcenter/PaymentCardCenterApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/dto/FinalResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Banka/src/main/resources/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banka-service/src/main/resources/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-card-center/src/main/resources/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/BankaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/BankaApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/controller/BankController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/dto/CardRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/dto/CardRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/dto/CardResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/dto/CardResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/dto/PaymentRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/dto/PaymentRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/dto/TransactionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/model/TransactionState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/model/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/dto/AcquirerResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/dto/AcquirerResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/dto/IssuerResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/dto/IssuerResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/model/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/repository/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/repository/AccountRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/service/AccountService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Banka/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NaucniCentar/src/main/java/com/example/nc/NCDummyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/NaucniCentar/src/main/java/com/example/nc/NCDummyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/BankaServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/BankaServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/BankaApplication$SSLConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/BankaApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/BankaApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/controller/BankController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/controller/BankController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/CardRequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/CardRequestDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/CardResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/CardResponseDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/PaymentRequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/PaymentRequestDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/TransactionState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/model/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/model/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/model/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/model/Transaction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/repository/AccountRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/repository/AccountRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/service/AccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/service/AccountService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eureka/src/main/java/com/example/eureka/EurekaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Eureka/src/main/java/com/example/eureka/EurekaApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eureka/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Eureka/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eureka/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Eureka/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eureka/target/classes/com/example/eureka/EurekaApplication$SSLConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eureka/target/classes/com/example/eureka/EurekaApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/Eureka/target/classes/com/example/eureka/EurekaApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/dto/CardResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/dto/CardResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/dto/PaymentRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/dto/PaymentRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/dto/PaymentResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/dto/PaymentResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/dto/TransactionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/model/TransactionState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/model/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/dto/PaymentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/dto/PaymentDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banka-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-balancer/src/main/java/com/example/loadbalancer/LoadBalancerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/load-balancer/src/main/java/com/example/loadbalancer/LoadBalancerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-balancer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/load-balancer/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naucna-centrala/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/naucna-centrala/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/controller/PccController.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/controller/PccController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/dto/IssuerResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/dto/IssuerResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/model/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-card-center/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/payment-card-center/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-service/src/main/java/com/example/zuulservice/ZuulServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-service/src/main/java/com/example/zuulservice/ZuulServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
@@ -101,7 +105,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SEP_projekat-master-3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/naucna-centrala" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -153,7 +157,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.SellersApplication">
+  <component name="RunManager" selected="Spring Boot.PaymentCardCenterApplication">
     <configuration name="E2E Tests (frontend)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/pravifrontend/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -208,6 +212,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NaucnaCentralaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="naucna-centrala" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.naucnacentrala.NaucnaCentralaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NaucniCentarApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="nc" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.nc.NaucniCentarApplication" />
@@ -257,9 +268,19 @@
   <component name="ServiceViewManager">
     <option name="allServicesViewState">
       <serviceView>
-        <option name="contentProportion" value="0.1987705" />
+        <option name="contentProportion" value="0.20423497" />
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3a663cf6" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3a663cf6" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@1d451391" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -281,7 +302,7 @@
       <workItem from="1574975912182" duration="6927000" />
       <workItem from="1577484115350" duration="10834000" />
       <workItem from="1578226933356" duration="313000" />
-      <workItem from="1579523583668" duration="26400000" />
+      <workItem from="1579523583668" duration="40652000" />
     </task>
     <servers />
   </component>

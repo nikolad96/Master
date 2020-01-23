@@ -11,6 +11,9 @@ public class Transaction {
     private Integer id;
 
     @Column
+    private Integer merchantOrderId;
+
+    @Column
     private double amount;
 
     @Column
@@ -39,6 +42,10 @@ public class Transaction {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public Integer getMerchantOrderId() { return merchantOrderId; }
+
+    public void setMerchantOrderId(Integer merchantOrderId) { this.merchantOrderId = merchantOrderId; }
 
     public double getAmount() {
         return amount;

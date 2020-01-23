@@ -6,29 +6,19 @@ import java.util.Date;
 
 public class AcquirerResponseDTO {
 
-    private Integer merchantOrderId;
     private Integer acquirerOrderId;
     private Date acquirerTimestamp;
-    private Integer paymentId;
     private TransactionState state;
+    private String message;
 
     public AcquirerResponseDTO() {
     }
 
-    public AcquirerResponseDTO(Integer merchantOrderId, Integer acquirerOrderId, Date acquirerTimestamp, Integer paymentId, TransactionState state) {
-        this.merchantOrderId = merchantOrderId;
+    public AcquirerResponseDTO(Integer acquirerOrderId, Date acquirerTimestamp, TransactionState state, String message) {
         this.acquirerOrderId = acquirerOrderId;
         this.acquirerTimestamp = acquirerTimestamp;
-        this.paymentId = paymentId;
         this.state = state;
-    }
-
-    public Integer getMerchantOrderId() {
-        return merchantOrderId;
-    }
-
-    public void setMerchantOrderId(Integer merchantOrderId) {
-        this.merchantOrderId = merchantOrderId;
+        this.message = message;
     }
 
     public Integer getAcquirerOrderId() {
@@ -47,19 +37,19 @@ public class AcquirerResponseDTO {
         this.acquirerTimestamp = acquirerTimestamp;
     }
 
-    public Integer getPaymentId() {
-        return paymentId;
-    }
-
-    public void setPaymentId(Integer paymentId) {
-        this.paymentId = paymentId;
-    }
-
     public TransactionState getState() {
         return state;
     }
 
     public void setState(TransactionState state) {
         this.state = state;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

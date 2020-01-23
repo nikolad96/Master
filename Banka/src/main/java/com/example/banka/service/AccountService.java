@@ -5,6 +5,8 @@ import com.example.banka.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -27,25 +29,28 @@ public class AccountService {
     public boolean isCardExpired(Account account){
         String date = account.getExpirationDate();
         Date today = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String todayString = dateFormat.format(today);
 
-        int yearToday = today.getYear();
-        int monthToday = today.getMonth();
-        System.out.println("year: " + yearToday + "; month: " + monthToday);
+//        System.out.println("todayString: " + todayString);
+        int yearToday = Integer.parseInt(todayString.substring(0,4));
+        int monthToday = Integer.parseInt(todayString.substring(5, 7));
+//        System.out.println("yearToday: " + yearToday + "; monthToday: " + monthToday);
 
-        String yearString = date.substring(2);
-        String monthString = date.substring(0, 2);
-        System.out.println("yearString: " + yearString + "; monthString: " + monthString);
-        int year = Integer.parseInt(yearString);
-        int month = Integer.parseInt(monthString);
+        int year = Integer.parseInt(date.substring(3));
+        int month = Integer.parseInt(date.substring(0, 2));
+//        System.out.println("year: " + year + "; month: " + month);
 
-        if(yearToday > year){
+        if(yearToday > year) {
+            return true;
+        }
+        if(yearToday < year){
             return false;
+        }
+        if(yearToday == year && monthToday > month){
+            return true;
         }else{
-            if(monthToday > month){
-                return false;
-            }else{
-                return true;
-            }
+            return false;
         }
 
     }

@@ -35,7 +35,7 @@ public class PaymentController {
     @RequestMapping(value = "/payment", method = RequestMethod.POST)
     private ResponseEntity<?> payment(@RequestBody PaymentDTO paymentDTO) {
 
-        Customer customer = customerService.findOneByMerchantId(paymentDTO.getMerchantId());
+        Customer customer = customerService.findOneById(paymentDTO.getId());
 
         Transaction transaction = new Transaction();
         transaction.setAmount(paymentDTO.getAmount());
@@ -49,7 +49,7 @@ public class PaymentController {
 
         HttpEntity<PaymentRequestDTO> HReq = new HttpEntity<PaymentRequestDTO>(paymentRequestDTO);
         System.out.println("merchantId: " + customer.getMerchantId() + "; merchantPassword: " + customer.getMerchantPassword()
-                         + "; amount: " + paymentDTO.getAmount() + "; merchanetOrderId: " + transaction.getId() + "; merchantTimestamp: " + transaction.getTimestamp());
+                         + "; amount: " + paymentDTO.getAmount() + "; merchantOrderId: " + transaction.getId() + "; merchantTimestamp: " + transaction.getTimestamp());
 
         ResponseEntity<PaymentResponseDTO> response =  restTemplate.postForEntity("http://localhost:8082/bank/checkPayment", HReq, PaymentResponseDTO.class);
         System.out.println("payment url: " + response.getBody().getPaymentUrl());

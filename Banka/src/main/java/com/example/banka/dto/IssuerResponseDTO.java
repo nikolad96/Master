@@ -11,16 +11,18 @@ public class IssuerResponseDTO {
     private Date acquirerTimestamp;
     private Integer issuerOrderId;
     private Date issuerTimestamp;
+    private String message;
 
     public IssuerResponseDTO() {
     }
 
-    public IssuerResponseDTO(TransactionState state, Integer acquirerOrderId, Date acquirerTimestamp, Integer issuerOrderId, Date issuerTimestamp) {
+    public IssuerResponseDTO(TransactionState state, Integer acquirerOrderId, Date acquirerTimestamp, Integer issuerOrderId, Date issuerTimestamp, String message) {
         this.state = state;
         this.acquirerOrderId = acquirerOrderId;
         this.acquirerTimestamp = acquirerTimestamp;
         this.issuerOrderId = issuerOrderId;
         this.issuerTimestamp = issuerTimestamp;
+        this.message = message;
     }
 
     public TransactionState getState() {
@@ -62,4 +64,8 @@ public class IssuerResponseDTO {
     public void setIssuerTimestamp(Date issuerTimestamp) {
         this.issuerTimestamp = issuerTimestamp;
     }
+
+    public String getMessage() { return message; }
+
+    public void setMessage(String message) { this.message = message; }
 }

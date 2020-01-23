@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/MasterProject/demo.iml" filepath="$PROJECT_DIR$/MasterProject/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/Eureka/eureka.iml" filepath="$PROJECT_DIR$/Eureka/eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/load-balancer/load-balancer.iml" filepath="$PROJECT_DIR$/load-balancer/load-balancer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/naucna-centrala/naucna-centrala.iml" filepath="$PROJECT_DIR$/naucna-centrala/naucna-centrala.iml" />
       <module fileurl="file://$PROJECT_DIR$/NaucniCentar/nc.iml" filepath="$PROJECT_DIR$/NaucniCentar/nc.iml" />
       <module fileurl="file://$PROJECT_DIR$/payment-card-center/payment-card-center.iml" filepath="$PROJECT_DIR$/payment-card-center/payment-card-center.iml" />
       <module fileurl="file://$PROJECT_DIR$/paypal-service/paypal-service.iml" filepath="$PROJECT_DIR$/paypal-service/paypal-service.iml" />

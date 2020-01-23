@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="banka-service" />
+        <module name="naucna-centrala" />
         <module name="demo" />
         <module name="load-balancer" />
         <module name="Master" />
@@ -28,6 +29,7 @@
       <module name="eureka" target="1.8" />
       <module name="load-balancer" target="1.8" />
       <module name="Master" target="1.8" />
+      <module name="naucna-centrala" target="1.8" />
       <module name="nc" target="1.8" />
       <module name="payment-card-center" target="1.8" />
       <module name="paypal-service" target="1.8" />
@@ -44,6 +46,7 @@
       <module name="demo" options="-parameters" />
       <module name="eureka" options="-parameters" />
       <module name="load-balancer" options="-parameters" />
+      <module name="naucna-centrala" options="-parameters" />
       <module name="nc" options="-parameters" />
       <module name="payment-card-center" options="-parameters" />
       <module name="paypal-service" options="-parameters" />
