@@ -1,8 +1,32 @@
 package com.example.naucnacentrala.dto;
 
+import com.example.naucnacentrala.model.NaucnaOblast;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class RadDTO {
+
     private Integer id;
-    private String name;
+    private String naslov;
+    private String apstrakt;
+    private String pdfLokacija;
+//    private NaucnaOblast naucnaOblast;
+    private boolean prihvacen;
+    private boolean kupljen;
+    private List<String> kljucniPojmovi = new ArrayList<>();
+
+    public RadDTO() {
+    }
+
+    public RadDTO(Integer id, String naslov, String apstrakt, String pdfLokacija, boolean prihvacen, List<String> kljucniPojmovi) {
+        this.id = id;
+        this.naslov = naslov;
+        this.apstrakt = apstrakt;
+        this.pdfLokacija = pdfLokacija;
+        this.prihvacen = prihvacen;
+        this.kljucniPojmovi = kljucniPojmovi;
+    }
 
     public Integer getId() {
         return id;
@@ -12,21 +36,55 @@ public class RadDTO {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNaslov() {
+        return naslov;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNaslov(String naslov) {
+        this.naslov = naslov;
     }
 
-    public String getContent() {
-        return content;
+    public String getApstrakt() {
+        return apstrakt;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setApstrakt(String apstrakt) {
+        this.apstrakt = apstrakt;
     }
 
-    private String content;
+    public String getPdfLokacija() {
+        return pdfLokacija;
+    }
+
+    public void setPdfLokacija(String pdfLokacija) {
+        this.pdfLokacija = pdfLokacija;
+    }
+
+//    public NaucnaOblast getNaucnaOblast() {
+//        return naucnaOblast;
+//    }
+//
+//    public void setNaucnaOblast(NaucnaOblast naucnaOblast) {
+//        this.naucnaOblast = naucnaOblast;
+//    }
+
+    public boolean isPrihvacen() {
+        return prihvacen;
+    }
+
+    public void setPrihvacen(boolean prihvacen) {
+        this.prihvacen = prihvacen;
+    }
+
+    public boolean isKupljen() { return kupljen; }
+
+    public void setKupljen(boolean kupljen) { this.kupljen = kupljen; }
+
+    public List<String> getKljucniPojmovi() {
+        return kljucniPojmovi;
+    }
+
+    public void setKljucniPojmovi(List<String> kljucniPojmovi) {
+        this.kljucniPojmovi = kljucniPojmovi;
+    }
 }

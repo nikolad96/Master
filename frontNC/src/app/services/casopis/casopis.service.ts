@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ZuulPath } from 'src/app/ZuulPath';
 import { HttpClient } from '@angular/common/http';
+import { ZuulPath } from 'src/app/ZuulPath';
 import { Observable } from 'rxjs';
 
 @Injectable({

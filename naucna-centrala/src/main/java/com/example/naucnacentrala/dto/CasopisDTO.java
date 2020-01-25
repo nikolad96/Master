@@ -6,12 +6,22 @@ import com.example.naucnacentrala.model.Rad;
 import java.util.List;
 
 public class CasopisDTO {
+
     private Integer id;
     private String name;
     private String issn;
     private NaplacujeClanarina naplacujeClanarina;
+    private List<RadDTO> radovi;
 
-    List<Rad> radovi;
+    public CasopisDTO() {
+    }
+
+    public CasopisDTO(Integer id, String name, String issn, NaplacujeClanarina naplacujeClanarina) {
+        this.id = id;
+        this.name = name;
+        this.issn = issn;
+        this.naplacujeClanarina = naplacujeClanarina;
+    }
 
     public Integer getId() {
         return id;
@@ -41,15 +51,13 @@ public class CasopisDTO {
         return naplacujeClanarina;
     }
 
-    public void setNaplacujeClanarina(NaplacujeClanarina naplacujeClanarina) {
-        this.naplacujeClanarina = naplacujeClanarina;
-    }
+    public void setNaplacujeClanarina(NaplacujeClanarina naplacujeClanarina) { this.naplacujeClanarina = naplacujeClanarina; }
 
-    public List<Rad> getRadovi() {
+    public List<RadDTO> getRadovi() {
         return radovi;
     }
 
-    public void setRadovi(List<Rad> radovi) {
+    public void setRadovi(List<RadDTO> radovi) {
         this.radovi = radovi;
     }
 }

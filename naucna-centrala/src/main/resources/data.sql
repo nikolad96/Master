@@ -20,6 +20,10 @@ values (5, "Vukasin", "Jovic", "Novi Sad", "Srbija", "makarictamara@gmail.com", 
 insert into korisnik (id, ime, prezime, grad, drzava, email, username, password, aktiviran, recenzent)
 values (6, "Milan", "Lazic", "Novi Sad", "Srbija", "makarictamara@gmail.com", "miki", "$2a$10$ifANXgSrjBgprG81FsGmLu5xuE4CkcmLXCi335AM5fDI2faPRz1dO", true, 3);
 
+-- obican korisnik
+insert into korisnik (id, ime, prezime, grad, drzava, email, username, password, aktiviran, recenzent)
+values (9, "Milica", "Makaric", "Stepanovicevo", "Srbija", "makaric.milica@gmail.com", "mica", "$2a$10$eBGUHIMgZK3ncFhw7CrSTuCnh.fHNMpVBmS.cL5hJU.7hvMfIIUBm", true, 3);
+
 insert into role values (1, 'ROLE_KORISNIK');
 insert into role values (2, 'ROLE_ADMIN');
 insert into role values (3, 'ROLE_UREDNIK');
@@ -45,6 +49,7 @@ insert into korisnik_roles values (7, 3);
 insert into korisnik_roles values (8, 3);
 -- insert into korisnik_roles values (7, 4);
 -- insert into korisnik_roles values (8, 4);
+insert into korisnik_roles values (9, 1);
 
 insert into naucna_oblast values (1, 'prirodne_nauke');
 insert into naucna_oblast values (2, 'inzenjerstvo_i_tehnologija');
@@ -59,3 +64,26 @@ insert into korisnik_naucne_oblasti (korisnik_id, naucne_oblasti_id) values (5, 
 insert into korisnik_naucne_oblasti (korisnik_id, naucne_oblasti_id) values (6, 3);
 insert into korisnik_naucne_oblasti (korisnik_id, naucne_oblasti_id) values (7, 2);
 insert into korisnik_naucne_oblasti (korisnik_id, naucne_oblasti_id) values (8, 3);
+
+insert into casopis (id, naziv, issn, naplata_clanarine, aktiviran, glavni_urednik_id) values (1, 'Casopis prvi', '1458-9856', 'NAPLATA_AUTORIMA', 1, 2);
+insert into casopis (id, naziv, issn, naplata_clanarine, aktiviran, glavni_urednik_id) values (2, 'Casopis drugi', '1896-2535', 'NAPLATA_CITAOCIMA', 1, 2);
+
+insert into casopis_naucne_oblasti (casopis_id, naucne_oblasti_id) values (1, 1);
+insert into casopis_naucne_oblasti (casopis_id, naucne_oblasti_id) values (1, 3);
+insert into casopis_naucne_oblasti (casopis_id, naucne_oblasti_id) values (2, 1);
+insert into casopis_naucne_oblasti (casopis_id, naucne_oblasti_id) values (2, 2);
+
+insert into casopis_recenzenti (casopis_id, recenzenti_id) values (1, 3);
+insert into casopis_recenzenti (casopis_id, recenzenti_id) values (1, 5);
+insert into casopis_recenzenti (casopis_id, recenzenti_id) values (2, 4);
+insert into casopis_recenzenti (casopis_id, recenzenti_id) values (2, 5);
+
+insert into casopis_korisnici_platili (casopis_id, korisnici_platili_id) values (1, 9);
+
+insert into rad (id, naslov, apstrakt, naucna_oblast_id, pdf_lokacija, prihvacen, casopis_id, kljucni_pojmovi) values (1, 'Rad 1', 'apstrakt prvi', 1, 'lokacija prvog rada', 1, 1, 'nesto;neko;neki');
+insert into rad (id, naslov, apstrakt, naucna_oblast_id, pdf_lokacija, prihvacen, casopis_id, kljucni_pojmovi) values (2, 'Rad 2', 'apstrakt drugi', 1, 'lokacija drugog rada', 1, 1, 'nesto');
+insert into rad (id, naslov, apstrakt, naucna_oblast_id, pdf_lokacija, prihvacen, casopis_id, kljucni_pojmovi) values (3, 'Rad 3', 'apstrakt treci', 1, 'lokacija treceg rada', 1, 2, 'nesto;neko');
+insert into rad (id, naslov, apstrakt, naucna_oblast_id, pdf_lokacija, prihvacen, casopis_id, kljucni_pojmovi) values (4, 'Rad 4', 'apstrakt cetvri', 1, 'lokacija cetvrtog rada', 1, 2, 'nesto;neko;neki');
+insert into rad (id, naslov, apstrakt, naucna_oblast_id, pdf_lokacija, prihvacen, casopis_id, kljucni_pojmovi) values (5, 'Rad 5', 'apstrakt peti', 1, 'lokacija petog rada', 1, 2, 'nesto;neko;neki');
+
+insert into rad_korisnici_platili (rad_id, korisnici_platili_id) values (3, 9);

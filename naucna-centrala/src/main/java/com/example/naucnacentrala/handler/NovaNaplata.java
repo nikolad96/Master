@@ -2,6 +2,7 @@ package com.example.naucnacentrala.handler;
 
 import com.example.naucnacentrala.dto.FormSubmissionDto;
 import com.example.naucnacentrala.model.Casopis;
+import com.example.naucnacentrala.model.NaplacujeClanarina;
 import com.example.naucnacentrala.service.CasopisService;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
@@ -27,7 +28,11 @@ public class NovaNaplata implements JavaDelegate {
 
         for(FormSubmissionDto dto: ispravkaDto){
             if(dto.getFieldId().equals("naplata_clanarine")){
-                casopis.setNaplataClanarine(dto.getFieldValue());
+                if(dto.getFieldValue().equals("naplata_citaocima")){
+                    casopis.setNaplataClanarine(NaplacujeClanarina.NAPLATA_CITAOCIMA);
+                }else{
+                    casopis.setNaplataClanarine(NaplacujeClanarina.NAPLATA_AUTORIMA);
+                }
             }
         }
 

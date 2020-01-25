@@ -7,6 +7,7 @@
   <table>
     <tr><a class="navbar-brand" [routerLink]="['/registration']" *ngIf="!isLoggedIn">Registracija korisnika</a></tr><br>
     <tr><a class="navbar-brand" [routerLink]="['/login']" *ngIf="!isLoggedIn">Prijava</a></tr>
+    <tr><a class="navbar-brand" [routerLink]="['/casopisi']" *ngIf="isLoggedIn">Izaberite casopis</a></tr><br>
     <tr><a class="navbar-brand" [routerLink]="['/casopis']" *ngIf="isUrednik">Kreiranje casopisa</a></tr><br>
     <tr><a class="navbar-brand" [routerLink]="['/recenzenti']" *ngIf="isAdmin">Potvrda recenzenata</a></tr><br>
     <tr><a class="navbar-brand" [routerLink]="['/ispravka']" *ngIf="isUrednik">Ispravka podataka casopisa</a></tr><br>

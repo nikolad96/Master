@@ -18,6 +18,7 @@ public class Casopis {
     private String issn;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private NaplacujeClanarina naplataClanarine;
 
     @Column
@@ -35,6 +36,12 @@ public class Casopis {
 
     @ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
     private List<Korisnik> recenzenti = new ArrayList<>();
+
+    @OneToMany(mappedBy = "casopis", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Rad> radovi = new ArrayList<>();
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Korisnik> korisniciPlatili = new ArrayList<>();
 
     public Casopis() {
     }
@@ -114,6 +121,10 @@ public class Casopis {
         return recenzenti;
     }
 
+    public void setRecenzenti(List<Korisnik> recenzenti) {
+        this.recenzenti = recenzenti;
+    }
+
     public List<Rad> getRadovi() {
         return radovi;
     }
@@ -129,15 +140,5 @@ public class Casopis {
     public void setKorisniciPlatili(List<Korisnik> korisniciPlatili) {
         this.korisniciPlatili = korisniciPlatili;
     }
-
-    public void setRecenzenti(List<Korisnik> recenzenti) {
-        this.recenzenti = recenzenti;
-    }
-
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Rad> radovi = new ArrayList<>();
-
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Korisnik> korisniciPlatili = new ArrayList<>();
 
 }

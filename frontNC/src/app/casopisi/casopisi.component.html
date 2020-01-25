@@ -1,0 +1,42 @@
+<div style="color:cornflowerblue; text-align: center;">
+    <h2>Naucna centrala</h2>
+</div>
+
+<div *ngIf="casopisi.length != 0">
+    <div class="container">
+        <h3 >Casopisi</h3>
+    </div><br>
+
+    <div class="container" *ngFor="let casopis of casopisi">
+        <table>
+            <tr> 
+                <td>{{casopis.name}}</td>
+                <td></td>
+            </tr>
+            <tr *ngFor="let rad of casopis.radovi">
+                <td></td>
+                <td>{{rad.naslov}}</td>&nbsp;&nbsp;&nbsp;
+                <td *ngIf="!rad.kupljen"><button class="btn btn-light" (click)="kupiRad(rad.id)">Kupi</button></td>
+            </tr>
+            <br>
+            <!-- <tr>
+                <td>
+                    <button class="btn btn-primary" (click)="prihvati(task.taskId)">Prihvati</button>&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-primary" (click)="odbij(task.taskId)">Odbij</button>
+                </td> 
+                <td></td> 
+            </tr> -->
+        
+        </table>
+    </div><br><br>
+</div>
+
+<div *ngIf="casopisi.length == 0">
+    <div class="container">
+        <h4 >Trenutno nema casopisa.</h4>
+    </div><br><br>
+</div>
+
+<div>
+    &nbsp;&nbsp;&nbsp;<button class="btn btn-primary" (click)="nazad()">Nazad</button>
+</div>

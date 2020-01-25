@@ -3,6 +3,7 @@ package com.example.naucnacentrala.handler;
 import com.example.naucnacentrala.dto.FormSubmissionDto;
 import com.example.naucnacentrala.model.Casopis;
 import com.example.naucnacentrala.model.Korisnik;
+import com.example.naucnacentrala.model.NaplacujeClanarina;
 import com.example.naucnacentrala.model.NaucnaOblast;
 import com.example.naucnacentrala.service.CasopisService;
 import com.example.naucnacentrala.service.KorisnikService;
@@ -41,7 +42,11 @@ public class CuvanjePodatakaCasopis implements JavaDelegate {
             }else if(casopisDto.get(i).getFieldId().equals("ISSN_broj")){
                 casopis.setIssn(casopisDto.get(i).getFieldValue());
             }else if(casopisDto.get(i).getFieldId().equals("naplata_clanarine")){
-                casopis.setNaplataClanarine(casopisDto.get(i).getFieldValue());
+                if(casopisDto.get(i).getFieldValue().equals("naplata_citaocima")) {
+                    casopis.setNaplataClanarine(NaplacujeClanarina.NAPLATA_CITAOCIMA);
+                }else{
+                    casopis.setNaplataClanarine(NaplacujeClanarina.NAPLATA_AUTORIMA);
+                }
             }else if(casopisDto.get(i).getFieldId().equals("naucna_oblast")){
                 NaucnaOblast naucnaOblast;
                 naucnaOblast = naucnaOblastService.findOneByNaziv(casopisDto.get(i).getFieldValue());
