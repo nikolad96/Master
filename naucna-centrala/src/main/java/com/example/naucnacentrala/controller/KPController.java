@@ -88,6 +88,12 @@ public class KPController {
             }
         }
 
+        for(CasopisDTO ccc : payload){
+            System.out.println(ccc.getId());
+            System.out.println(ccc.getName());
+            System.out.println(ccc.getIssn());
+        }
+
         return payload;
     }
 

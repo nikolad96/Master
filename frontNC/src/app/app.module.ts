@@ -17,6 +17,7 @@ import { UredniciRecenzentiComponent } from './urednici-recenzenti/urednici-rece
 import { CasopisAdminComponent } from './casopis-admin/casopis-admin.component';
 import { IspravkaComponent } from './ispravka/ispravka.component';
 import { CasopisiComponent } from './casopisi/casopisi.component';
+import { OdabirPlacanjaComponent } from './odabir-placanja/odabir-placanja.component';
 
 const Routes = [
   { path: "", component: MainPageComponent },
@@ -28,7 +29,8 @@ const Routes = [
   { path: "urednici-recenzenti/:id_process", component: UredniciRecenzentiComponent },
   { path: "casopis-admin", component: CasopisAdminComponent },
   { path: "ispravka", component: IspravkaComponent },
-  { path: "casopisi", component: CasopisiComponent }
+  { path: "casopisi", component: CasopisiComponent },
+  { path: "odabir_placanja/:id_casopis/:id_rad", component: OdabirPlacanjaComponent}
 ]
 
 @NgModule({
@@ -43,7 +45,8 @@ const Routes = [
     UredniciRecenzentiComponent,
     CasopisAdminComponent,
     IspravkaComponent,
-    CasopisiComponent
+    CasopisiComponent,
+    OdabirPlacanjaComponent
   ],
   imports: [
     BrowserModule,

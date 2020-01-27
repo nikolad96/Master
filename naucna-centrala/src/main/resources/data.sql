@@ -23,6 +23,8 @@ values (6, "Milan", "Lazic", "Novi Sad", "Srbija", "makarictamara@gmail.com", "m
 -- obican korisnik
 insert into korisnik (id, ime, prezime, grad, drzava, email, username, password, aktiviran, recenzent)
 values (9, "Milica", "Makaric", "Stepanovicevo", "Srbija", "makaric.milica@gmail.com", "mica", "$2a$10$eBGUHIMgZK3ncFhw7CrSTuCnh.fHNMpVBmS.cL5hJU.7hvMfIIUBm", true, 3);
+insert into korisnik (id, ime, prezime, grad, drzava, email, username, password, aktiviran, recenzent)
+values (10, "Nikola", "Malencic", "Novi Sad", "Srbija", "nmalencic@gmail.com", "realmace", "$2a$10$9.shidvgsEtvCwlM8WnbC.XneO/Kcxyf02TbzhXd09BQi.19iMQES", true, 3);
 
 insert into role values (1, 'ROLE_KORISNIK');
 insert into role values (2, 'ROLE_ADMIN');
@@ -50,6 +52,7 @@ insert into korisnik_roles values (8, 3);
 -- insert into korisnik_roles values (7, 4);
 -- insert into korisnik_roles values (8, 4);
 insert into korisnik_roles values (9, 1);
+insert into korisnik_roles values (10, 1);
 
 insert into naucna_oblast values (1, 'prirodne_nauke');
 insert into naucna_oblast values (2, 'inzenjerstvo_i_tehnologija');

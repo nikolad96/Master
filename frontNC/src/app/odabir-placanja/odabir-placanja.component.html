@@ -1,0 +1,19 @@
+<div style="color:cornflowerblue; text-align: center;">
+    <h2>Naucna centrala</h2>
+</div>
+
+<div *ngIf="nacini_placanja.length != 0">
+    <div class="container">
+        <h3 >Nacini placanja</h3>
+    </div><br>
+
+  <select>
+    <option *ngFor="let nacin_placanja of nacini_placanja" value={{nacin_placanja}}>
+      {{nacin_placanja}}
+    </option>
+
+
+  </select>
+
+
+<button (click)="odustani()">Odustani</button>
