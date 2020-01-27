@@ -2,24 +2,15 @@ package com.example.bankaservice.dto;
 
 public class PaymentDTO {
 
-    private Integer id;
+    private Integer sellerId;
     private double amount;
 
     public PaymentDTO() {
     }
 
-    public PaymentDTO(Integer id, double amount) {
-        this.id = id;
-        this.amount = amount;
-    }
+    public Integer getSellerId() { return sellerId; }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public void setSellerId(Integer sellerId) { this.sellerId = sellerId; }
 
     public double getAmount() {
         return amount;

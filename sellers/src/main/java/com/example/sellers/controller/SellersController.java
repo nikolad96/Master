@@ -1,13 +1,14 @@
 package com.example.sellers.controller;
 
 
-import com.example.sellers.dto.PaymentMethodsDTO;
+import com.example.sellers.dto.PaymentMethodDTO;
+import com.example.sellers.dto.PaymentMethodListDTO;
 import com.example.sellers.dto.SellerBtcDTO;
 import com.example.sellers.dto.SellerDTO;
 import com.example.sellers.model.PaymentMethod;
-import com.example.sellers.model.PaymentMethods;
 import com.example.sellers.model.Seller;
-import com.example.sellers.repo.SellersRepo;
+import com.example.sellers.repository.SellerRepository;
+import com.example.sellers.service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,11 +26,11 @@ public class SellersController {
     RestTemplate REST_template;
 
     @Autowired
-    SellersRepo sellersRepo;
+    private SellerService sellerService;
 
     @RequestMapping(method = RequestMethod.GET, path="/getSellers", produces = "application/json")
     public @ResponseBody List<SellerDTO> getSellers(){
-        List<Seller> sellers = sellersRepo.findAll();
+        List<Seller> sellers = sellerService.findAll();
         List<SellerDTO> payload = new ArrayList<>();
 
         for(Seller seller : sellers){
@@ -46,7 +47,7 @@ public class SellersController {
 
     @RequestMapping(method = RequestMethod.GET, path="/getSeller/{sellerName}", produces = "application/json")
     public @ResponseBody SellerDTO getSeller(@PathVariable String sellerName){
-        Seller seller = sellersRepo.findOneByName(sellerName);
+        Seller seller = sellerService.findOneByName(sellerName);
         SellerDTO payload = new SellerDTO();
         payload.setId(seller.getId());
         payload.setName(seller.getName());
@@ -60,7 +61,7 @@ public class SellersController {
     public @ResponseBody ResponseEntity putSeller(@RequestBody SellerDTO dto) throws Exception{
         Seller seller = new Seller();
 
-        seller.setId(dto.getId());
+        seller.setSellerId(dto.getId());
         seller.setName(dto.getName());
         seller.setPib(dto.getPib());
         seller.setPaymentMethods(dto.getPaymentMethods());
@@ -77,7 +78,7 @@ public class SellersController {
         }
 
         try {
-            sellersRepo.save(seller);
+            sellerService.save(seller);
 
         } catch (Exception e){
             e.printStackTrace();
@@ -87,28 +88,20 @@ public class SellersController {
 
     }
 
-    @RequestMapping(value = "/getPaymentMethods", method = RequestMethod.POST, produces = "application/json")
-    public @ResponseBody PaymentMethodsDTO getPaymentMethods(@RequestBody PaymentMethodsDTO dto){
-        Seller s = sellersRepo.findOneById(dto.getId());
-        List<PaymentMethods> lista = new ArrayList<>();
+    @RequestMapping(value = "/getPaymentMethods/{casopisId}", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody ResponseEntity<PaymentMethodListDTO> getPaymentMethods(@PathVariable("casopisId") Integer casopisId){
+        Seller seller = sellerService.findOneBySellerId(casopisId);
+        List<PaymentMethodDTO> lista = new ArrayList<>();
 
-        for(PaymentMethod method : s.getPaymentMethods()){
-            if(method.getName().equals("bank")){
-                lista.add(PaymentMethods.BANK);
-            }
-
-            else if(method.getName().equals("paypal")){
-                lista.add(PaymentMethods.PAYPAL);
-            }
-
-            else if(method.getName().equals("bitcoin")){
-                lista.add(PaymentMethods.BITCOIN);
-            }
+        for(PaymentMethod method : seller.getPaymentMethods()){
+            PaymentMethodDTO paymentMethodDTO = new PaymentMethodDTO(method.getId(), method.getName());
+            lista.add(paymentMethodDTO);
         }
 
-        dto.setPaymentMethods(lista);
+        PaymentMethodListDTO paymentMethodListDTO = new PaymentMethodListDTO();
+        paymentMethodListDTO.setMethods(lista);
 
-        return dto;
+        return new ResponseEntity<PaymentMethodListDTO>(paymentMethodListDTO, HttpStatus.OK);
     }
 
 

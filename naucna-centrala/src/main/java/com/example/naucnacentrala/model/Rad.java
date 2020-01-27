@@ -19,6 +19,9 @@ public class Rad {
     @Column
     private String apstrakt;
 
+    @Column
+    private double cena;
+
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private NaucnaOblast naucnaOblast;
 
@@ -43,9 +46,10 @@ public class Rad {
     public Rad() {
     }
 
-    public Rad(String naslov, String apstrakt, NaucnaOblast naucnaOblast, String pdfLokacija, boolean prihvacen) {
+    public Rad(String naslov, String apstrakt, double cena, NaucnaOblast naucnaOblast, String pdfLokacija, boolean prihvacen) {
         this.naslov = naslov;
         this.apstrakt = apstrakt;
+        this.cena = cena;
         this.naucnaOblast = naucnaOblast;
         this.pdfLokacija = pdfLokacija;
         this.prihvacen = prihvacen;
@@ -74,6 +78,10 @@ public class Rad {
     public void setApstrakt(String apstrakt) {
         this.apstrakt = apstrakt;
     }
+
+    public double getCena() { return cena; }
+
+    public void setCena(double cena) { this.cena = cena; }
 
     public NaucnaOblast getNaucnaOblast() {
         return naucnaOblast;

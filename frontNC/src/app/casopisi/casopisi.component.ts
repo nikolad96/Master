@@ -42,12 +42,13 @@ export class CasopisiComponent implements OnInit {
     // pa korisniku staviti npr select da izabere jedan od tih podrzanih placanja
   }
 
-  nazad(){
-    window.location.href='';
-  }
-
   preuzmiRad(radId){
     // TODO
+    console.log('preuzmi rad: ' + radId);
+  }
+
+  nazad(){
+    window.location.href='';
   }
 
 }

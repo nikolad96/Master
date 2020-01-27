@@ -1,19 +1,22 @@
 <div style="color:cornflowerblue; text-align: center;">
     <h2>Naucna centrala</h2>
-</div>
+</div><br>
 
 <div *ngIf="nacini_placanja.length != 0">
-    <div class="container">
-        <h3 >Nacini placanja</h3>
-    </div><br>
+  <div class="container">
+    <h4>Izaberite nacin placanja:</h4><br>
 
-  <select>
-    <option *ngFor="let nacin_placanja of nacini_placanja" value={{nacin_placanja}}>
-      {{nacin_placanja}}
-    </option>
+    <div class="form-group row">
+      <select class="form-control col-sm-3" [(ngModel)]="nacinPlacanjaId">
+        <option *ngFor="let nacin_placanja of nacini_placanja" value={{nacin_placanja.id}}>
+          {{nacin_placanja.name}}
+        </option>
+      </select> &nbsp;&nbsp;&nbsp;
+      <button [disabled]="!nacinPlacanjaId" class="btn btn-primary" (click)="kupi(nacinPlacanjaId)">Dalje</button>
+    </div><br><br>
+  </div>
+</div>
 
-
-  </select>
-
-
-<button (click)="odustani()">Odustani</button>
+<div>
+  &nbsp;&nbsp;&nbsp;<button  class="btn btn-primary" (click)="odustani()">Odustani</button>
+</div>

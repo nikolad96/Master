@@ -18,6 +18,9 @@ public class Casopis {
     private String issn;
 
     @Column
+    private double cena;
+
+    @Column
     @Enumerated(EnumType.STRING)
     private NaplacujeClanarina naplataClanarine;
 
@@ -46,9 +49,10 @@ public class Casopis {
     public Casopis() {
     }
 
-    public Casopis(String naziv, String issn, NaplacujeClanarina naplataClanarine, Boolean aktiviran) {
+    public Casopis(String naziv, String issn, double cena, NaplacujeClanarina naplataClanarine, Boolean aktiviran) {
         this.naziv = naziv;
         this.issn = issn;
+        this.cena = cena;
         this.naplataClanarine = naplataClanarine;
         this.aktiviran = aktiviran;
     }
@@ -76,6 +80,10 @@ public class Casopis {
     public void setIssn(String issn) {
         this.issn = issn;
     }
+
+    public double getCena() { return cena; }
+
+    public void setCena(double cena) { this.cena = cena; }
 
     public NaplacujeClanarina getNaplataClanarine() {
         return naplataClanarine;

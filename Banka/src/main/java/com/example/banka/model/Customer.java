@@ -17,10 +17,7 @@ public class Customer {
     private String merchantPassword;
 
     @Column
-    private String firstName;
-
-    @Column
-    private String lastName;
+    private String name;
 
     @OneToOne(mappedBy = "customer", fetch = FetchType.LAZY)
     private Account account;
@@ -31,11 +28,10 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String merchantId, String merchantPassword, String firstName, String lastName) {
+    public Customer(String merchantId, String merchantPassword, String name) {
         this.merchantId = merchantId;
         this.merchantPassword = merchantPassword;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = name;
     }
 
     public Integer getId() {
@@ -62,20 +58,12 @@ public class Customer {
         this.merchantPassword = merchantPassword;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Account getAccount() {

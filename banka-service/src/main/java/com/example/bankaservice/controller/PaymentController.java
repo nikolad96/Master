@@ -32,10 +32,12 @@ public class PaymentController {
     @Autowired
     private TransactionService transactionService;
 
-    @RequestMapping(value = "/payment", method = RequestMethod.POST)
+    @RequestMapping(value = "/payment", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     private ResponseEntity<?> payment(@RequestBody PaymentDTO paymentDTO) {
 
-        Customer customer = customerService.findOneById(paymentDTO.getId());
+        System.out.println("usao u payment");
+
+        Customer customer = customerService.findOneBySellerId(paymentDTO.getSellerId());
 
         Transaction transaction = new Transaction();
         transaction.setAmount(paymentDTO.getAmount());

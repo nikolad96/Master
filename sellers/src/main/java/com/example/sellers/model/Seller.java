@@ -11,19 +11,23 @@ public class Seller {
     private Integer id;
 
     @Column
+    private Integer sellerId;
+
+    @Column
     private String name;
 
     @Column
     private String pib;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<PaymentMethod> paymentMethods;
 
     public Seller() {
 
     }
 
-    public Seller(String name, String pib) {
+    public Seller(Integer sellerId, String name, String pib) {
+        this.sellerId = sellerId;
         this.name = name;
         this.pib = pib;
     }
@@ -35,6 +39,10 @@ public class Seller {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public Integer getSellerId() { return sellerId; }
+
+    public void setSellerId(Integer sellerId) { this.sellerId = sellerId; }
 
     public String getName() {
         return name;

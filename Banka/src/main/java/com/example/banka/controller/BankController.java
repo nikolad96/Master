@@ -97,7 +97,7 @@ public class BankController {
 
             //prosledjivanje zahteva ka pcc-u jer nisu iste banke
             HttpEntity<PccRequestDTO> entity = new HttpEntity<PccRequestDTO>(pccRequestDTO);
-            ResponseEntity<IssuerResponseDTO> responseEntity = restTemplate.postForEntity("http://localhost:8091/pcc/forward", entity, IssuerResponseDTO.class);
+            ResponseEntity<IssuerResponseDTO> responseEntity = restTemplate.postForEntity("http://localhost:8092/pcc/forward", entity, IssuerResponseDTO.class);
             return responseEntity;
 
         }
@@ -274,7 +274,7 @@ public class BankController {
 
     private void updateTransactionPcc(Transaction transaction) {
         HttpEntity<TransactionStateDTO> entity = new HttpEntity<TransactionStateDTO>(new TransactionStateDTO(transaction.getState()));
-        ResponseEntity<String> responseEntity = restTemplate.exchange("http://localhost:8091/pcc/updateTransaction/" + transaction.getId(),
+        ResponseEntity<String> responseEntity = restTemplate.exchange("http://localhost:8092/pcc/updateTransaction/" + transaction.getId(),
                 HttpMethod.PUT, entity, String.class);
     }
 

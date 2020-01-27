@@ -1,16 +1,17 @@
 package com.example.naucnacentrala.controller;
 
-import com.example.naucnacentrala.dto.CasopisDTO;
-import com.example.naucnacentrala.dto.PaymentMethodsDTO;
-import com.example.naucnacentrala.dto.ProveraClanarineDTO;
-import com.example.naucnacentrala.dto.RadDTO;
+import com.example.naucnacentrala.dto.*;
 import com.example.naucnacentrala.model.*;
 import com.example.naucnacentrala.repository.CasopisRepository;
 import com.example.naucnacentrala.repository.KorisnikRepository;
 import com.example.naucnacentrala.security.TokenUtils;
+import com.example.naucnacentrala.service.CasopisService;
+import com.example.naucnacentrala.service.KorisnikService;
 import com.example.naucnacentrala.service.RadService;
 import com.example.naucnacentrala.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -25,10 +26,10 @@ import java.util.List;
 public class KPController {
 
     @Autowired
-    CasopisRepository casopisRepository;
+    private CasopisService casopisService;
 
     @Autowired
-    KorisnikRepository korisnikRepository;
+    private KorisnikService korisnikService;
 
     @Autowired
     RestTemplate restTemplate;
@@ -45,9 +46,9 @@ public class KPController {
         String username = Utils.getUsernameFromRequest(request, tokenUtils);
         System.out.println("username: " + username);
 
-        Korisnik korisnik = korisnikRepository.findOneByUsername(username);
+        Korisnik korisnik = korisnikService.findOneByUsername(username);
 
-        List<Casopis> casopisi = casopisRepository.findAll();
+        List<Casopis> casopisi = casopisService.findAll();
         List<CasopisDTO> payload = new ArrayList<>();
 
         for(Casopis c : casopisi){
@@ -58,6 +59,7 @@ public class KPController {
                 dto.setName(c.getNaziv());
                 dto.setNaplacujeClanarina(c.getNaplataClanarine());
                 List<RadDTO> radovi = new ArrayList<>();
+
                 for(Rad rad: c.getRadovi()){
                     RadDTO radDto = new RadDTO(rad.getId(), rad.getNaslov(), rad.getApstrakt(), rad.getPdfLokacija(), rad.isPrihvacen(), rad.getKljucniPojmovi());
                     boolean kupljen = false;
@@ -117,8 +119,8 @@ public class KPController {
         String username = Utils.getUsernameFromRequest(request, tokenUtils);
         System.out.println("username: " + username);
 
-        Korisnik korisnik = korisnikRepository.findOneByUsername(username);
-        Casopis casopis = casopisRepository.findOneById(casopisId);
+        Korisnik korisnik = korisnikService.findOneByUsername(username);
+        Casopis casopis = casopisService.findOneById(casopisId);
         Rad rad = radService.findOneById(radId);
 
         if(casopis.getNaplataClanarine().equals(NaplacujeClanarina.NAPLATA_AUTORIMA)){
@@ -143,21 +145,36 @@ public class KPController {
         return false;
     }
 
-    @RequestMapping(value = "/getPaymentMethods", method = RequestMethod.POST, produces = "application/json")
-    public @ResponseBody List<PaymentMethod> getPaymentMethods(@RequestBody CasopisDTO dto){
-        Casopis c = casopisRepository.findOneById(dto.getId());
+    @RequestMapping(value = "/getPaymentMethods/{casopisId}", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody ResponseEntity<List<PaymentMethodDTO>> getPaymentMethods(@PathVariable("casopisId") Integer casopisId){
+        System.out.println("usao u getPaymentMethods");
 
-        PaymentMethodsDTO request = new PaymentMethodsDTO();
-        request.setId(c.getId());
+        ResponseEntity<PaymentMethodListDTO> response = restTemplate.getForEntity("http://localhost:8091/sellers/getPaymentMethods/" + casopisId, PaymentMethodListDTO.class);
+        List<PaymentMethodDTO> methods = response.getBody().getMethods();
 
-        ResponseEntity<PaymentMethodsDTO> response = restTemplate.postForEntity("http://localhost:8091/sellers/getPaymentMethods", request, PaymentMethodsDTO.class);
-        List<PaymentMethod> lista = new ArrayList<>();
+        return new ResponseEntity<List<PaymentMethodDTO>>(methods, HttpStatus.OK);
+    }
 
-        for(PaymentMethod method : response.getBody().getPaymentMethods()){
-            lista.add(method);
-        }
+    @RequestMapping(value = "/paymentBank/{radId}/{casopisId}", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity<PaymentResponseDTO> paymentBank(@PathVariable("radId") Integer radId, @PathVariable("casopisId") Integer casopisId) {
 
-        return lista;
+        System.out.println("Usao u paymentBank");
+        System.out.println("radId: " + radId + "; casopisId: " + casopisId);
+
+        Rad rad = radService.findOneById(radId);
+
+        PaymentDTO paymentDTO = new PaymentDTO();
+        paymentDTO.setAmount(rad.getCena());
+        paymentDTO.setSellerId(casopisId);
+
+        HttpEntity<PaymentDTO> httpRequest = new HttpEntity<PaymentDTO>(paymentDTO);
+        ResponseEntity<PaymentResponseDTO> paymentResponseDTO = restTemplate.postForEntity("http://localhost:8086/banka-service/bankservice/payment", httpRequest, PaymentResponseDTO.class);
+
+        System.out.println("return");
+
+        return new ResponseEntity<PaymentResponseDTO>(new PaymentResponseDTO(paymentResponseDTO.getBody().getPaymentUrl(), paymentResponseDTO.getBody().getPaymentId(), paymentResponseDTO.getBody().getMerchantOrderId()), HttpStatus.OK);
+
+//        return restTemplate.postForEntity("http://localhost:8086/banka-service/bankservice/payment", httpRequest, PaymentResponseDTO.class);
     }
 
 }

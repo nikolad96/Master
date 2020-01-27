@@ -18,7 +18,11 @@ export class KpService {
     return this.http.get(this.zuul.path + 'KP/checkPaid/'.concat(radId) + '/'.concat(casopisId)) as Observable<any>
   }
 
-  getNaciniPlacanja(casopis){
-    return this.http.post(this.zuul.path + 'KP/getPaymentMethods', casopis) as Observable<any>
+  getNaciniPlacanja(casopisId){
+    return this.http.get(this.zuul.path + 'KP/getPaymentMethods/'.concat(casopisId)) as Observable<any>
+  }
+
+  placanjeBanka(radId, casopisId){
+    return this.http.get(this.zuul.path + 'KP/paymentBank/'.concat(radId) + '/'.concat(casopisId)) as Observable<any>
   }
 }

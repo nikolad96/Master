@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { KpService} from '../services/kp/kp.service';
 import {ActivatedRoute} from '@angular/router';
+import { ConstantPool } from '@angular/compiler';
 
 @Component({
   selector: 'app-odabir-placanja',
@@ -11,8 +12,6 @@ export class OdabirPlacanjaComponent implements OnInit {
 
   private casopis_id;
   private rad_id;
-  private casopisi = [];
-  private trazeni_casopis;
   private nacini_placanja = [];
 
   constructor(private kpService : KpService, private route : ActivatedRoute) {
@@ -23,58 +22,54 @@ export class OdabirPlacanjaComponent implements OnInit {
       }
     );
 
-    kpService.getCasopisi().subscribe(
+
+    kpService.getNaciniPlacanja(this.casopis_id).subscribe(
       (success) => {
-        //console.log(success);
-        this.casopisi = success;
-
-        for(let casopis of this.casopisi) {
-          console.log(casopis);
-          if(casopis.id == this.casopis_id ){
-            this.trazeni_casopis = casopis;
-            console.log(this.trazeni_casopis);
-          }
-        }
-
-        kpService.getNaciniPlacanja(this.trazeni_casopis).subscribe(
-          (success) => {
-            this.nacini_placanja = success;
-          },
-
-          (err) => {
-            console.log(err);
-          }
-        );
-
+        console.log(success);
+        this.nacini_placanja = success;
       },
 
       (err) => {
         console.log(err);
       }
     );
-
-
-
-
-
-
+    
 
   }
 
   ngOnInit() {
   }
 
-  placanje(nacinPlacanja){
-    switch(nacinPlacanja){
-      case "BANK":
+  kupi(nacinPlacanjaId){
+    console.log('nacinPlacanjaId: ' + nacinPlacanjaId);
+
+    switch(nacinPlacanjaId){
+      case '1':
+        // bank
+        console.log('bank');
+
+        this.kpService.placanjeBanka(this.rad_id, this.casopis_id).subscribe(
+          (success) => {
+            console.log(success);
+          },
+    
+          (err) => {
+            console.log(err);
+          }
+        );
+
         break;
-      case "PAYPAL":
+      case '2':
+        // paypal
+        console.log('paypal');
         break;
-      case "BITCOIN":
+      case '3':
+        // bitcoin
+        console.log('bitcoin');
         let transactionRequestDTO = {
           transaction_id : 1,
-          seller_id : this.trazeni_casopis.id,
-          seller_name : this.trazeni_casopis.name
+          // seller_id : this.trazeni_casopis.id,
+          // seller_name : this.trazeni_casopis.name
         }
         break;
     }

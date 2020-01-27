@@ -21,4 +21,5 @@ public class CustomerService {
         return customerRepository.save(customer);
     }
     public Customer findOneByMerchantId(String id) { return customerRepository.findOneByMerchantId(id); }
+    public Customer findOneBySellerId (Integer sellerId) { return customerRepository.findOneBySellerId(sellerId); }
 }
