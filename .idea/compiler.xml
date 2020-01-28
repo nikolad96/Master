@@ -7,18 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="banka-service" />
-        <module name="naucna-centrala" />
         <module name="demo" />
         <module name="load-balancer" />
-        <module name="Master" />
-        <module name="sellers" />
-        <module name="eureka" />
-        <module name="nc" />
         <module name="payment-card-center" />
+        <module name="eureka" />
+        <module name="naucna-centrala" />
+        <module name="sellers" />
+        <module name="paypal-service" />
         <module name="banka" />
         <module name="zuul-service" />
         <module name="bitcoin-service" />
-        <module name="paypal-service" />
+        <module name="NaucniCentar" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -28,9 +27,8 @@
       <module name="demo" target="1.8" />
       <module name="eureka" target="1.8" />
       <module name="load-balancer" target="1.8" />
-      <module name="Master" target="1.8" />
       <module name="naucna-centrala" target="1.8" />
-      <module name="nc" target="1.8" />
+      <module name="NaucniCentar" target="1.8" />
       <module name="payment-card-center" target="1.8" />
       <module name="paypal-service" target="1.8" />
       <module name="sellers" target="1.8" />
@@ -39,7 +37,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Master" options="-parameters" />
+      <module name="NaucniCentar" options="-parameters" />
       <module name="banka" options="-parameters" />
       <module name="banka-service" options="-parameters" />
       <module name="bitcoin-service" options="-parameters" />
@@ -47,7 +45,6 @@
       <module name="eureka" options="-parameters" />
       <module name="load-balancer" options="-parameters" />
       <module name="naucna-centrala" options="-parameters" />
-      <module name="nc" options="-parameters" />
       <module name="payment-card-center" options="-parameters" />
       <module name="paypal-service" options="-parameters" />
       <module name="sellers" options="-parameters" />

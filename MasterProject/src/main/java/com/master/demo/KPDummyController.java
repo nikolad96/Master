@@ -12,10 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.http.ssl.SSLContexts;
@@ -30,6 +27,7 @@ import java.security.KeyStore;
 import java.util.Collections;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping(value = "/KP")
 public class KPDummyController {
     @Autowired
@@ -70,5 +68,19 @@ public class KPDummyController {
         }catch(Exception e) {
             return REST_template.postForEntity("http://localhost:8082/bank", HTTP_request, String.class);
         }
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/get", produces = "application/json")
+    public @ResponseBody
+    ResponseEntity<Test> getAdminTasks() {
+
+        System.out.println("GETTTTT");
+        String x = "USPESNOOOOO";
+
+        Test t = new Test();
+        t.setId((long) 1);
+        t.setX("gasgas");
+
+        return new ResponseEntity<Test>(t,HttpStatus.OK);
     }
 }

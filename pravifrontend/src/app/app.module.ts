@@ -12,6 +12,7 @@ import { BankPageComponent } from './component/bank-page/bank-page.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import { PaypalCancelComponent } from './component/paypal-cancel/paypal-cancel.component';
+import { TestComponent } from './component/test/test.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { PaypalCancelComponent } from './component/paypal-cancel/paypal-cancel.c
     PaypalRedComponent,
     BankPageComponent,
     PaypalCancelComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,

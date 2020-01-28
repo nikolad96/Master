@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Master.iml" filepath="$PROJECT_DIR$/.idea/Master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NaucniCentar/NaucniCentar.iml" filepath="$PROJECT_DIR$/NaucniCentar/NaucniCentar.iml" />
       <module fileurl="file://$PROJECT_DIR$/Banka/banka.iml" filepath="$PROJECT_DIR$/Banka/banka.iml" />
       <module fileurl="file://$PROJECT_DIR$/banka-service/banka-service.iml" filepath="$PROJECT_DIR$/banka-service/banka-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/bitcoin-service/bitcoin-service.iml" filepath="$PROJECT_DIR$/bitcoin-service/bitcoin-service.iml" />
@@ -10,7 +11,6 @@
       <module fileurl="file://$PROJECT_DIR$/Eureka/eureka.iml" filepath="$PROJECT_DIR$/Eureka/eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/load-balancer/load-balancer.iml" filepath="$PROJECT_DIR$/load-balancer/load-balancer.iml" />
       <module fileurl="file://$PROJECT_DIR$/naucna-centrala/naucna-centrala.iml" filepath="$PROJECT_DIR$/naucna-centrala/naucna-centrala.iml" />
-      <module fileurl="file://$PROJECT_DIR$/NaucniCentar/nc.iml" filepath="$PROJECT_DIR$/NaucniCentar/nc.iml" />
       <module fileurl="file://$PROJECT_DIR$/payment-card-center/payment-card-center.iml" filepath="$PROJECT_DIR$/payment-card-center/payment-card-center.iml" />
       <module fileurl="file://$PROJECT_DIR$/paypal-service/paypal-service.iml" filepath="$PROJECT_DIR$/paypal-service/paypal-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/sellers/sellers.iml" filepath="$PROJECT_DIR$/sellers/sellers.iml" />

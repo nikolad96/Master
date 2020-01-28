@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="JavaScriptSettings">
-    <option name="languageLevel" value="ES6" />
-  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/Banka/pom.xml" />
-        <option value="$PROJECT_DIR$/Eureka/pom.xml" />
-        <option value="$PROJECT_DIR$/MasterProject/pom.xml" />
-        <option value="$PROJECT_DIR$/NaucniCentar/pom.xml" />
-        <option value="$PROJECT_DIR$/zuul-gateway/pom.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/zuul-service/pom.xml" />
         <option value="$PROJECT_DIR$/banka-service/pom.xml" />
         <option value="$PROJECT_DIR$/bitcoin-service/pom.xml" />
+        <option value="$PROJECT_DIR$/Eureka/pom.xml" />
         <option value="$PROJECT_DIR$/load-balancer/pom.xml" />
+        <option value="$PROJECT_DIR$/MasterProject/pom.xml" />
+        <option value="$PROJECT_DIR$/naucna-centrala/pom.xml" />
+        <option value="$PROJECT_DIR$/NaucniCentar/pom.xml" />
+        <option value="$PROJECT_DIR$/payment-card-center/pom.xml" />
         <option value="$PROJECT_DIR$/paypal-service/pom.xml" />
         <option value="$PROJECT_DIR$/sellers/pom.xml" />
-        <option value="$PROJECT_DIR$/payment-card-center/pom.xml" />
-        <option value="$PROJECT_DIR$/naucna-centrala/pom.xml" />
+        <option value="$PROJECT_DIR$/zuul-service/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" default="false" project-jdk-name="13" project-jdk-type="JavaSDK" />
 </project>

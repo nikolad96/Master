@@ -64,8 +64,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "frontend:build",
-            "sslKey": "../keystore/trustbankac.p12"
+            "sslKey": "keystore/front.key",
+            "sslCert": "keystore/front.crt",
+            "browserTarget": "frontend:build"
           },
           "configurations": {
             "production": {
