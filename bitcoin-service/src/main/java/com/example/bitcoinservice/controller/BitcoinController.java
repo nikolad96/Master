@@ -1,6 +1,7 @@
 package com.example.bitcoinservice.controller;
 
 
+import com.example.bitcoinservice.Monitor;
 import com.example.bitcoinservice.dto.*;
 import com.example.bitcoinservice.model.Seller;
 import com.example.bitcoinservice.model.Transaction;
@@ -67,7 +68,7 @@ public class BitcoinController {
     }
 
     @RequestMapping(value = "/transaction", method = RequestMethod.POST)
-    public ResponseEntity<CoingateCreateResponseDTO> transaction(@RequestBody TransactionRequestDTO request){
+    public ResponseEntity<PaymentResponseDTO> transaction(@RequestBody TransactionRequestDTO request){
         CoingateCreateRequestDTO coingateCreateRequest = new CoingateCreateRequestDTO();
 
 
@@ -93,58 +94,69 @@ public class BitcoinController {
         transaction.setTransactionStatus(TransactionStatus.PENDING);
 
         transactionRepo.save(transaction);
-        return coingateResponse;
+
+        PaymentResponseDTO response = new PaymentResponseDTO();
+        response.setMerchantOrderId(request.getTransaction_id());
+        response.setPaymentId(coingateResponse.getBody().getId());
+        response.setPaymentUrl(coingateResponse.getBody().getPayment_url());
+
+        Monitor m = new Monitor(coingateResponse.getBody().getId(), seller.getSecret(), request.getRad_id(), request.getSeller_id(), request.getBuyer_id());
+
+        Thread t = new Thread(m);
+        t.start();
+
+        return new ResponseEntity<PaymentResponseDTO>( response, HttpStatus.OK);
 
     }
 
-    @RequestMapping(value = "/monitor", method = RequestMethod.POST)
-    public ResponseEntity<JSONObject> monitorTransaction(@RequestBody MonitorCoingateDTO dto) throws Exception{
-
-        while(true) {
-            JSONObject get_body = new JSONObject();
-            int id = dto.getId();
-            get_body.put("id", id);
-            HttpHeaders post_header = new HttpHeaders();
-            post_header.set("Authorization", "Token " + dto.getSecret());
-            HttpEntity<JSONObject> get_request = new HttpEntity<>(get_body, post_header);
-            ResponseEntity<JSONObject> get_response = REST_template.exchange("https://api-sandbox.coingate.com/v2/orders/" + id, HttpMethod.GET, get_request, JSONObject.class);
-            String status = new String((String) get_response.getBody().get("status"));
-
-            if (status.equals("paid")){
-                // PRINT INFO SUCCESS
-                Transaction transaction = transactionRepo.findOneById(id);
-                transaction.setTransactionStatus(TransactionStatus.PAID);
-                transactionRepo.save(transaction);
-                return get_response;
-            }
-
-            else if(status.equals("invalid")){
-                // PRINT INFO INVALID EXPIRED OR CANCELED
-                Transaction transaction = transactionRepo.findOneById(id);
-                transaction.setTransactionStatus(TransactionStatus.INVALID);
-                transactionRepo.save(transaction);
-                return get_response;
-            }
-
-            else if(status.equals("expired")){
-                Transaction transaction = transactionRepo.findOneById(id);
-                transaction.setTransactionStatus(TransactionStatus.EXPIRED);
-                transactionRepo.save(transaction);
-                return get_response;
-            }
-
-            else if(status.equals("canceled")){
-                Transaction transaction = transactionRepo.findOneById(id);
-                transaction.setTransactionStatus(TransactionStatus.CANCELLED);
-                transactionRepo.save(transaction);
-                return get_response;
-            }
-
-            else {
-                System.out.println(status);
-                Thread.sleep(5000);
-            }
-        }
-
-    }
+//    @RequestMapping(value = "/monitor", method = RequestMethod.POST)
+//    public ResponseEntity<JSONObject> monitorTransaction(@RequestBody MonitorCoingateDTO dto) throws Exception{
+//
+//        while(true) {
+//            JSONObject get_body = new JSONObject();
+//            int id = dto.getId();
+//            get_body.put("id", id);
+//            HttpHeaders post_header = new HttpHeaders();
+//            post_header.set("Authorization", "Token " + dto.getSecret());
+//            HttpEntity<JSONObject> get_request = new HttpEntity<>(get_body, post_header);
+//            ResponseEntity<JSONObject> get_response = REST_template.exchange("https://api-sandbox.coingate.com/v2/orders/" + id, HttpMethod.GET, get_request, JSONObject.class);
+//            String status = new String((String) get_response.getBody().get("status"));
+//
+//            if (status.equals("paid")){
+//                // PRINT INFO SUCCESS
+//                Transaction transaction = transactionRepo.findOneById(id);
+//                transaction.setTransactionStatus(TransactionStatus.PAID);
+//                transactionRepo.save(transaction);
+//                return get_response;
+//            }
+//
+//            else if(status.equals("invalid")){
+//                // PRINT INFO INVALID EXPIRED OR CANCELED
+//                Transaction transaction = transactionRepo.findOneById(id);
+//                transaction.setTransactionStatus(TransactionStatus.INVALID);
+//                transactionRepo.save(transaction);
+//                return get_response;
+//            }
+//
+//            else if(status.equals("expired")){
+//                Transaction transaction = transactionRepo.findOneById(id);
+//                transaction.setTransactionStatus(TransactionStatus.EXPIRED);
+//                transactionRepo.save(transaction);
+//                return get_response;
+//            }
+//
+//            else if(status.equals("canceled")){
+//                Transaction transaction = transactionRepo.findOneById(id);
+//                transaction.setTransactionStatus(TransactionStatus.CANCELLED);
+//                transactionRepo.save(transaction);
+//                return get_response;
+//            }
+//
+//            else {
+//                System.out.println(status);
+//                Thread.sleep(5000);
+//            }
+//        }
+//
+//    }
 }

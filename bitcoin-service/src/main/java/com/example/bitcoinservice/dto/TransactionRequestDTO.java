@@ -9,8 +9,15 @@ public class TransactionRequestDTO{
     private Integer buyer_id;
     private String buyer_name;
     private Double amount;
+    private Integer rad_id;
 
+    public Integer getRad_id() {
+        return rad_id;
+    }
 
+    public void setRad_id(Integer rad_id) {
+        this.rad_id = rad_id;
+    }
 
     public String getSeller_name() {
         return seller_name;
