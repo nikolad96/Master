@@ -35,7 +35,6 @@ public class PccController {
         transaction.setAmount(pccRequestDTO.getAmount());
         transaction.setState(pccRequestDTO.getState());
         transaction.setTimestamp(pccRequestDTO.getAcquirerTimestamp());
-//        transaction.getCustomerId(pccRequestDTO);
         transaction = transactionService.save(transaction);
 
         HttpEntity<PccRequestDTO> entity = new HttpEntity<>(pccRequestDTO);
@@ -46,10 +45,18 @@ public class PccController {
 
     @RequestMapping(value  = "/updateTransaction/{id}", method = RequestMethod.PUT)
     private ResponseEntity<String> updateTransaction(@RequestBody TransactionStateDTO paymentStatusDTO, @PathVariable("id") String id){
-        Transaction transaction = transactionService.findOneById(Integer.parseInt(id));
-        transaction.setState(paymentStatusDTO.getTransactionState());
-        transaction = transactionService.save(transaction);
-        return new ResponseEntity<>("[PCC] Transakcija update-ovana", HttpStatus.OK);
+        try{
+
+            Transaction transaction = transactionService.findOneById(Integer.parseInt(id));
+            transaction.setState(paymentStatusDTO.getTransactionState());
+            transaction = transactionService.save(transaction);
+            System.out.println("Transakcija update-ovana");
+            return new ResponseEntity<>("[PCC] Transakcija update-ovana", HttpStatus.OK);
+
+        }catch(Exception e){
+            System.out.println("Transakcija nije update-ovana");
+            return new ResponseEntity<>("[PCC] Transakcija nije update-ovana", HttpStatus.OK);
+        }
     }
 
     private boolean isValidRequest(PccRequestDTO pccRequestDTO){

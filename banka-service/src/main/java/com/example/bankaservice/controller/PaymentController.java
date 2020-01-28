@@ -19,9 +19,9 @@ import java.util.Date;
 @RequestMapping(value="/bankservice")
 public class PaymentController {
 
-    private final String SUCCESS_URL = "/bank-page";
-    private final String FAILED_URL = "FAILED";
-    private final String ERROR_URL = "";
+//    private final String SUCCESS_URL = "/bank-page";
+//    private final String FAILED_URL = "FAILED";
+//    private final String ERROR_URL = "";
 
     @Autowired
     private RestTemplate restTemplate;
@@ -71,9 +71,9 @@ public class PaymentController {
 //    }
 
     @RequestMapping(value  = "/updateTransaction/{id}", method = RequestMethod.PUT)
-    private ResponseEntity<String> updateTransaction(@RequestBody TransactionStateDTO paymentStatusDTO, @PathVariable("id") String id){
+    private ResponseEntity<String> updateTransaction(@RequestBody TransactionStateDTO transactionStateDTO, @PathVariable("id") String id){
         Transaction transaction = transactionService.findOneById(Integer.parseInt(id));
-        transaction.setState(paymentStatusDTO.getTransactionState());
+        transaction.setState(transactionStateDTO.getTransactionState());
         transaction = transactionService.save(transaction);
         return new ResponseEntity<>("[bank-service]: Transakcija update-ovana", HttpStatus.OK);
     }

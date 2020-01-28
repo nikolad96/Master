@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin
@@ -46,7 +47,8 @@ public class BankController {
         Transaction transaction = new Transaction();
         transaction.setMerchantOrderId(paymentRequestDTO.getMerchantOrderId());
         transaction.setAmount(paymentRequestDTO.getAmount());
-        transaction.setTimestamp(paymentRequestDTO.getMerchantTimestamp());
+//        transaction.setTimestamp(paymentRequestDTO.getMerchantTimestamp());
+        transaction.setTimestamp(new Date());
         transaction.setCustomer(merchant);
 
         PaymentResponseDTO paymentResponseDTO = new PaymentResponseDTO();
@@ -61,7 +63,7 @@ public class BankController {
             paymentResponseDTO.setPaymentUrl(paymentRequestDTO.getFailedUrl());
             paymentResponseDTO.setPaymentId(null);
 
-            return new ResponseEntity<PaymentResponseDTO>(paymentResponseDTO, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<PaymentResponseDTO>(paymentResponseDTO, HttpStatus.OK);
         }
 
         System.out.println("Zahtev je ispravan.");
@@ -69,7 +71,7 @@ public class BankController {
         transaction = transactionService.save(transaction);
 
         paymentResponseDTO.setPaymentUrl(paymentRequestDTO.getSuccessUrl());
-        paymentResponseDTO.setPaymentId(transaction.getId());
+        paymentResponseDTO.setPaymentId(transaction.getMerchantOrderId());
 
         return new ResponseEntity<PaymentResponseDTO>(paymentResponseDTO, HttpStatus.OK);
 
@@ -79,12 +81,26 @@ public class BankController {
     @RequestMapping(value = "/checkAccountAcquirer", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public ResponseEntity<?> checkAccountAcquirer(@RequestBody CardRequestDTO cardRequestDTO) {
 
-        Transaction transaction = transactionService.findOneById(cardRequestDTO.getPaymentId());
+        Transaction transaction = transactionService.findOneByMerchantOrderId(cardRequestDTO.getPaymentId());
         Customer acquirer = transaction.getCustomer();
 
         Account account = accountService.findOneByPan(cardRequestDTO.getPan());
-        Customer issuer = account.getCustomer();
+        Customer issuer = new Customer();
+        try{
+            issuer = account.getCustomer();
+        }catch(NullPointerException e){
+            System.out.println("Nije dobar pan");
 
+            transaction.setState(TransactionState.ERROR);
+            transaction = transactionService.save(transaction);
+            updateTransactionBankService(transaction);
+
+            return new ResponseEntity<AcquirerResponseDTO>(new AcquirerResponseDTO(transaction.getId(), transaction.getTimestamp(), transaction.getState(),
+                    "Greska u podacima kartice."), HttpStatus.BAD_REQUEST);
+        }
+
+        transaction.setState(TransactionState.IN_PROCESS);
+        transaction = transactionService.save(transaction);
 
         if(issuer.getAccount().getBank().getId() != acquirer.getAccount().getBank().getId()){
             System.out.println("Banka prodavca nije ista kao banka kupca");
@@ -161,7 +177,7 @@ public class BankController {
     public ResponseEntity<?> checkAccountIssuer(@RequestBody PccRequestDTO pccRequestDTO) {
 
         CardRequestDTO cardRequestDTO = pccRequestDTO.getCardRequestDTO();
-        Transaction transaction = transactionService.findOneById(cardRequestDTO.getPaymentId());
+        Transaction transaction = transactionService.findOneByMerchantOrderId(cardRequestDTO.getPaymentId());
 
         List<Account> accounts = accountService.findAccount(cardRequestDTO.getPan(), cardRequestDTO.getSecurityCode(), cardRequestDTO.getCardholderName(), cardRequestDTO.getExpirationDate());
         System.out.println("accounts size: " + accounts.size());
@@ -220,7 +236,7 @@ public class BankController {
     @RequestMapping(value = "/executePayment", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public ResponseEntity<?> executePayment(@RequestBody CardRequestDTO cardRequestDTO) {
 
-        Transaction transaction = transactionService.findOneById(cardRequestDTO.getPaymentId());
+        Transaction transaction = transactionService.findOneByMerchantOrderId(cardRequestDTO.getPaymentId());
         Account account = accountService.findOneByPan(cardRequestDTO.getPan());
 
         account.setBalance(account.getBalance() - transaction.getAmount());
@@ -232,9 +248,10 @@ public class BankController {
 
         updateTransactionBankService(transaction);
         updateTransactionPcc(transaction);
+        updateKupovinaNC(transaction.getMerchantOrderId());
 
-        FinalResponseDTO finalResponseDTO = new FinalResponseDTO(transaction.getId(), transaction.getId(),
-                transaction.getTimestamp(), transaction.getId(), transaction.getState());
+        FinalResponseDTO finalResponseDTO = new FinalResponseDTO(transaction.getMerchantOrderId(), transaction.getId(),
+                transaction.getTimestamp(), transaction.getMerchantOrderId(), transaction.getState());
 
         return new ResponseEntity<FinalResponseDTO>(finalResponseDTO, HttpStatus.OK);
 
@@ -276,6 +293,10 @@ public class BankController {
         HttpEntity<TransactionStateDTO> entity = new HttpEntity<TransactionStateDTO>(new TransactionStateDTO(transaction.getState()));
         ResponseEntity<String> responseEntity = restTemplate.exchange("http://localhost:8092/pcc/updateTransaction/" + transaction.getId(),
                 HttpMethod.PUT, entity, String.class);
+    }
+
+    private void updateKupovinaNC(Integer paymentId) {
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity("http://localhost:8096/KP/updateKupovina/" + paymentId, String.class);
     }
 
 }

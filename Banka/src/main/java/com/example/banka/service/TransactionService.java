@@ -17,7 +17,6 @@ public class TransactionService {
     public List<Transaction> findAll(){
         return transactionRepository.findAll();
     }
-    public Transaction save(Transaction transaction){
-        return transactionRepository.save(transaction);
-    }
+    public Transaction save(Transaction transaction){ return transactionRepository.save(transaction); }
+    public Transaction findOneByMerchantOrderId(Integer id) { return transactionRepository.findOneByMerchantOrderId(id); }
 }

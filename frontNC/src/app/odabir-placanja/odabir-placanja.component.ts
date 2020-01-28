@@ -51,6 +51,8 @@ export class OdabirPlacanjaComponent implements OnInit {
         this.kpService.placanjeBanka(this.rad_id, this.casopis_id).subscribe(
           (success) => {
             console.log(success);
+            console.log('paymentUrl:' + success.paymentUrl);
+            window.location.href = success.paymentUrl + '/' + success.paymentId;
           },
     
           (err) => {

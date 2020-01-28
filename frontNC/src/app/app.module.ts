@@ -18,6 +18,8 @@ import { CasopisAdminComponent } from './casopis-admin/casopis-admin.component';
 import { IspravkaComponent } from './ispravka/ispravka.component';
 import { CasopisiComponent } from './casopisi/casopisi.component';
 import { OdabirPlacanjaComponent } from './odabir-placanja/odabir-placanja.component';
+import { BankPageComponent } from './bank-page/bank-page.component';
+import { BankPath } from './BankPath';
 
 const Routes = [
   { path: "", component: MainPageComponent },
@@ -30,7 +32,8 @@ const Routes = [
   { path: "casopis-admin", component: CasopisAdminComponent },
   { path: "ispravka", component: IspravkaComponent },
   { path: "casopisi", component: CasopisiComponent },
-  { path: "odabir_placanja/:id_casopis/:id_rad", component: OdabirPlacanjaComponent}
+  { path: "odabir_placanja/:id_casopis/:id_rad", component: OdabirPlacanjaComponent},
+  { path: "bank-page/:id_payment", component: BankPageComponent }
 ]
 
 @NgModule({
@@ -46,7 +49,8 @@ const Routes = [
     CasopisAdminComponent,
     IspravkaComponent,
     CasopisiComponent,
-    OdabirPlacanjaComponent
+    OdabirPlacanjaComponent,
+    BankPageComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,7 @@ const Routes = [
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }, ZuulPath],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }, ZuulPath, BankPath],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

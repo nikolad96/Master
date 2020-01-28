@@ -7,6 +7,7 @@ import com.example.naucnacentrala.repository.KorisnikRepository;
 import com.example.naucnacentrala.security.TokenUtils;
 import com.example.naucnacentrala.service.CasopisService;
 import com.example.naucnacentrala.service.KorisnikService;
+import com.example.naucnacentrala.service.KupovinaService;
 import com.example.naucnacentrala.service.RadService;
 import com.example.naucnacentrala.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,9 @@ public class KPController {
 
     @Autowired
     private RadService radService;
+
+    @Autowired
+    private KupovinaService kupovinaService;
 
     @RequestMapping(value = "/allMagazines", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody List<CasopisDTO> izlistajSve(HttpServletRequest request){
@@ -73,6 +77,7 @@ public class KPController {
                         if(korisnik.getId().equals(k.getId())){
                             System.out.println("kupljen casopis: " + c.getId());
                             kupljen = true;
+                            break;
                         }
                     }
 
@@ -80,6 +85,7 @@ public class KPController {
                         if(korisnik.getId().equals(k.getId())){
                             System.out.println("kupljen rad: " + rad.getId());
                             kupljen = true;
+                            break;
                         }
                     }
                     radDto.setKupljen(kupljen);
@@ -156,9 +162,14 @@ public class KPController {
     }
 
     @RequestMapping(value = "/paymentBank/{radId}/{casopisId}", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<PaymentResponseDTO> paymentBank(@PathVariable("radId") Integer radId, @PathVariable("casopisId") Integer casopisId) {
+    public ResponseEntity<PaymentResponseDTO> paymentBank(HttpServletRequest request, @PathVariable("radId") Integer radId, @PathVariable("casopisId") Integer casopisId) {
 
         System.out.println("Usao u paymentBank");
+
+        String username = Utils.getUsernameFromRequest(request, tokenUtils);
+        System.out.println("username: " + username);
+        Korisnik korisnik = korisnikService.findOneByUsername(username);
+
         System.out.println("radId: " + radId + "; casopisId: " + casopisId);
 
         Rad rad = radService.findOneById(radId);
@@ -172,9 +183,21 @@ public class KPController {
 
         System.out.println("return");
 
-        return new ResponseEntity<PaymentResponseDTO>(new PaymentResponseDTO(paymentResponseDTO.getBody().getPaymentUrl(), paymentResponseDTO.getBody().getPaymentId(), paymentResponseDTO.getBody().getMerchantOrderId()), HttpStatus.OK);
+        Kupovina kupovina = new Kupovina(radId, paymentResponseDTO.getBody().getPaymentId(), korisnik);
+        kupovina = kupovinaService.save(kupovina);
+
+        return new ResponseEntity<PaymentResponseDTO>(new PaymentResponseDTO(paymentResponseDTO.getBody().getPaymentUrl(), paymentResponseDTO.getBody().getPaymentId()), HttpStatus.OK);
 
 //        return restTemplate.postForEntity("http://localhost:8086/banka-service/bankservice/payment", httpRequest, PaymentResponseDTO.class);
+    }
+
+    @RequestMapping(value  = "/updateKupovina/{paymentId}", method = RequestMethod.GET)
+    private ResponseEntity<String> updateTransaction(@PathVariable("paymentId") Integer paymentId){
+        Kupovina kupovina = kupovinaService.findOneByPaymentId(paymentId);
+        Rad rad = radService.findOneById(kupovina.getRadId());
+        rad.getKorisniciPlatili().add(kupovina.getKorisnik());
+        rad = radService.save(rad);
+        return new ResponseEntity<>("[NC]: Kupovina update-ovana", HttpStatus.OK);
     }
 
 }
