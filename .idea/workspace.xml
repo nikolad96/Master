@@ -2,130 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cb43b3f-1e91-4f85-8025-0a39056cbe8c" name="Default Changelist" comment="banka">
-      <change afterPath="$PROJECT_DIR$/Banka/src/main/resources/keystore/front.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Banka/src/main/resources/keystore/trustfront.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Eureka/src/main/resources/keystore/eureka.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Eureka/src/main/resources/keystore/trusteureka.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MasterProject/keystore/front.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MasterProject/src/main/java/com/master/demo/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MasterProject/src/main/resources/keystore/front.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NaucniCentar/src/main/resources/keystore/front.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NaucniCentar/src/main/resources/keystore/trustfront.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banka-service/src/main/resources/keystore/front.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banka-service/src/main/resources/keystore/trustfront.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bitcoin-service/src/main/resources/keystore/front.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bitcoin-service/src/main/resources/keystore/trustfront.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/load-balancer/src/main/resources/keystore/load.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/load-balancer/src/main/resources/keystore/trustload.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/src/main/resources/keystore/front.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payment-card-center/src/main/resources/keystore/trustfront.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paypal-service/src/main/resources/keystore/front.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paypal-service/src/main/resources/keystore/trustfront.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pravifrontend/keystore/front.crt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pravifrontend/keystore/front.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pravifrontend/src/app/component/test/test.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pravifrontend/src/app/component/test/test.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pravifrontend/src/app/component/test/test.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pravifrontend/src/app/component/test/test.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zuul-service/src/main/resources/keystore/trustzuul.p12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zuul-service/src/main/resources/keystore/zuul.p12" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Master.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/banka.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/banka.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/BankaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/BankaApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/META-INF/banka.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/BankaApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/BankaApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/CORSFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/CORSFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/DummyBankController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/DummyBankController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/controller/BankController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/controller/BankController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/controller/BankController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/AcquirerResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/AcquirerResponseDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/CardRequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/CardRequestDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/CardResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/CardResponseDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/FinalResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/FinalResponseDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/IssuerResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/IssuerResponseDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/PaymentRequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/PaymentRequestDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/PaymentResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/PaymentResponseDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/PccRequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/PccRequestDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/TransactionStateDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/dto/TransactionStateDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/model/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/model/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/model/Bank.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/model/Bank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/model/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/model/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/model/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/model/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/model/TransactionState.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/model/TransactionState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/repository/AccountRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/repository/AccountRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/repository/CustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/repository/CustomerRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/repository/TransactionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/repository/TransactionRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/service/AccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/service/AccountService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/service/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/service/CustomerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/service/TransactionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/service/TransactionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/keystore/bankaappc.cer" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/keystore/bankaappc.p12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/keystore/bankac.cer" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/keystore/keystore.p12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/keystore/naucnac.cer" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/keystore/trustbankaappc.p12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/test-classes/com/example/banka/BankaApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/test-classes/com/example/banka/BankaApplicationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eureka/eureka.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Eureka/eureka.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eureka/src/main/java/com/example/eureka/EurekaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Eureka/src/main/java/com/example/eureka/EurekaApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eureka/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Eureka/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eureka/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Eureka/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eureka/target/classes/com/example/eureka/EurekaApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/Eureka/target/classes/com/example/eureka/EurekaApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eureka/target/test-classes/com/example/eureka/EurekaApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/Eureka/target/test-classes/com/example/eureka/EurekaApplicationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MasterProject/demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MasterProject/demo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MasterProject/keystore/keystore.p12" beforeDir="false" afterPath="$PROJECT_DIR$/MasterProject/keystore/keystore.p12" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MasterProject/src/main/java/com/master/demo/KPDummyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MasterProject/src/main/java/com/master/demo/KPDummyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MasterProject/src/main/java/com/master/demo/MasterProjectApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MasterProject/src/main/java/com/master/demo/MasterProjectApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MasterProject/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/MasterProject/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MasterProject/src/main/resources/keystore/keystore.p12" beforeDir="false" afterPath="$PROJECT_DIR$/MasterProject/src/main/resources/keystore/keystore.p12" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MasterProject/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/MasterProject/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MasterProject/target/classes/com/master/demo/ConnectorConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/MasterProject/target/classes/com/master/demo/ConnectorConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MasterProject/target/classes/com/master/demo/KPDummyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MasterProject/target/classes/com/master/demo/KPDummyController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MasterProject/target/classes/com/master/demo/MasterProjectApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/MasterProject/target/classes/com/master/demo/MasterProjectApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MasterProject/target/classes/keystore/keystore.p12" beforeDir="false" afterPath="$PROJECT_DIR$/MasterProject/target/classes/keystore/keystore.p12" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MasterProject/target/test-classes/com/master/demo/MasterProjectApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/MasterProject/target/test-classes/com/master/demo/MasterProjectApplicationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NaucniCentar/NaucniCentar.iml" beforeDir="false" afterPath="$PROJECT_DIR$/NaucniCentar/NaucniCentar.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NaucniCentar/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/NaucniCentar/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NaucniCentar/target/classes/META-INF/NaucniCentar.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NaucniCentar/target/classes/META-INF/nc.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NaucniCentar/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/NaucniCentar/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NaucniCentar/target/classes/com/example/nc/NCDummyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/NaucniCentar/target/classes/com/example/nc/NCDummyController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NaucniCentar/target/classes/com/example/nc/NaucniCentarApplication$SSLConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/NaucniCentar/target/classes/com/example/nc/NaucniCentarApplication$SSLConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NaucniCentar/target/classes/com/example/nc/NaucniCentarApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/NaucniCentar/target/classes/com/example/nc/NaucniCentarApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NaucniCentar/target/classes/com/example/nc/dto/PaymentDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/NaucniCentar/target/classes/com/example/nc/dto/PaymentDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NaucniCentar/target/classes/com/example/nc/dto/PaymentResponseDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/NaucniCentar/target/classes/com/example/nc/dto/PaymentResponseDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NaucniCentar/target/test-classes/com/example/nc/NaucniCentarApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/NaucniCentar/target/test-classes/com/example/nc/NaucniCentarApplicationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/BankaServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/BankaServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banka-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bitcoin-service/src/main/java/com/example/bitcoinservice/BitcoinServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/bitcoin-service/src/main/java/com/example/bitcoinservice/BitcoinServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bitcoin-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bitcoin-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/load-balancer/src/main/java/com/example/loadbalancer/LoadBalancerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/load-balancer/src/main/java/com/example/loadbalancer/LoadBalancerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/load-balancer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/load-balancer/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/PaymentCardCenterApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/PaymentCardCenterApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-card-center/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/payment-card-center/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/PaypalServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/PaypalServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paypal-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/paypal-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pravifrontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/pravifrontend/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pravifrontend/keystore/bankaappc.p12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pravifrontend/keystore/bankac.p12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pravifrontend/keystore/keystore.p12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pravifrontend/keystore/naucnac.p12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pravifrontend/keystore/trustbankaappc.p12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pravifrontend/keystore/trustbankac.p12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pravifrontend/keystore/trustnaucnac.p12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pravifrontend/keystore/trustnaucni.p12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pravifrontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/pravifrontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pravifrontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/pravifrontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pravifrontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pravifrontend/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pravifrontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pravifrontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-service/src/main/java/com/example/zuulservice/ZuulServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-service/src/main/java/com/example/zuulservice/ZuulServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/controller/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/service/TransactionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/KPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/KPController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,6 +57,9 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="1" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
@@ -185,7 +70,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/sellers/src/main/resources/keystore" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/dto" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -208,11 +93,7 @@
       <recent name="com.example.paymentcardcenter.model" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\nikol\Desktop\SEP\Master\paypal-service\src\main\resources\keystore" />
-      <recent name="C:\Users\nikol\Desktop\SEP\Master\payment-card-center\src\main\resources\keystore" />
-      <recent name="C:\Users\nikol\Desktop\SEP\Master\NaucniCentar\src\main\resources\keystore" />
-      <recent name="C:\Users\nikol\Desktop\SEP\Master\bitcoin-service\src\main\resources\keystore" />
-      <recent name="C:\Users\nikol\Desktop\SEP\Master\banka-service\src\main\resources\keystore" />
+      <recent name="D:\Milica\fakultet\master\projekat\Master\naucna-centrala\src\main\java\com\example\naucnacentrala\dto" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -234,72 +115,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.SellersApplication">
-    <configuration name="BitcoinServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.bitcoinservice.BitcoinServiceApplication" />
-      <module name="bitcoin-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.bitcoinservice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NaucniCentarApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.nc.NaucniCentarApplication" />
-      <module name="NaucniCentar" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.nc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PaymentCardCenterApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.paymentcardcenter.PaymentCardCenterApplication" />
-      <module name="payment-card-center" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.paymentcardcenter.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PaypalServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.paypalservice.PaypalServiceApplication" />
-      <module name="paypal-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.paypalservice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SellersApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.sellers.SellersApplication" />
-      <module name="sellers" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.sellers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="E2E Tests (frontend)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/pravifrontend/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -417,22 +233,6 @@
       <envs />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Application.BitcoinServiceApplication" />
-      <item itemvalue="Application.NaucniCentarApplication" />
-      <item itemvalue="Application.PaymentCardCenterApplication" />
-      <item itemvalue="Application.PaypalServiceApplication" />
-      <item itemvalue="Application.SellersApplication" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.SellersApplication" />
-        <item itemvalue="Application.PaypalServiceApplication" />
-        <item itemvalue="Application.PaymentCardCenterApplication" />
-        <item itemvalue="Application.NaucniCentarApplication" />
-        <item itemvalue="Application.BitcoinServiceApplication" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -451,7 +251,8 @@
       <workItem from="1577484115350" duration="10834000" />
       <workItem from="1578226933356" duration="313000" />
       <workItem from="1579523583668" duration="52521000" />
-      <workItem from="1579890200434" duration="34633000" />
+      <workItem from="1579890200434" duration="35438000" />
+      <workItem from="1580231504204" duration="5841000" />
     </task>
     <servers />
   </component>
@@ -482,25 +283,33 @@
     <option name="LAST_COMMIT_MESSAGE" value="zuul, banka-service" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="872" y="359" key="#Project_Structure" timestamp="1580244978988">
+    <state x="92" y="92" width="2376" height="1216" key="DiffContextDialog" timestamp="1580245707806">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="359" key="#Project_Structure/0.0.2560.1400@0.0.2560.1400" timestamp="1580244978988" />
-    <state width="2517" height="399" key="GridCell.Tab.0.bottom" timestamp="1580245126313">
+    <state x="92" y="92" width="2376" height="1216" key="DiffContextDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1580245707806" />
+    <state x="1060" y="456" key="FileChooserDialogImpl" timestamp="1580245631977">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1580245126313" />
-    <state width="2517" height="399" key="GridCell.Tab.0.center" timestamp="1580245126312">
+    <state x="1060" y="456" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1580245631977" />
+    <state width="1258" height="399" key="GridCell.Tab.0.bottom" timestamp="1580245639461">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1580245126312" />
-    <state width="2517" height="399" key="GridCell.Tab.0.left" timestamp="1580245126312">
+    <state width="1258" height="399" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1580245639461" />
+    <state width="1258" height="399" key="GridCell.Tab.0.center" timestamp="1580245639461">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1580245126312" />
-    <state width="2517" height="399" key="GridCell.Tab.0.right" timestamp="1580245126313">
+    <state width="1258" height="399" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1580245639461" />
+    <state width="1258" height="399" key="GridCell.Tab.0.left" timestamp="1580245639461">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1580245126313" />
+    <state width="1258" height="399" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1580245639461" />
+    <state width="1258" height="399" key="GridCell.Tab.0.right" timestamp="1580245639461">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1258" height="399" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1580245639461" />
+    <state x="992" y="417" key="MultipleFileMergeDialog" timestamp="1580245552764">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="992" y="417" key="MultipleFileMergeDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1580245552764" />
   </component>
 </project>

@@ -283,6 +283,15 @@ public class BankController {
 
     }
 
+    @RequestMapping(value  = "/updateTransaction/{id}", method = RequestMethod.PUT)
+    private ResponseEntity<String> updateTransaction(@RequestBody TransactionStateDTO transactionStateDTO, @PathVariable("id") String id){
+        Transaction transaction = transactionService.findOneByMerchantOrderId(Integer.parseInt(id));
+        transaction.setState(transactionStateDTO.getTransactionState());
+        transaction = transactionService.save(transaction);
+        updateTransactionPcc(transaction);
+        return new ResponseEntity<>("[bank-service]: Transakcija update-ovana", HttpStatus.OK);
+    }
+
     private void updateTransactionBankService(Transaction transaction) {
         HttpEntity<TransactionStateDTO> entity = new HttpEntity<TransactionStateDTO>(new TransactionStateDTO(transaction.getState()));
         ResponseEntity<String> responseEntity = restTemplate.exchange("http://localhost:8085/bankservice/updateTransaction/" + transaction.getMerchantOrderId(),
