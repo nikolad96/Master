@@ -2,29 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cb43b3f-1e91-4f85-8025-0a39056cbe8c" name="Default Changelist" comment="banka">
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/BankPath.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/bank-page/bank-page.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/bank-page/bank-page.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/bank-page/bank-page.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/bank-page/bank-page.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/model/CardRequestDTO.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/model/Kupovina.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/repository/KupovinaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/service/KupovinaService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/controller/BankController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/repository/TransactionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/repository/TransactionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/service/TransactionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/controller/BankController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/controller/BankController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/repository/TransactionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/repository/TransactionRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/service/TransactionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/service/TransactionService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontNC/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontNC/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontNC/src/app/odabir-placanja/odabir-placanja.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontNC/src/app/odabir-placanja/odabir-placanja.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontNC/src/app/services/kp/kp.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontNC/src/app/services/kp/kp.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/service/TransactionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/KPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/KPController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/dto/PaymentResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/dto/PaymentResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/controller/PccController.java" beforeDir="false" afterPath="$PROJECT_DIR$/payment-card-center/src/main/java/com/example/paymentcardcenter/controller/PccController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +123,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.IssuerBankaApplication">
+  <component name="RunManager" selected="Spring Boot.BankaServiceApplication">
     <configuration name="E2E Tests (frontend)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/pravifrontend/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -285,17 +268,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3ffaf428" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@a60650af" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3ffaf428" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@dee7696a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3ffaf428" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@92fa170a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@a60650af" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@fadc9c24" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -320,7 +298,8 @@
       <workItem from="1577484115350" duration="10834000" />
       <workItem from="1578226933356" duration="313000" />
       <workItem from="1579523583668" duration="52521000" />
-      <workItem from="1579890200434" duration="34633000" />
+      <workItem from="1579890200434" duration="35438000" />
+      <workItem from="1580231504204" duration="5841000" />
     </task>
     <servers />
   </component>

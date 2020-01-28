@@ -236,7 +236,6 @@ public class KPController {
                 r.setKorisniciPlatili(korisnici);
 
                 return new ResponseEntity<>(HttpStatus.OK);
-                break;
             case "invalid":
                 break;
         }

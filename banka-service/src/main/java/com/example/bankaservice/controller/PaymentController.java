@@ -44,7 +44,7 @@ public class PaymentController {
         transaction.setTimestamp(new Date());
         transaction.setState(TransactionState.IN_PROCESS);
         transaction.setCustomer(customer);
-        transaction = transactionService.save(transaction);
+        transaction = transactionService.firstSave(transaction);
 
         PaymentRequestDTO paymentRequestDTO = new PaymentRequestDTO(customer.getMerchantId(),
                 customer.getMerchantPassword(), paymentDTO.getAmount(), transaction.getId(), transaction.getTimestamp(), "/bank-page", "/fail", "/error");
