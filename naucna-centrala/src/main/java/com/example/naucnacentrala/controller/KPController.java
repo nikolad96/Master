@@ -200,4 +200,49 @@ public class KPController {
         return new ResponseEntity<>("[NC]: Kupovina update-ovana", HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/paymentBitcoin/{radId}/{casopisId}/{userId}", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<PaymentResponseDTO> paymentBitcoin(@PathVariable("radId") Integer radId, @PathVariable("casopisId") Integer casopisId, @PathVariable("userId") Integer userId){
+        PaymentBitcoinDTO request = new PaymentBitcoinDTO();
+        Casopis c = casopisService.findOneById(casopisId);
+        Rad r = radService.findOneById(radId);
+        Korisnik k = korisnikService.findOneById(userId);
+
+        request.setAmount(r.getCena());
+        request.setSeller_id(c.getId());
+        request.setSeller_name(c.getNaziv());
+        request.setTransaction_id(1);
+        request.setBuyer_id(k.getId());
+        request.setBuyer_name(k.getIme());
+        request.setRad_id(radId);
+
+        ResponseEntity<PaymentResponseDTO> paymentResponse = restTemplate.postForEntity("http://localhost:8090/bitcoin-service/transaction", request, PaymentResponseDTO.class);
+
+        return paymentResponse;
+
+    }
+
+    @RequestMapping(value = "/paid/{radId}/{casopisId}/{userId}", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<String> paid(@PathVariable("radId") Integer radId, @PathVariable("casopisId") Integer casopisId, @PathVariable("userId") Integer userId, @RequestBody StatusDTO dto){
+        Casopis c = casopisService.findOneById(casopisId);
+        Rad r = radService.findOneById(radId);
+        Korisnik k = korisnikService.findOneById(userId);
+
+        switch(dto.getStatus()){
+            case "paid":
+                List<Korisnik> korisnici = r.getKorisniciPlatili();
+
+                korisnici.add(k);
+
+                r.setKorisniciPlatili(korisnici);
+
+                return new ResponseEntity<>(HttpStatus.OK);
+                break;
+            case "invalid":
+                break;
+        }
+
+        return new ResponseEntity<>(HttpStatus.OK);
+
+    }
+
 }
