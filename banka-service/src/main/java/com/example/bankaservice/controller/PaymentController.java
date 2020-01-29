@@ -53,7 +53,7 @@ public class PaymentController {
         System.out.println("merchantId: " + customer.getMerchantId() + "; merchantPassword: " + customer.getMerchantPassword()
                          + "; amount: " + paymentDTO.getAmount() + "; merchantOrderId: " + transaction.getId() + "; merchantTimestamp: " + transaction.getTimestamp());
 
-        ResponseEntity<PaymentResponseDTO> response =  restTemplate.postForEntity("http://localhost:8082/bank/checkPayment", HReq, PaymentResponseDTO.class);
+        ResponseEntity<PaymentResponseDTO> response =  restTemplate.postForEntity("https://localhost:8082/bank/checkPayment", HReq, PaymentResponseDTO.class);
         System.out.println("payment url: " + response.getBody().getPaymentUrl());
 
         return response;

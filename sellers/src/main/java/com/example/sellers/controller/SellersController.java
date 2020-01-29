@@ -72,7 +72,7 @@ public class SellersController {
                 btcDto.setId(dto.getId());
                 btcDto.setSecret(dto.getSecret());
 
-                ResponseEntity<SellerDTO> res = REST_template.postForEntity("http://localhost:8090/bitcoin-service/newSeller", btcDto, SellerDTO.class);
+                ResponseEntity<SellerDTO> res = REST_template.postForEntity("https://localhost:8090/bitcoin-service/newSeller", btcDto, SellerDTO.class);
 
             }
         }

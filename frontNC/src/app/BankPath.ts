@@ -1,3 +1,3 @@
 export class BankPath{
-    path: string = 'http://localhost:8082/';
+    path: string = 'https://localhost:8082/';
 }
