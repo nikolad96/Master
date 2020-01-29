@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping(value = "KP")
 public class KPController {
 

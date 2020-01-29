@@ -31,6 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @Controller
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/casopis")
 public class CasopisController {
 

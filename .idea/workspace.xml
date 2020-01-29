@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1cb43b3f-1e91-4f85-8025-0a39056cbe8c" name="Default Changelist" comment="banka" />
+    <list default="true" id="1cb43b3f-1e91-4f85-8025-0a39056cbe8c" name="Default Changelist" comment="banka">
+      <change beforePath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/CasopisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/CasopisController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/KPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/KPController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/RegistrationController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,6 +96,7 @@
       <recent name="com.example.paymentcardcenter.model" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nikol\Desktop\SEP\Master\naucna-centrala\src\main\resources" />
       <recent name="D:\Milica\fakultet\master\projekat\Master\naucna-centrala\src\main\java\com\example\naucnacentrala\dto" />
     </key>
   </component>
