@@ -1,0 +1,25 @@
+<div style="color:cornflowerblue; text-align: center;">
+    <h2>Naucna centrala</h2>
+</div>
+
+<div class="container" *ngIf="nacini_placanja.length != 0">
+    <h4>Izaberite nacine placanja koje zelite da podrzite:</h4>
+    <br>
+    <form [formGroup]="form" >
+
+        <div class="form-group">
+        <label for="placanje">Nacin placanja:</label>
+        <select name="placanje" formControlName="placanje" class="form-control col-sm-5">
+            <option *ngFor="let nacin of nacini_placanja" value={{nacin.id}}>
+                {{nacin.name}}
+            </option>
+        </select>
+        </div>
+
+        <button [disabled]="form.invalid" type="submit" (click)="onSubmit()" class="btn btn-primary">Dalje</button>
+    </form>
+</div>
+
+<div>
+    &nbsp;&nbsp;&nbsp;<button class="btn btn-primary" (click)="nazad()">Pocetna</button>
+</div>

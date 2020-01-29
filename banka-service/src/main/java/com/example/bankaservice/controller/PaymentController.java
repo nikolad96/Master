@@ -16,12 +16,15 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Date;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping(value="/bankservice")
 public class PaymentController {
 
 //    private final String SUCCESS_URL = "/bank-page";
 //    private final String FAILED_URL = "FAILED";
 //    private final String ERROR_URL = "";
+
+    private final String NEW_CUSTOMER_URL = "bank-new-customer";
 
     @Autowired
     private RestTemplate restTemplate;
@@ -76,6 +79,34 @@ public class PaymentController {
         transaction.setState(transactionStateDTO.getTransactionState());
         transaction = transactionService.save(transaction);
         return new ResponseEntity<>("[bank-service]: Transakcija update-ovana", HttpStatus.OK);
+    }
+
+    @RequestMapping(value  = "/newCustomer", method = RequestMethod.POST)
+    private ResponseEntity<CustomerResponseDTO> newCustomer(@RequestBody CustomerRequestDTO customerRequestDTO){
+
+        Customer customer = new Customer();
+        customer.setSellerId(customerRequestDTO.getSellerId());
+        customer.setName(customerRequestDTO.getName());
+        customer = customerService.save(customer);
+
+        return new ResponseEntity<CustomerResponseDTO>(new CustomerResponseDTO(NEW_CUSTOMER_URL, customer.getId()), HttpStatus.OK);
+    }
+
+    @RequestMapping(value  = "/postCustomerData", method = RequestMethod.POST)
+    private ResponseEntity<?> updateCustomer(@RequestBody CustomerDTO customerDTO){
+
+        System.out.println("id:" + customerDTO.getCustomerId());
+        System.out.println("merchantId: " + customerDTO.getMerchantId());
+        System.out.println("merchaantPassword: " + customerDTO.getMerchantPassword());
+
+        Customer customer = customerService.findOneById(customerDTO.getCustomerId());
+        customer.setMerchantId(customerDTO.getMerchantId());
+        customer.setMerchantPassword(customerDTO.getMerchantPassword());
+        customer = customerService.save(customer);
+
+//        TODO poslati zahtev na sellers da stavi da je sellerPayment potvrdjeno true
+
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

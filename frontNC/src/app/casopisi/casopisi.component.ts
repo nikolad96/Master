@@ -14,7 +14,6 @@ export class CasopisiComponent implements OnInit {
   private dobijeni_nacini_placanja = false;
 
   constructor(private kpService: KpService) {
-    console.log('tu sam');
 
     kpService.getCasopisi().subscribe(
       res => {
@@ -36,10 +35,6 @@ export class CasopisiComponent implements OnInit {
     console.log('radId: ' + radId);
 
     window.location.href = '/odabir_placanja'.concat('/' + casopisId + '/' + radId);
-
-
-    // TODO ovde dalje ubaciti da proveri koji nacini placanja su podrzani za casopis
-    // pa korisniku staviti npr select da izabere jedan od tih podrzanih placanja
   }
 
   preuzmiRad(radId){

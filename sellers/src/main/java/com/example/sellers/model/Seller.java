@@ -1,6 +1,7 @@
 package com.example.sellers.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,20 +17,16 @@ public class Seller {
     @Column
     private String name;
 
-    @Column
-    private String pib;
-
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<PaymentMethod> paymentMethods;
+    private List<SellerPayment> paymentMethods = new ArrayList<>();
 
     public Seller() {
 
     }
 
-    public Seller(Integer sellerId, String name, String pib) {
+    public Seller(Integer sellerId, String name) {
         this.sellerId = sellerId;
         this.name = name;
-        this.pib = pib;
     }
 
     public Integer getId() {
@@ -52,19 +49,7 @@ public class Seller {
         this.name = name;
     }
 
-    public String getPib() {
-        return pib;
-    }
+    public List<SellerPayment> getPaymentMethods() { return paymentMethods; }
 
-    public void setPib(String pib) {
-        this.pib = pib;
-    }
-
-    public List<PaymentMethod> getPaymentMethods() {
-        return paymentMethods;
-    }
-
-    public void setPaymentMethods(List<PaymentMethod> paymentMethods) {
-        this.paymentMethods = paymentMethods;
-    }
+    public void setPaymentMethods(List<SellerPayment> paymentMethods) { this.paymentMethods = paymentMethods; }
 }
