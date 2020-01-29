@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1cb43b3f-1e91-4f85-8025-0a39056cbe8c" name="Default Changelist" comment="banka">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/java/com/example/banka/controller/BankController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/controller/BankController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/com/example/banka/controller/BankController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/service/TransactionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/KPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/KPController.java" afterDir="false" />
-    </list>
+    <list default="true" id="1cb43b3f-1e91-4f85-8025-0a39056cbe8c" name="Default Changelist" comment="banka" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,6 +53,11 @@
   <component name="ProjectReloadState">
     <option name="STATE" value="1" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
@@ -70,7 +68,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/dto" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/naucna-centrala/src/main/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -115,7 +113,20 @@
       </set>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.NaucnaCentralaApplication">
+    <configuration name="NaucnaCentralaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.naucnacentrala.NaucnaCentralaApplication" />
+      <module name="naucna-centrala" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.naucnacentrala.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="E2E Tests (frontend)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/pravifrontend/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -233,6 +244,11 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.NaucnaCentralaApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
