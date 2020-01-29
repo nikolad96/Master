@@ -4,6 +4,7 @@ import { CardRequestDTO } from '../model/CardRequestDTO';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { KpService } from '../services/kp/kp.service';
+import { BankService } from '../services/bank/bank.service';
 
 @Component({
   selector: 'app-bank-page',
@@ -16,7 +17,7 @@ export class BankPageComponent implements OnInit {
   cardRequest: CardRequestDTO;
   payment_id: number;
 
-  constructor(private http: HttpClient, private route : ActivatedRoute, private kpService : KpService) {
+  constructor(private http: HttpClient, private route : ActivatedRoute, private bankService : BankService) {
 
     this.route.params.subscribe(
       (params) => {
@@ -45,7 +46,7 @@ export class BankPageComponent implements OnInit {
 
     console.log(this.cardRequest);
 
-    this.kpService.checkAccount(this.cardRequest).subscribe(
+    this.bankService.checkAccount(this.cardRequest).subscribe(
       (success) => {
         console.log(success);
 
@@ -53,7 +54,7 @@ export class BankPageComponent implements OnInit {
 
           console.log('uspesna transakcija');
 
-          this.kpService.executePayment(this.cardRequest).subscribe(
+          this.bankService.executePayment(this.cardRequest).subscribe(
             (success) => {
               console.log(success);
               alert('Status vase transakcije: ' + success.state);

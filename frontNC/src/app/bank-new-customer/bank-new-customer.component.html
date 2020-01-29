@@ -1,0 +1,21 @@
+<div style="color:cornflowerblue; text-align: center;">
+    <h2>Naucna centrala</h2>
+</div>
+
+<div class="container">
+    <h4>Unesite neophodne podatke:</h4>
+    <br>
+    <form [formGroup]="form" >
+
+        <div class="form-group">
+            <label for="merchantId">Merchant ID:</label>
+            <input formControlName="merchantId" type="text" class="form-control" id="merchantId" required placeholder="Enter merchant ID">
+        </div>
+        <div class="form-group">
+            <label for="merchantPassword">Merchant password:</label>
+            <input formControlName="merchantPassword" type="text" class="form-control" id="merchantPassword" required placeholder="Enter merchant password">
+        </div>
+
+        <button [disabled]="form.invalid" type="submit" (click)="onSubmit()" class="btn btn-primary">Posalji</button>
+    </form>
+</div>

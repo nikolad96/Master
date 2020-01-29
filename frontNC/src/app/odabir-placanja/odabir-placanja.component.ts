@@ -23,7 +23,7 @@ export class OdabirPlacanjaComponent implements OnInit {
     );
 
 
-    kpService.getNaciniPlacanja(this.casopis_id).subscribe(
+    kpService.getNaciniPlacanjaCasopis(this.casopis_id).subscribe(
       (success) => {
         console.log(success);
         this.nacini_placanja = success;

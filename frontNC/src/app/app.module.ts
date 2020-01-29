@@ -20,6 +20,9 @@ import { CasopisiComponent } from './casopisi/casopisi.component';
 import { OdabirPlacanjaComponent } from './odabir-placanja/odabir-placanja.component';
 import { BankPageComponent } from './bank-page/bank-page.component';
 import { BankPath } from './BankPath';
+import { CasopisPlacanjeComponent } from './casopis-placanje/casopis-placanje.component';
+import { BankNewCustomerComponent } from './bank-new-customer/bank-new-customer.component';
+import { BankServicePath } from './BankServicePath';
 
 const Routes = [
   { path: "", component: MainPageComponent },
@@ -33,7 +36,9 @@ const Routes = [
   { path: "ispravka", component: IspravkaComponent },
   { path: "casopisi", component: CasopisiComponent },
   { path: "odabir_placanja/:id_casopis/:id_rad", component: OdabirPlacanjaComponent},
-  { path: "bank-page/:id_payment", component: BankPageComponent }
+  { path: "bank-page/:id_payment", component: BankPageComponent },
+  { path: "casopis-placanje/:id_casopis", component: CasopisPlacanjeComponent },
+  { path: "bank-new-customer/:id_customer", component: BankNewCustomerComponent }
 ]
 
 @NgModule({
@@ -50,7 +55,9 @@ const Routes = [
     IspravkaComponent,
     CasopisiComponent,
     OdabirPlacanjaComponent,
-    BankPageComponent
+    BankPageComponent,
+    CasopisPlacanjeComponent,
+    BankNewCustomerComponent
   ],
   imports: [
     BrowserModule,

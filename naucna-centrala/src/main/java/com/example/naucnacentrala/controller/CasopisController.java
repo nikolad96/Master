@@ -151,7 +151,9 @@ public class CasopisController {
 
         formService.submitTaskForm(taskId, map);
 
-        return new ResponseEntity<>(HttpStatus.OK);
+        Integer casopisId = (Integer) runtimeService.getVariable(processInstanceId, "casopisId");
+
+        return new ResponseEntity<Integer>(casopisId, HttpStatus.OK);
     }
 
     @GetMapping(path = "/getTasks", produces = "application/json")
