@@ -38,7 +38,7 @@ public class PccController {
         transaction = transactionService.save(transaction);
 
         HttpEntity<PccRequestDTO> entity = new HttpEntity<>(pccRequestDTO);
-        ResponseEntity<IssuerResponseDTO> responseEntity = restTemplate.postForEntity("http://localhost:8093/bank/checkAccountIssuer", entity, IssuerResponseDTO.class);
+        ResponseEntity<IssuerResponseDTO> responseEntity = restTemplate.postForEntity("https://localhost:8093/bank/checkAccountIssuer", entity, IssuerResponseDTO.class);
 
         return responseEntity;
     }

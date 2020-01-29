@@ -6,6 +6,7 @@ import {PaypalComponent} from "./component/paypal/paypal.component";
 import {PaypalRedComponent} from "./component/paypal-red/paypal-red.component";
 import {BankPageComponent} from "./component/bank-page/bank-page.component";
 import {PaypalCancelComponent} from "./component/paypal-cancel/paypal-cancel.component";
+import { TestComponent } from './component/test/test.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'paypal', component: PaypalComponent},
   {path: 'paypal/red', component: PaypalRedComponent},
   {path: 'paypal/cancel', component: PaypalCancelComponent},
-  {path: 'bank-page', component: BankPageComponent}
+  {path: 'bank-page', component: BankPageComponent},
+  {path: 'test', component: TestComponent}
   ];
 
 @NgModule({

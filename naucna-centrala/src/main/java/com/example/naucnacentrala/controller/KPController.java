@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping(value = "KP")
 public class KPController {
 
@@ -155,7 +156,7 @@ public class KPController {
     public @ResponseBody ResponseEntity<List<PaymentMethodDTO>> getPaymentMethods(@PathVariable("casopisId") Integer casopisId){
         System.out.println("usao u getPaymentMethods");
 
-        ResponseEntity<PaymentMethodListDTO> response = restTemplate.getForEntity("http://localhost:8091/sellers/getPaymentMethods/" + casopisId, PaymentMethodListDTO.class);
+        ResponseEntity<PaymentMethodListDTO> response = restTemplate.getForEntity("https://localhost:8091/sellers/getPaymentMethods/" + casopisId, PaymentMethodListDTO.class);
         List<PaymentMethodDTO> methods = response.getBody().getMethods();
 
         return new ResponseEntity<List<PaymentMethodDTO>>(methods, HttpStatus.OK);
@@ -179,7 +180,7 @@ public class KPController {
         paymentDTO.setSellerId(casopisId);
 
         HttpEntity<PaymentDTO> httpRequest = new HttpEntity<PaymentDTO>(paymentDTO);
-        ResponseEntity<PaymentResponseDTO> paymentResponseDTO = restTemplate.postForEntity("http://localhost:8086/banka-service/bankservice/payment", httpRequest, PaymentResponseDTO.class);
+        ResponseEntity<PaymentResponseDTO> paymentResponseDTO = restTemplate.postForEntity("https://localhost:8086/banka-service/bankservice/payment", httpRequest, PaymentResponseDTO.class);
 
         System.out.println("return");
 
@@ -188,7 +189,7 @@ public class KPController {
 
         return new ResponseEntity<PaymentResponseDTO>(new PaymentResponseDTO(paymentResponseDTO.getBody().getPaymentUrl(), paymentResponseDTO.getBody().getPaymentId()), HttpStatus.OK);
 
-//        return restTemplate.postForEntity("http://localhost:8086/banka-service/bankservice/payment", httpRequest, PaymentResponseDTO.class);
+//        return restTemplate.postForEntity("https://localhost:8086/banka-service/bankservice/payment", httpRequest, PaymentResponseDTO.class);
     }
 
     @RequestMapping(value  = "/updateKupovina/{paymentId}", method = RequestMethod.GET)
@@ -215,7 +216,7 @@ public class KPController {
         request.setBuyer_name(k.getIme());
         request.setRad_id(radId);
 
-        ResponseEntity<PaymentResponseDTO> paymentResponse = restTemplate.postForEntity("http://localhost:8090/bitcoin-service/transaction", request, PaymentResponseDTO.class);
+        ResponseEntity<PaymentResponseDTO> paymentResponse = restTemplate.postForEntity("https://localhost:8090/bitcoin-service/transaction", request, PaymentResponseDTO.class);
 
         return paymentResponse;
 

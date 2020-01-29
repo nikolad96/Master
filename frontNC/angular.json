@@ -63,6 +63,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "sslKey": "keystore/front.key",
+            "sslCert": "keystore/front.crt",
             "browserTarget": "frontNC:build"
           },
           "configurations": {
