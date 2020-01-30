@@ -210,5 +210,21 @@ public class SellersController {
 
     }
 
+    @RequestMapping(value = "/updateSeller", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
+    public @ResponseBody ResponseEntity<?> updateSeller(@RequestBody UpdateSellerDTO updateSellerDTO){
+
+        Seller seller = sellerService.findOneBySellerId(updateSellerDTO.getSellerId());
+
+        for(SellerPayment sp: seller.getPaymentMethods()){
+            if(sp.getPaymentMethod().getName().equals(updateSellerDTO.getPaymentMethodName())){
+                sp.setPotvrdjeno(true);
+            }
+        }
+
+        seller = sellerService.save(seller);
+
+        return new ResponseEntity<String>("Ok", HttpStatus.OK);
+    }
+
 
 }

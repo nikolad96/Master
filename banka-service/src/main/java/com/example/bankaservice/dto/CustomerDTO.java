@@ -9,9 +9,19 @@ public class CustomerDTO {
     public CustomerDTO() {
     }
 
+    public CustomerDTO(Integer customerId, String merchantId, String merchantPassword) {
+        this.customerId = customerId;
+        this.merchantId = merchantId;
+        this.merchantPassword = merchantPassword;
+    }
+
     public CustomerDTO(String merchantId, String merchantPassword) {
         this.merchantId = merchantId;
         this.merchantPassword = merchantPassword;
+    }
+
+    public CustomerDTO(Integer customerId) {
+        this.customerId = customerId;
     }
 
     public Integer getCustomerId() {

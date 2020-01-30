@@ -5,10 +5,7 @@ import com.example.naucnacentrala.model.*;
 import com.example.naucnacentrala.repository.CasopisRepository;
 import com.example.naucnacentrala.repository.KorisnikRepository;
 import com.example.naucnacentrala.security.TokenUtils;
-import com.example.naucnacentrala.service.CasopisService;
-import com.example.naucnacentrala.service.KorisnikService;
-import com.example.naucnacentrala.service.KupovinaService;
-import com.example.naucnacentrala.service.RadService;
+import com.example.naucnacentrala.service.*;
 import com.example.naucnacentrala.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -44,6 +41,9 @@ public class KPController {
 
     @Autowired
     private KupovinaService kupovinaService;
+
+    @Autowired
+    private NaucnaOblastService naucnaOblastService;
 
     @RequestMapping(value = "/allMagazines", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody List<CasopisDTO> izlistajSve(HttpServletRequest request){
@@ -249,6 +249,29 @@ public class KPController {
         System.out.println("casopisId: " + casopisId + "; nacinPlacanjaId: " + nacinPlacanjaId);
 
         Casopis casopis = casopisService.findOneById(casopisId);
+
+        if(!casopis.getAktiviran()) {
+            casopis.setAktiviran(true);
+
+            Rad rad1 = new Rad("Rad prvi", "apstrakt1", 80, naucnaOblastService.findOneById(1), "lokacija", true);
+            rad1.setCasopis(casopis);
+            rad1 = radService.save(rad1);
+            casopis.getRadovi().add(rad1);
+            casopis = casopisService.save(casopis);
+
+            rad1 = new Rad("Rad drugi", "apstrakt1", 75, naucnaOblastService.findOneById(1), "lokacija", true);
+            rad1.setCasopis(casopis);
+            rad1 = radService.save(rad1);
+            casopis.getRadovi().add(rad1);
+            casopis = casopisService.save(casopis);
+
+            rad1 = new Rad("Rad treci", "apstrakt1", 115, naucnaOblastService.findOneById(1), "lokacija", true);
+            rad1.setCasopis(casopis);
+            rad1 = radService.save(rad1);
+            casopis.getRadovi().add(rad1);
+            casopis = casopisService.save(casopis);
+        }
+
         NewSellerDTO newSellerDTO = new NewSellerDTO(casopisId, nacinPlacanjaId, casopis.getNaziv());
 
         return restTemplate.postForEntity("https://localhost:8091/sellers/newSellerPayment", newSellerDTO, CustomerResponseDTO.class);

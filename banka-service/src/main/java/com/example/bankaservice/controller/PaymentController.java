@@ -8,6 +8,7 @@ import com.example.bankaservice.service.CustomerService;
 import com.example.bankaservice.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -93,7 +94,7 @@ public class PaymentController {
     }
 
     @RequestMapping(value  = "/postCustomerData", method = RequestMethod.POST)
-    private ResponseEntity<?> updateCustomer(@RequestBody CustomerDTO customerDTO){
+    private ResponseEntity<CustomerDTO> updateCustomer(@RequestBody CustomerDTO customerDTO){
 
         System.out.println("id:" + customerDTO.getCustomerId());
         System.out.println("merchantId: " + customerDTO.getMerchantId());
@@ -104,9 +105,15 @@ public class PaymentController {
         customer.setMerchantPassword(customerDTO.getMerchantPassword());
         customer = customerService.save(customer);
 
-//        TODO poslati zahtev na sellers da stavi da je sellerPayment potvrdjeno true
+        updateSeller(customer);
 
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<CustomerDTO>(new CustomerDTO(customer.getSellerId()), HttpStatus.OK);
+    }
+
+    private void updateSeller(Customer customer) {
+        HttpEntity<UpdateSellerDTO> entity = new HttpEntity<UpdateSellerDTO>(new UpdateSellerDTO(customer.getSellerId(), "bank"));
+        ResponseEntity<String> responseEntity = restTemplate.exchange("https://localhost:8091/sellers/updateSeller",
+                HttpMethod.PUT, entity, String.class);
     }
 
 }

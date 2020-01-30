@@ -2,51 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cb43b3f-1e91-4f85-8025-0a39056cbe8c" name="Default Changelist" comment="banka">
-      <change afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/dto/CustomerDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/dto/CustomerRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/dto/CustomerResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/BankServicePath.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/bank-new-customer/bank-new-customer.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/bank-new-customer/bank-new-customer.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/bank-new-customer/bank-new-customer.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/bank-new-customer/bank-new-customer.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/casopis-placanje/casopis-placanje.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/casopis-placanje/casopis-placanje.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/casopis-placanje/casopis-placanje.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/casopis-placanje/casopis-placanje.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/model/CustomerDTO.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/services/bank-service/bank-service.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/services/bank-service/bank-service.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/services/bank/bank.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontNC/src/app/services/bank/bank.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/dto/CustomerResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/dto/NewSellerDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/dto/NewSellerResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/dto/CustomerRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/dto/CustomerResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/dto/NewSellerDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/dto/NewSellerResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/model/SellerPayment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/repository/SellerPaymentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/service/SellerPaymentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/dto/UpdateSellerDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/dto/UpdateSellerDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/keystore/eureka.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/keystore/front.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/keystore/load.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/keystore/trusteureka.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/keystore/trustfront.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/keystore/trustload.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/keystore/trustzuul.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/keystore/zuul.p12" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eureka/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Eureka/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eureka/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Eureka/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontNC/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontNC/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontNC/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontNC/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontNC/src/app/bank-page/bank-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontNC/src/app/bank-page/bank-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontNC/src/app/bank-page/bank-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontNC/src/app/bank-page/bank-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontNC/src/app/casopisi/casopisi.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontNC/src/app/casopisi/casopisi.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontNC/src/app/odabir-placanja/odabir-placanja.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontNC/src/app/odabir-placanja/odabir-placanja.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontNC/src/app/services/kp/kp.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontNC/src/app/services/kp/kp.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontNC/src/app/urednici-recenzenti/urednici-recenzenti.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontNC/src/app/urednici-recenzenti/urednici-recenzenti.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontNC/src/app/urednici-recenzenti/urednici-recenzenti.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontNC/src/app/urednici-recenzenti/urednici-recenzenti.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/CasopisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/CasopisController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/dto/CustomerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/banka-service/src/main/java/com/example/bankaservice/dto/CustomerDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontNC/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontNC/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontNC/src/app/bank-new-customer/bank-new-customer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontNC/src/app/bank-new-customer/bank-new-customer.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/KPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/KPController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/controller/SellersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/controller/SellersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/dto/SellerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/dto/SellerDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/model/Seller.java" beforeDir="false" afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/model/Seller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/repository/SellerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/repository/SellerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sellers/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sellers/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/keystore/bankaappc.p12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/keystore/bankac.p12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/keystore/keystore.p12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/keystore/naucnac.p12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/keystore/trustbankaappc.p12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/keystore/trustbankac.p12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/keystore/trustnaucnac.p12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/keystore/trustnaucni.p12" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -131,9 +114,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.sellers.dto" />
       <recent name="com.example.naucnacentrala.dto" />
       <recent name="com.example.bankaservice.dto" />
-      <recent name="com.example.sellers.dto" />
       <recent name="com.example.paymentcardcenter.service" />
       <recent name="com.example.paymentcardcenter.repository" />
     </key>
@@ -323,6 +306,11 @@
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@c18b26c1" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@527529a5" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@c18b26c1" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@b82e1d64" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
           </expand>
           <select />
         </treeState>
@@ -349,7 +337,7 @@
       <workItem from="1579890200434" duration="35438000" />
       <workItem from="1580231504204" duration="5841000" />
       <workItem from="1580290214710" duration="15540000" />
-      <workItem from="1580311750783" duration="3780000" />
+      <workItem from="1580311750783" duration="8542000" />
     </task>
     <servers />
   </component>

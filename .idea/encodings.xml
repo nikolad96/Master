@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Banka" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Banka/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Banka/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Eureka" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Eureka/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Eureka/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MasterProject" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MasterProject/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MasterProject/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NaucniCentar" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/NaucniCentar/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/NaucniCentar/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/banka-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/banka-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/banka-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bitcoin-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bitcoin-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/load-balancer" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/load-balancer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/load-balancer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/naucna-centrala" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/naucna-centrala/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/naucna-centrala/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/payment-card-center" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/payment-card-center/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/paypal-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/paypal-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sellers" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sellers/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sellers/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zuul-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zuul-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zuul-service/src/main/resources" charset="UTF-8" />
   </component>

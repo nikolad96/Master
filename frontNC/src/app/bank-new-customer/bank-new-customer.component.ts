@@ -44,8 +44,8 @@ export class BankNewCustomerComponent implements OnInit {
     this.bankServiceService.postCustomerData(this.customerDTO).subscribe(
       (success) => {
         console.log(success);
-        alert('Uspesno ste dodali novi casopis');
-        window.location.href='';
+        alert('Uspesno ste dodali novi nacin placanja za casopis');
+        window.location.href='casopis-placanje/' + success.customerId;
         
       },
 
