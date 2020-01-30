@@ -106,19 +106,6 @@ public class KPController {
         return payload;
     }
 
-//    @RequestMapping(value = "/checkPaid", method = RequestMethod.POST, produces = "application/json")
-//    public @ResponseBody Boolean proveriClanarinu(@RequestBody ProveraClanarineDTO dto @PathVariable("id") String id){
-//        Korisnik korisnik = korisnikRepository.findOneById(dto.getId_korisnika());
-//        Casopis casopis = casopisRepository.findOneById(dto.getId_casopisa());
-//
-//        for(Korisnik k : casopis.getKorisniciPlatili()){
-//            if(korisnik.getId().equals(k.getId())){
-//                return true;
-//            }
-//        }
-//
-//        return false;
-//    }
 
     @RequestMapping(value = "/checkPaid/{radId}/{casopisId}", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody Boolean proveriClanarinu(HttpServletRequest request, @PathVariable("radId") Integer radId, @PathVariable("casopisId") Integer casopisId){
@@ -153,10 +140,20 @@ public class KPController {
     }
 
     @RequestMapping(value = "/getPaymentMethods/{casopisId}", method = RequestMethod.GET, produces = "application/json")
-    public @ResponseBody ResponseEntity<List<PaymentMethodDTO>> getPaymentMethods(@PathVariable("casopisId") Integer casopisId){
+    public @ResponseBody ResponseEntity<List<PaymentMethodDTO>> getPaymentMethodsCasopis(@PathVariable("casopisId") Integer casopisId){
+        System.out.println("usao u getPaymentMethodsCasopis");
+
+        ResponseEntity<PaymentMethodListDTO> response = restTemplate.getForEntity("https://localhost:8091/sellers/getPaymentMethods/" + casopisId, PaymentMethodListDTO.class);
+        List<PaymentMethodDTO> methods = response.getBody().getMethods();
+
+        return new ResponseEntity<List<PaymentMethodDTO>>(methods, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/getAllPaymentMethods", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody ResponseEntity<List<PaymentMethodDTO>> getPaymentMethods(){
         System.out.println("usao u getPaymentMethods");
 
-        ResponseEntity<PaymentMethodListDTO> response = restTemplate.getForEntity("http://localhost:8091/sellers/getPaymentMethods/" + casopisId, PaymentMethodListDTO.class);
+        ResponseEntity<PaymentMethodListDTO> response = restTemplate.getForEntity("https://localhost:8091/sellers/getAllPaymentMethods", PaymentMethodListDTO.class);
         List<PaymentMethodDTO> methods = response.getBody().getMethods();
 
         return new ResponseEntity<List<PaymentMethodDTO>>(methods, HttpStatus.OK);
@@ -180,7 +177,7 @@ public class KPController {
         paymentDTO.setSellerId(casopisId);
 
         HttpEntity<PaymentDTO> httpRequest = new HttpEntity<PaymentDTO>(paymentDTO);
-        ResponseEntity<PaymentResponseDTO> paymentResponseDTO = restTemplate.postForEntity("http://localhost:8086/banka-service/bankservice/payment", httpRequest, PaymentResponseDTO.class);
+        ResponseEntity<PaymentResponseDTO> paymentResponseDTO = restTemplate.postForEntity("https://localhost:8086/banka-service/bankservice/payment", httpRequest, PaymentResponseDTO.class);
 
         System.out.println("return");
 
@@ -189,11 +186,11 @@ public class KPController {
 
         return new ResponseEntity<PaymentResponseDTO>(new PaymentResponseDTO(paymentResponseDTO.getBody().getPaymentUrl(), paymentResponseDTO.getBody().getPaymentId()), HttpStatus.OK);
 
-//        return restTemplate.postForEntity("http://localhost:8086/banka-service/bankservice/payment", httpRequest, PaymentResponseDTO.class);
+//        return restTemplate.postForEntity("https://localhost:8086/banka-service/bankservice/payment", httpRequest, PaymentResponseDTO.class);
     }
 
     @RequestMapping(value  = "/updateKupovina/{paymentId}", method = RequestMethod.GET)
-    private ResponseEntity<String> updateTransaction(@PathVariable("paymentId") Integer paymentId){
+    private ResponseEntity<String> updateKupovina(@PathVariable("paymentId") Integer paymentId){
         Kupovina kupovina = kupovinaService.findOneByPaymentId(paymentId);
         Rad rad = radService.findOneById(kupovina.getRadId());
         rad.getKorisniciPlatili().add(kupovina.getKorisnik());
@@ -216,7 +213,7 @@ public class KPController {
         request.setBuyer_name(k.getIme());
         request.setRad_id(radId);
 
-        ResponseEntity<PaymentResponseDTO> paymentResponse = restTemplate.postForEntity("http://localhost:8090/bitcoin-service/transaction", request, PaymentResponseDTO.class);
+        ResponseEntity<PaymentResponseDTO> paymentResponse = restTemplate.postForEntity("https://localhost:8090/bitcoin-service/transaction", request, PaymentResponseDTO.class);
 
         return paymentResponse;
 
@@ -242,6 +239,19 @@ public class KPController {
         }
 
         return new ResponseEntity<>(HttpStatus.OK);
+
+    }
+
+    @RequestMapping(value  = "/noviCasopis/{casopisId}/{nacinPlacanjaId}", method = RequestMethod.GET)
+    private @ResponseBody ResponseEntity<CustomerResponseDTO> noviCasopis(@PathVariable("casopisId") Integer casopisId, @PathVariable("nacinPlacanjaId") Integer nacinPlacanjaId){
+
+        System.out.println("Usao u noviCasopis");
+        System.out.println("casopisId: " + casopisId + "; nacinPlacanjaId: " + nacinPlacanjaId);
+
+        Casopis casopis = casopisService.findOneById(casopisId);
+        NewSellerDTO newSellerDTO = new NewSellerDTO(casopisId, nacinPlacanjaId, casopis.getNaziv());
+
+        return restTemplate.postForEntity("https://localhost:8091/sellers/newSellerPayment", newSellerDTO, CustomerResponseDTO.class);
 
     }
 

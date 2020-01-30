@@ -10,7 +10,6 @@ public interface SellerRepository extends JpaRepository<Seller, String> {
     List<Seller> findAll();
 
     Seller findOneByName(String name);
-    Seller findOneByPib(String pib);
     Seller findOneById(Integer id);
     Seller findOneBySellerId(Integer id);
 }

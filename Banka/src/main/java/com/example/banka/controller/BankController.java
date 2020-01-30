@@ -113,7 +113,7 @@ public class BankController {
 
             //prosledjivanje zahteva ka pcc-u jer nisu iste banke
             HttpEntity<PccRequestDTO> entity = new HttpEntity<PccRequestDTO>(pccRequestDTO);
-            ResponseEntity<IssuerResponseDTO> responseEntity = restTemplate.postForEntity("http://localhost:8092/pcc/forward", entity, IssuerResponseDTO.class);
+            ResponseEntity<IssuerResponseDTO> responseEntity = restTemplate.postForEntity("https://localhost:8092/pcc/forward", entity, IssuerResponseDTO.class);
             return responseEntity;
 
         }
@@ -294,18 +294,18 @@ public class BankController {
 
     private void updateTransactionBankService(Transaction transaction) {
         HttpEntity<TransactionStateDTO> entity = new HttpEntity<TransactionStateDTO>(new TransactionStateDTO(transaction.getState()));
-        ResponseEntity<String> responseEntity = restTemplate.exchange("http://localhost:8085/bankservice/updateTransaction/" + transaction.getMerchantOrderId(),
+        ResponseEntity<String> responseEntity = restTemplate.exchange("https://localhost:8085/bankservice/updateTransaction/" + transaction.getMerchantOrderId(),
                 HttpMethod.PUT, entity, String.class);
     }
 
     private void updateTransactionPcc(Transaction transaction) {
         HttpEntity<TransactionStateDTO> entity = new HttpEntity<TransactionStateDTO>(new TransactionStateDTO(transaction.getState()));
-        ResponseEntity<String> responseEntity = restTemplate.exchange("http://localhost:8092/pcc/updateTransaction/" + transaction.getId(),
+        ResponseEntity<String> responseEntity = restTemplate.exchange("https://localhost:8092/pcc/updateTransaction/" + transaction.getId(),
                 HttpMethod.PUT, entity, String.class);
     }
 
     private void updateKupovinaNC(Integer paymentId) {
-        ResponseEntity<String> responseEntity = restTemplate.getForEntity("http://localhost:8096/KP/updateKupovina/" + paymentId, String.class);
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity("https://localhost:8096/KP/updateKupovina/" + paymentId, String.class);
     }
 
 }

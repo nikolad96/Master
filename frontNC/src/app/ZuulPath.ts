@@ -1,3 +1,6 @@
-export class ZuulPath{
-    path: string = 'https://localhost:8096/';
+
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 87b180333947d49dd9d47cabf77cf8e98e8f31e6

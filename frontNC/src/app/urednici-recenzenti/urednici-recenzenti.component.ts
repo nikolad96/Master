@@ -92,9 +92,11 @@ export class UredniciRecenzentiComponent implements OnInit {
 
       this.casopisService.postUredniciRecenzentiData(o, this.formFieldsDto.taskId).subscribe(
         res => {
-          console.log("res", res);
-          alert('Casopis uspesno sacuvan.')
-          window.location.href="";
+          console.log("casopisId");
+          console.log(res);
+          // alert('Casopis uspesno sacuvan.')
+          // window.location.href="";
+          window.location.href="casopis-placanje/" + res;
       
         },
         err => {

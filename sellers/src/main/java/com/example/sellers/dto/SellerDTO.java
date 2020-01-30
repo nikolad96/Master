@@ -5,10 +5,14 @@ import com.example.sellers.model.PaymentMethod;
 import java.util.List;
 
 public class SellerDTO {
+
     private Integer id;
     private String name;
-    private String pib;
     private String secret;
+    private List<PaymentMethod> paymentMethods;
+
+    public SellerDTO() {
+    }
 
     public String getSecret() {
         return secret;
@@ -17,8 +21,6 @@ public class SellerDTO {
     public void setSecret(String secret) {
         this.secret = secret;
     }
-
-    private List<PaymentMethod> paymentMethods;
 
     public Integer getId() {
         return id;
@@ -34,14 +36,6 @@ public class SellerDTO {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPib() {
-        return pib;
-    }
-
-    public void setPib(String pib) {
-        this.pib = pib;
     }
 
     public List<PaymentMethod> getPaymentMethods() {
