@@ -65,6 +65,13 @@ export class OdabirPlacanjaComponent implements OnInit {
       case '2':
         // paypal
         console.log('paypal');
+        this.kpService.placanjePaypal(this.rad_id, this.casopis_id).subscribe(
+          (success) => {
+            console.log(success);
+            console.log('paymentUrl:' + success.paymentUrl);
+            window.location.href = success.paymentUrl ;
+          }
+        );
         break;
       case '3':
         // bitcoin

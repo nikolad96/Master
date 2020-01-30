@@ -19,11 +19,11 @@ public class PayPalClient {
     String clientId = "AcRXzhEMmFYWTWl9qfPnVoTK4iOZjJEq-XM6NfYGP4B-zMkXCiZuxawgWzp8wTHZITgUACSG5Yni8cxP";
     String clientSecret = "EDF_JuZVtbK3acUiDrkRAg-RmmMjtDocJPZoDNcqrIDHqZ2Q-C98FW3bAiNfMgrUpQ5sWco1n5epcA2_";
 
-    public Map<String, Object> createPayment(String sum){
+    public Map<String, Object> createPayment(PaymentPaypalDTO paymentPaypalDTO){
         Map<String, Object> response = new HashMap<String, Object>();
         Amount amount = new Amount();
         amount.setCurrency("USD");
-        amount.setTotal(sum);
+        amount.setTotal("5");
         Transaction transaction = new Transaction();
         transaction.setAmount(amount);
         List<Transaction> transactions = new ArrayList<Transaction>();
@@ -38,19 +38,22 @@ public class PayPalClient {
         payment.setTransactions(transactions);
 
         RedirectUrls redirectUrls = new RedirectUrls();
-        redirectUrls.setCancelUrl("http://localhost:4200/paypal/cancel");
-        redirectUrls.setReturnUrl("http://localhost:4200/paypal/red");
+        redirectUrls.setCancelUrl("https://localhost:4200/paypal/cancel");
+        redirectUrls.setReturnUrl("https://localhost:4200/paypal/red");
         payment.setRedirectUrls(redirectUrls);
         Payment createdPayment;
         try {
             String redirectUrl = "";
             APIContext context = new APIContext(clientId, clientSecret, "sandbox");
             createdPayment = payment.create(context);
+
             if(createdPayment!=null){
                 List<Links> links = createdPayment.getLinks();
+                System.out.println(links);
                 for (Links link:links) {
                     if(link.getRel().equals("approval_url")){
                         redirectUrl = link.getHref();
+                        System.out.println(redirectUrl);
                         break;
                     }
                 }

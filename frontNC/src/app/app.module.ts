@@ -24,6 +24,9 @@ import { CasopisPlacanjeComponent } from './casopis-placanje/casopis-placanje.co
 import { BankNewCustomerComponent } from './bank-new-customer/bank-new-customer.component';
 import { BankServicePath } from './BankServicePath';
 import { BitcoinNewCustomerComponent } from './bitcoin-new-customer/bitcoin-new-customer.component';
+import { PaypalComponent } from './paypal/paypal.component';
+import { PaypalRedComponent } from './paypal-red/paypal-red.component';
+import { PaypalCancelComponent } from './paypal-cancel/paypal-cancel.component';
 
 const Routes = [
   { path: "", component: MainPageComponent },
@@ -40,7 +43,10 @@ const Routes = [
   { path: "bank-page/:id_payment", component: BankPageComponent },
   { path: "casopis-placanje/:id_casopis", component: CasopisPlacanjeComponent },
   { path: "bank-new-customer/:id_customer", component: BankNewCustomerComponent },
-  { path: "bitcoin-new-customer/:id_customer", component:BitcoinNewCustomerComponent}
+  { path: "bitcoin-new-customer/:id_customer", component:BitcoinNewCustomerComponent},
+  { path: 'paypal', component: PaypalComponent},
+  { path: 'paypal/red', component: PaypalRedComponent},
+  { path: 'paypal/cancel', component: PaypalCancelComponent}
 ]
 
 @NgModule({
@@ -60,7 +66,10 @@ const Routes = [
     BankPageComponent,
     CasopisPlacanjeComponent,
     BankNewCustomerComponent,
-    BitcoinNewCustomerComponent
+    BitcoinNewCustomerComponent,
+    PaypalComponent,
+    PaypalRedComponent,
+    PaypalCancelComponent
   ],
   imports: [
     BrowserModule,
