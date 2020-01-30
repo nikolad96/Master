@@ -46,6 +46,7 @@ export class BankNewCustomerComponent implements OnInit {
         console.log(success);
         alert('Uspesno ste dodali novi nacin placanja za casopis');
         window.location.href='casopis-placanje/' + success.customerId;
+        // window.location.href='casopis-placanje/' + this.id_customer;
         
       },
 
