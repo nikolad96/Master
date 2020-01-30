@@ -2,7 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cb43b3f-1e91-4f85-8025-0a39056cbe8c" name="Default Changelist" comment="banka">
+      <change afterPath="$PROJECT_DIR$/frontNC/src/app/model/PaypalDTO.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontNC/src/app/paypal-cancel/paypal-cancel.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontNC/src/app/paypal-cancel/paypal-cancel.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontNC/src/app/paypal-cancel/paypal-cancel.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontNC/src/app/paypal-cancel/paypal-cancel.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontNC/src/app/paypal-red/paypal-red.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontNC/src/app/paypal-red/paypal-red.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontNC/src/app/paypal-red/paypal-red.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontNC/src/app/paypal-red/paypal-red.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontNC/src/app/paypal/paypal.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontNC/src/app/paypal/paypal.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontNC/src/app/paypal/paypal.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontNC/src/app/paypal/paypal.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/dto/PaymentPaypalDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/PaymentPaypalDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/PaymentResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/dto/PaypalTransactionDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/model/PaypalTransaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/model/TransactionStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/repositorium/TransactionRepositorium.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontNC/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontNC/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontNC/src/app/odabir-placanja/odabir-placanja.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontNC/src/app/odabir-placanja/odabir-placanja.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontNC/src/app/services/kp/kp.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontNC/src/app/services/kp/kp.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-balancer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/load-balancer/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/KPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/naucna-centrala/src/main/java/com/example/naucnacentrala/controller/KPController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naucna-centrala/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/naucna-centrala/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paypal-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/paypal-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/PayPalClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/PayPalClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/PayPalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/PayPalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paypal-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/paypal-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paypal-service/src/main/resources/keystore/trustfront.p12" beforeDir="false" afterPath="$PROJECT_DIR$/paypal-service/src/main/resources/keystore/trustfront.p12" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +104,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/naucna-centrala/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/paypal-service/src/main/resources/keystore" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -87,13 +120,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.paypalservice" />
       <recent name="com.example.sellers.dto" />
       <recent name="com.example.naucnacentrala.dto" />
       <recent name="com.example.bankaservice.dto" />
       <recent name="com.example.paymentcardcenter.service" />
-      <recent name="com.example.paymentcardcenter.repository" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nikol\Desktop\SEP\Master\paypal-service\src\main\resources\keystore" />
       <recent name="C:\Users\nikol\Desktop\SEP\Master\naucna-centrala\src\main\resources" />
       <recent name="D:\Milica\fakultet\master\projekat\Master\naucna-centrala\src\main\java\com\example\naucnacentrala\dto" />
     </key>
@@ -127,20 +161,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.BankaServiceApplication">
-    <configuration name="NaucnaCentralaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.naucnacentrala.NaucnaCentralaApplication" />
-      <module name="naucna-centrala" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.naucnacentrala.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.PaypalServiceApplication">
     <configuration name="E2E Tests (frontend)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/pravifrontend/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -258,11 +279,24 @@
       <envs />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.NaucnaCentralaApplication" />
-      </list>
-    </recent_temporary>
+    <list>
+      <item itemvalue="JavaScript Debug.Angular Application (pravifrontend)" />
+      <item itemvalue="npm.Angular CLI Server (pravifrontend)" />
+      <item itemvalue="Protractor.E2E Tests (frontend)" />
+      <item itemvalue="Spring Boot.AcquirerBankaApplication" />
+      <item itemvalue="Spring Boot.BankaServiceApplication" />
+      <item itemvalue="Spring Boot.BitcoinServiceApplication" />
+      <item itemvalue="Spring Boot.EurekaApplication" />
+      <item itemvalue="Spring Boot.IssuerBankaApplication" />
+      <item itemvalue="Spring Boot.LoadBalancerApplication" />
+      <item itemvalue="Spring Boot.MasterProjectApplication" />
+      <item itemvalue="Spring Boot.NaucnaCentralaApplication" />
+      <item itemvalue="Spring Boot.NaucniCentarApplication" />
+      <item itemvalue="Spring Boot.PaymentCardCenterApplication" />
+      <item itemvalue="Spring Boot.PaypalServiceApplication" />
+      <item itemvalue="Spring Boot.SellersApplication" />
+      <item itemvalue="Spring Boot.ZuulServiceApplication" />
+    </list>
   </component>
   <component name="ServiceViewManager">
     <option name="allServicesViewState">
@@ -272,12 +306,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@c18b26c1" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@37d92ef0" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@c18b26c1" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@b82e1d64" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@37d92ef0" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@fad32a44" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -306,6 +340,7 @@
       <workItem from="1580231504204" duration="5841000" />
       <workItem from="1580290214710" duration="15540000" />
       <workItem from="1580311750783" duration="9063000" />
+      <workItem from="1580425186050" duration="396000" />
     </task>
     <servers />
   </component>
@@ -336,6 +371,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="zuul, banka-service" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1085" y="417" key="#com.intellij.ide.util.MemberChooser" timestamp="1580407489295">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1085" y="417" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1580407489295" />
     <state x="92" y="92" width="2376" height="1216" key="DiffContextDialog" timestamp="1580245707806">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -344,22 +383,26 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1060" y="456" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1580245631977" />
-    <state width="1258" height="399" key="GridCell.Tab.0.bottom" timestamp="1580245639461">
+    <state width="2517" height="399" key="GridCell.Tab.0.bottom" timestamp="1580424753038">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1258" height="399" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1580245639461" />
-    <state width="1258" height="399" key="GridCell.Tab.0.center" timestamp="1580245639461">
+    <state width="2517" height="399" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1580424753038" />
+    <state width="2517" height="399" key="GridCell.Tab.0.center" timestamp="1580424753038">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1258" height="399" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1580245639461" />
-    <state width="1258" height="399" key="GridCell.Tab.0.left" timestamp="1580245639461">
+    <state width="2517" height="399" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1580424753038" />
+    <state width="2517" height="399" key="GridCell.Tab.0.left" timestamp="1580424753038">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1258" height="399" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1580245639461" />
-    <state width="1258" height="399" key="GridCell.Tab.0.right" timestamp="1580245639461">
+    <state width="2517" height="399" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1580424753038" />
+    <state width="2517" height="399" key="GridCell.Tab.0.right" timestamp="1580424753038">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1258" height="399" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1580245639461" />
+    <state width="2517" height="399" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1580424753038" />
+    <state x="810" y="356" key="Maven.ArtifactSearchDialog" timestamp="1580423468441">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="810" y="356" key="Maven.ArtifactSearchDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1580423468441" />
     <state x="992" y="417" key="MultipleFileMergeDialog" timestamp="1580245552764">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

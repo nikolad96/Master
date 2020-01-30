@@ -219,6 +219,29 @@ public class KPController {
 
     }
 
+    @RequestMapping(value = "/paymentPaypal/{radId}/{casopisId}", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<PaymentResponseDTO> paymentPaypal(HttpServletRequest request, @PathVariable("radId") Integer radId, @PathVariable("casopisId") Integer casopisId){
+        PaymentPaypalDTO paymentPaypalDTO = new PaymentPaypalDTO();
+        Casopis c = casopisService.findOneById(casopisId);
+        Rad r = radService.findOneById(radId);
+        String username = Utils.getUsernameFromRequest(request, tokenUtils);
+        Korisnik k = korisnikService.findOneByUsername(username);
+
+
+
+        paymentPaypalDTO.setAmount(r.getCena());
+        paymentPaypalDTO.setSeller_id(c.getId());
+        paymentPaypalDTO.setSeller_name(c.getNaziv());
+        paymentPaypalDTO.setBuyer_id(k.getId());
+        paymentPaypalDTO.setBuyer_name(k.getIme());
+        paymentPaypalDTO.setRad_id(radId);
+
+        ResponseEntity<PaymentResponseDTO> paymentResponse = restTemplate.postForEntity("https://localhost:8087/paypal/payment", paymentPaypalDTO, PaymentResponseDTO.class);
+
+        return paymentResponse;
+
+    }
+
     @RequestMapping(value = "/paid/{radId}/{casopisId}/{userId}", method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity<String> paid(@PathVariable("radId") Integer radId, @PathVariable("casopisId") Integer casopisId, @PathVariable("userId") Integer userId, @RequestBody StatusDTO dto){
         Casopis c = casopisService.findOneById(casopisId);
