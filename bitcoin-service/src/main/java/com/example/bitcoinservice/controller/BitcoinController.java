@@ -11,13 +11,11 @@ import com.example.bitcoinservice.repo.TransactionRepo;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping(value = "/bitcoin-service")
 public class BitcoinController {
 
@@ -57,9 +55,19 @@ public class BitcoinController {
 //    }
 
     @RequestMapping(value = "/newSeller", method = RequestMethod.POST)
-    public ResponseEntity<String> newSeller(@RequestBody NewSellerDTO dto){
+    public ResponseEntity<CustomerResponseDTO> newSeller(@RequestBody CustomerRequestDTO dto){
         Seller s = new Seller();
-        s.setId(dto.getId());
+        s.setId(dto.getSellerId());
+//        s.setSecret(dto.getSecret());
+
+        sellerRepo.save(s);
+
+        return new ResponseEntity<CustomerResponseDTO>(new CustomerResponseDTO("bitcoin-new-customer", s.getId()), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/newSellerData", method = RequestMethod.POST)
+    public ResponseEntity<String> newSellerData(@RequestBody NewSellerDTO dto){
+        Seller s = sellerRepo.findOneById(dto.getId());
         s.setSecret(dto.getSecret());
 
         sellerRepo.save(s);

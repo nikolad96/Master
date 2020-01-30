@@ -7,6 +7,7 @@ import com.example.sellers.model.Seller;
 import com.example.sellers.model.SellerPayment;
 import com.example.sellers.service.PaymentMethodService;
 import com.example.sellers.service.SellerService;
+import com.netflix.ribbon.proxy.annotation.Http;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -178,6 +179,12 @@ public class SellersController {
 
             if(paymentMethod.getName().equals("bitcoin")){
                 System.out.println("bitcoin");
+
+                HttpEntity<CustomerRequestDTO> httpRequest = new HttpEntity<>(new CustomerRequestDTO(dto.getSellerId(), dto.getName()));
+                ResponseEntity<CustomerResponseDTO> response = restTemplate.postForEntity("https://localhost:8090/bitcoin-service/newSeller", httpRequest, CustomerResponseDTO.class);
+
+                customerResponseDTO.setCustomerId(response.getBody().getCustomerId());
+                customerResponseDTO.setRedirectionUrl(response.getBody().getRedirectionUrl());
 
             }else if(paymentMethod.getName().equals("bank")){
                 System.out.println("bank");

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { KpService} from '../services/kp/kp.service';
 import {ActivatedRoute} from '@angular/router';
 import { ConstantPool } from '@angular/compiler';
+import {AuthService} from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-odabir-placanja',
@@ -14,7 +15,7 @@ export class OdabirPlacanjaComponent implements OnInit {
   private rad_id;
   private nacini_placanja = [];
 
-  constructor(private kpService : KpService, private route : ActivatedRoute) {
+  constructor(private kpService : KpService, private route : ActivatedRoute, private authService : AuthService) {
     this.route.params.subscribe(
       (params) => {
         this.casopis_id = params.id_casopis;
@@ -33,7 +34,7 @@ export class OdabirPlacanjaComponent implements OnInit {
         console.log(err);
       }
     );
-    
+
 
   }
 
@@ -54,7 +55,7 @@ export class OdabirPlacanjaComponent implements OnInit {
             console.log('paymentUrl:' + success.paymentUrl);
             window.location.href = success.paymentUrl + '/' + success.paymentId;
           },
-    
+
           (err) => {
             console.log(err);
           }
@@ -68,11 +69,17 @@ export class OdabirPlacanjaComponent implements OnInit {
       case '3':
         // bitcoin
         console.log('bitcoin');
-        let transactionRequestDTO = {
-          transaction_id : 1,
-          // seller_id : this.trazeni_casopis.id,
-          // seller_name : this.trazeni_casopis.name
-        }
+        let user: any = this.authService.getUser();
+        this.kpService.placanjeBitcoin(this.rad_id, this.casopis_id, user.username).subscribe(
+          (success) => {
+            console.log(success);
+            window.location.href = success.paymentUrl;
+          },
+
+          (err) => {
+            console.log(err);
+          }
+        );
         break;
     }
   }

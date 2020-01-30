@@ -23,6 +23,7 @@ import { BankPath } from './BankPath';
 import { CasopisPlacanjeComponent } from './casopis-placanje/casopis-placanje.component';
 import { BankNewCustomerComponent } from './bank-new-customer/bank-new-customer.component';
 import { BankServicePath } from './BankServicePath';
+import { BitcoinNewCustomerComponent } from './bitcoin-new-customer/bitcoin-new-customer.component';
 
 const Routes = [
   { path: "", component: MainPageComponent },
@@ -38,7 +39,8 @@ const Routes = [
   { path: "odabir_placanja/:id_casopis/:id_rad", component: OdabirPlacanjaComponent},
   { path: "bank-page/:id_payment", component: BankPageComponent },
   { path: "casopis-placanje/:id_casopis", component: CasopisPlacanjeComponent },
-  { path: "bank-new-customer/:id_customer", component: BankNewCustomerComponent }
+  { path: "bank-new-customer/:id_customer", component: BankNewCustomerComponent },
+  { path: "bitcoin-new-customer/:id_customer", component:BitcoinNewCustomerComponent}
 ]
 
 @NgModule({
@@ -57,7 +59,8 @@ const Routes = [
     OdabirPlacanjaComponent,
     BankPageComponent,
     CasopisPlacanjeComponent,
-    BankNewCustomerComponent
+    BankNewCustomerComponent,
+    BitcoinNewCustomerComponent
   ],
   imports: [
     BrowserModule,

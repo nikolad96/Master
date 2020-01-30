@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { ZuulPath } from 'src/app/ZuulPath';
 import { Router } from '@angular/router';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +41,7 @@ export class AuthService {
   }
 
   getUser(){
-    return this.http.get(this.zuul.path + 'auth/getUser');  
+    return this.http.get(this.zuul.path + 'auth/getUser') as Observable<any>
   }
-  
+
 }

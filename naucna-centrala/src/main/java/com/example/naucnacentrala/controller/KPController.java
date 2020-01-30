@@ -199,11 +199,11 @@ public class KPController {
     }
 
     @RequestMapping(value = "/paymentBitcoin/{radId}/{casopisId}/{userId}", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<PaymentResponseDTO> paymentBitcoin(@PathVariable("radId") Integer radId, @PathVariable("casopisId") Integer casopisId, @PathVariable("userId") Integer userId){
+    public ResponseEntity<PaymentResponseDTO> paymentBitcoin(@PathVariable("radId") Integer radId, @PathVariable("casopisId") Integer casopisId, @PathVariable("userId") String userId){
         PaymentBitcoinDTO request = new PaymentBitcoinDTO();
         Casopis c = casopisService.findOneById(casopisId);
         Rad r = radService.findOneById(radId);
-        Korisnik k = korisnikService.findOneById(userId);
+        Korisnik k = korisnikService.findOneByUsername(userId);
 
         request.setAmount(r.getCena());
         request.setSeller_id(c.getId());
