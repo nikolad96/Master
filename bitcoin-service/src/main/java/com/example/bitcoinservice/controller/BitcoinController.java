@@ -1,18 +1,21 @@
 package com.example.bitcoinservice.controller;
 
 
-import com.example.bitcoinservice.Monitor;
 import com.example.bitcoinservice.dto.*;
 import com.example.bitcoinservice.model.Seller;
 import com.example.bitcoinservice.model.Transaction;
 import com.example.bitcoinservice.model.TransactionStatus;
 import com.example.bitcoinservice.repo.SellerRepo;
 import com.example.bitcoinservice.repo.TransactionRepo;
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.CompletableFuture;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -25,7 +28,12 @@ public class BitcoinController {
     private String API_token = new String("szx5-PgTdEAggxxp1Fy9zxNZv6VFBWCBELsrtyF7");
 
     @Autowired
-    RestTemplate REST_template;
+    HttpComponentsClientHttpRequestFactory requestFactory;
+
+//    @Autowired
+//    Monitor m;
+
+
 
     @Autowired
     private SellerRepo sellerRepo;
@@ -72,6 +80,11 @@ public class BitcoinController {
 
         sellerRepo.save(s);
 
+        updateSeller(s);
+
+
+
+
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -79,10 +92,11 @@ public class BitcoinController {
     public ResponseEntity<PaymentResponseDTO> transaction(@RequestBody TransactionRequestDTO request){
         CoingateCreateRequestDTO coingateCreateRequest = new CoingateCreateRequestDTO();
 
+        RestTemplate REST_template = new RestTemplate(this.requestFactory);
 
 
 //        System.out.println(request.amount);
-        coingateCreateRequest.setPrice_amount(request.getAmount());
+        coingateCreateRequest.setPrice_amount(request.getAmount()* 0.00000118); // convert from EUR to BTC
         coingateCreateRequest.setPrice_currency("BTC");
         coingateCreateRequest.setReceive_currency("BTC");
 
@@ -90,8 +104,17 @@ public class BitcoinController {
 
         HttpHeaders coingateRequestHeader = new HttpHeaders();
         coingateRequestHeader.set("Authorization", "Token " + seller.getSecret());
+
+        HttpEntity<?> cgrequest = new HttpEntity<>(coingateCreateRequest, coingateRequestHeader);
+
         HttpEntity<CoingateCreateRequestDTO> coingateRequest = new HttpEntity<>(coingateCreateRequest, coingateRequestHeader);
-        ResponseEntity<CoingateCreateResponseDTO> coingateResponse = REST_template.postForEntity("https://api-sandbox.coingate.com/v2/orders", coingateRequest, CoingateCreateResponseDTO.class);
+//        System.out.println(coingateCreateRequest.getPrice_amount());
+//        System.out.println(coingateCreateRequest.getPrice_currency());
+//        System.out.println(coingateCreateRequest.getReceive_currency());
+//        System.out.println(coingateRequest);
+
+        ResponseEntity<CoingateCreateResponseDTO> coingateResponse = REST_template.postForEntity("https://api-sandbox.coingate.com/v2/orders", cgrequest, CoingateCreateResponseDTO.class);
+//        System.out.println(coingateResponse);
         Transaction transaction = new Transaction();
         transaction.setAmount(request.getAmount());
         transaction.setBuyer_id(request.getBuyer_id());
@@ -108,10 +131,115 @@ public class BitcoinController {
         response.setPaymentId(coingateResponse.getBody().getId());
         response.setPaymentUrl(coingateResponse.getBody().getPayment_url());
 
-        Monitor m = new Monitor(coingateResponse.getBody().getId(), seller.getSecret(), request.getRad_id(), request.getSeller_id(), request.getBuyer_id());
+        CompletableFuture<Object> completableFuture = CompletableFuture.supplyAsync(() -> {
 
-        Thread t = new Thread(m);
-        t.start();
+            Timer timer = new Timer();
+            long pocetak = System.currentTimeMillis();
+
+            //na svakih 10 sekundi proverava da li se promenio status transakcije
+            //nakon 5min, transakcija automatski postaje neuspesna
+            timer.schedule(new TimerTask(){
+
+                @Override
+                public void run(){
+
+                    long trenutno = System.currentTimeMillis();
+
+                    long vreme = trenutno - pocetak;
+
+                    HttpHeaders post_header = new HttpHeaders();
+                    post_header.set("Authorization", "Token " + seller.getSecret());
+                    HttpEntity<?> get_request = new HttpEntity<>(post_header);
+                    ResponseEntity<GetResponseDTO> get_response = REST_template.exchange("https://api-sandbox.coingate.com/v2/orders/" + coingateResponse.getBody().getId(), HttpMethod.GET, get_request, GetResponseDTO.class);
+
+                    String status = get_response.getBody().getStatus();
+
+                    System.out.println(status);
+
+                    if(status.equals("paid")){
+                        System.out.println("Sending paid response");
+                        Transaction transaction = transactionRepo.findOneById(coingateResponse.getBody().getId());
+                        transaction.setTransactionStatus(TransactionStatus.PAID);
+                        transactionRepo.save(transaction);
+                        StatusDTO statusDTO = new StatusDTO();
+                        statusDTO.setStatus(status);
+                        statusDTO.setMessage("Uspesno placeno");
+                        REST_template.postForEntity("https://localhost:8096/KP/paid/" + request.getRad_id() + "/" + request.getSeller_id() + "/" + request.getBuyer_id(), statusDTO, String.class);
+                        timer.cancel();
+                    }
+
+                    else if(status.equals("invalid")){
+                        System.out.println("Sending invalid response");
+
+                        Transaction transaction = transactionRepo.findOneById(coingateResponse.getBody().getId());
+                        transaction.setTransactionStatus(TransactionStatus.INVALID);
+                        transactionRepo.save(transaction);
+                        StatusDTO statusDTO = new StatusDTO();
+                        statusDTO.setStatus(status);
+                        statusDTO.setMessage("Neuspesna transakcija");
+                        REST_template.postForEntity("https://localhost:8096/KP/paid/" + request.getRad_id() + "/" + request.getSeller_id() + "/" + request.getBuyer_id(), statusDTO, String.class);
+                        timer.cancel();
+                    }
+
+                    else if(status.equals("expired")){
+                        System.out.println("Sending expired response");
+
+                        Transaction transaction = transactionRepo.findOneById(coingateResponse.getBody().getId());
+                        transaction.setTransactionStatus(TransactionStatus.EXPIRED);
+                        transactionRepo.save(transaction);
+                        StatusDTO statusDTO = new StatusDTO();
+                        statusDTO.setStatus(status);
+                        statusDTO.setMessage("Isteklo vreme");
+                        REST_template.postForEntity("https://localhost:8096/KP/paid/" + request.getRad_id() + "/" + request.getSeller_id() + "/" + request.getBuyer_id(), statusDTO, String.class);
+                        timer.cancel();
+                    }
+
+                    else if(status.equals("canceled")){
+                        System.out.println("Sending cancelled response");
+
+                        Transaction transaction = transactionRepo.findOneById(coingateResponse.getBody().getId());
+                        System.out.println(transaction);
+                        transaction.setTransactionStatus(TransactionStatus.CANCELLED);
+                        transactionRepo.save(transaction);
+                        StatusDTO statusDTO = new StatusDTO();
+                        statusDTO.setStatus(status);
+                        statusDTO.setMessage("Otkazali ste transakciju");
+                        REST_template.postForEntity("https://localhost:8096/KP/paid/" + request.getRad_id() + "/" + request.getSeller_id() + "/" + request.getBuyer_id(), statusDTO, String.class);
+                        timer.cancel();
+                    }
+
+                    if(vreme > 8640000){
+                        Transaction transaction = transactionRepo.findOneById(coingateResponse.getBody().getId());
+                        transaction.setTransactionStatus(TransactionStatus.EXPIRED);
+                        transactionRepo.save(transaction);
+                        StatusDTO statusDTO = new StatusDTO();
+                        statusDTO.setStatus(status);
+                        statusDTO.setMessage("Nesto nije dobro");
+                        REST_template.postForEntity("https://localhost:8096/KP/paid/" + request.getRad_id() + "/" + request.getSeller_id() + "/" + request.getBuyer_id(), statusDTO, String.class);
+                        timer.cancel();
+                    }
+
+                }
+            },0,10000);
+
+            return "end";
+        });
+
+//        try {
+//            Thread.sleep(5000);
+//
+//        } catch(Exception e){
+//            e.printStackTrace();
+//        }
+//        Monitor m = new Monitor(coingateResponse.getBody().getId(), seller.getSecret(), request.getRad_id(), request.getSeller_id(), request.getBuyer_id());
+
+//        Thread t = new Thread(m);
+//        t.start();
+
+//        Nesto n = new Nesto(coingateResponse.getBody().getId(), seller.getSecret(), request.getRad_id(), request.getSeller_id(), request.getBuyer_id());
+//        Thread t = new Thread(n);
+//        t.start();
+//        m.mon(coingateResponse.getBody().getId(), seller.getSecret(), request.getRad_id(), request.getSeller_id(), request.getBuyer_id());
 
         return new ResponseEntity<PaymentResponseDTO>( response, HttpStatus.OK);
 
@@ -167,4 +295,11 @@ public class BitcoinController {
 //        }
 //
 //    }
+
+    private void updateSeller(Seller customer) {
+        RestTemplate REST_template = new RestTemplate(this.requestFactory);
+        HttpEntity<UpdateSellerDTO> entity = new HttpEntity<UpdateSellerDTO>(new UpdateSellerDTO(customer.getId(), "bitcoin"));
+        ResponseEntity<String> responseEntity = REST_template.exchange("https://localhost:8091/sellers/updateSeller",
+                HttpMethod.PUT, entity, String.class);
+    }
 }
