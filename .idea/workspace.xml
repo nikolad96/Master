@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="1cb43b3f-1e91-4f85-8025-0a39056cbe8c" name="Default Changelist" comment="banka">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/load-balancer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/load-balancer/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banka/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitcoin-service/src/main/java/com/example/bitcoinservice/BitcoinServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/bitcoin-service/src/main/java/com/example/bitcoinservice/BitcoinServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitcoin-service/src/main/java/com/example/bitcoinservice/controller/BitcoinController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bitcoin-service/src/main/java/com/example/bitcoinservice/controller/BitcoinController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitcoin-service/src/main/java/com/example/bitcoinservice/controller/Monitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/bitcoin-service/src/main/java/com/example/bitcoinservice/controller/Monitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitcoin-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bitcoin-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naucna-centrala/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/naucna-centrala/src/main/resources/data.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +78,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/paypal-service/src/main/resources/keystore" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/naucna-centrala/src/main/resources/keystore" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -96,6 +101,8 @@
       <recent name="com.example.paymentcardcenter.service" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Milica\fakultet\master\projekat\Master\naucna-centrala\src\main\resources\keystore" />
+      <recent name="D:\Milica\fakultet\master\projekat\Master\bitcoin-service\src\main\resources\keystore" />
       <recent name="C:\Users\nikol\Desktop\SEP\Master\paypal-service\src\main\resources\keystore" />
       <recent name="C:\Users\nikol\Desktop\SEP\Master\naucna-centrala\src\main\resources" />
       <recent name="D:\Milica\fakultet\master\projekat\Master\naucna-centrala\src\main\java\com\example\naucnacentrala\dto" />
@@ -130,7 +137,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.IssuerBankaApplication">
+  <component name="RunManager" selected="Spring Boot.BitcoinServiceApplication">
     <configuration name="E2E Tests (frontend)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/pravifrontend/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -162,6 +169,7 @@
     <configuration name="BitcoinServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="bitcoin-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.bitcoinservice.BitcoinServiceApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -280,6 +288,11 @@
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@7c2e5558" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4bd2cc10" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@7c2e5558" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@365f0db9" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
@@ -310,7 +323,7 @@
       <workItem from="1580290214710" duration="15540000" />
       <workItem from="1580311750783" duration="9063000" />
       <workItem from="1580425186050" duration="587000" />
-      <workItem from="1580467682174" duration="5055000" />
+      <workItem from="1580467682174" duration="23517000" />
     </task>
     <servers />
   </component>

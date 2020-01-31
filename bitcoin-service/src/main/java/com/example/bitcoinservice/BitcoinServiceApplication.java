@@ -21,11 +21,11 @@ import java.util.Properties;
 @EnableEurekaClient
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 public class BitcoinServiceApplication {
-
-    @Bean
-    public RestTemplate getRestTemplate() {
-        return new RestTemplate();
-    }
+//
+//    @Bean
+//    public RestTemplate getRestTemplate() {
+//        return new RestTemplate();
+//    }
 
     public static void main(String[] args) {
         SpringApplication.run(BitcoinServiceApplication.class, args);
@@ -48,6 +48,11 @@ public class BitcoinServiceApplication {
 
         @Autowired
         private Environment env;
+
+        @Bean
+        public RestTemplate getRestTemplate() {
+            return new RestTemplate();
+        }
 
         @PostConstruct
         private void configureSSL() {

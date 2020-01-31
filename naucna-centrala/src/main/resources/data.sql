@@ -93,8 +93,8 @@ insert into rad (id, naslov, apstrakt, naucna_oblast_id, pdf_lokacija, prihvacen
 insert into rad (id, naslov, apstrakt, naucna_oblast_id, pdf_lokacija, prihvacen, casopis_id, kljucni_pojmovi, cena) values (3, 'Rad 3', 'apstrakt treci', 1, 'lokacija treceg rada', 1, 2, 'nesto;neko', 120);
 insert into rad (id, naslov, apstrakt, naucna_oblast_id, pdf_lokacija, prihvacen, casopis_id, kljucni_pojmovi, cena) values (4, 'Rad 4', 'apstrakt cetvri', 1, 'lokacija cetvrtog rada', 1, 2, 'nesto;neko;neki', 150);
 insert into rad (id, naslov, apstrakt, naucna_oblast_id, pdf_lokacija, prihvacen, casopis_id, kljucni_pojmovi, cena) values (5, 'Rad 5', 'apstrakt peti', 1, 'lokacija petog rada', 1, 2, 'nesto;neko;neki', 130);
-insert into rad (id, naslov, apstrakt, naucna_oblast_id, pdf_lokacija, prihvacen, casopis_id, kljucni_pojmovi, cena) values (6, 'Rad 6', 'apstrakt sesti', 1, 'lokacija sestog rada', 1, 4, 'nesto;neko;neki', 130);
-insert into rad (id, naslov, apstrakt, naucna_oblast_id, pdf_lokacija, prihvacen, casopis_id, kljucni_pojmovi, cena) values (7, 'Rad 7', 'apstrakt sedmi', 1, 'lokacija sedma rada', 1, 5, 'nesto;neko;neki', 130);
+insert into rad (id, naslov, apstrakt, naucna_oblast_id, pdf_lokacija, prihvacen, casopis_id, kljucni_pojmovi, cena) values (6, 'Rad 6', 'apstrakt sesti', 1, 'lokacija sestog rada', 1, 3, 'nesto;neko;neki', 130);
+insert into rad (id, naslov, apstrakt, naucna_oblast_id, pdf_lokacija, prihvacen, casopis_id, kljucni_pojmovi, cena) values (7, 'Rad 7', 'apstrakt sedmi', 1, 'lokacija sedma rada', 1, 3, 'nesto;neko;neki', 130);
 insert into rad (id, naslov, apstrakt, naucna_oblast_id, pdf_lokacija, prihvacen, casopis_id, kljucni_pojmovi, cena) values (8, 'Rad 8', 'apstrakt osmi', 1, 'lokacija sedma rada', 1, 3, 'nesto;neko;neki', 130);
 insert into rad (id, naslov, apstrakt, naucna_oblast_id, pdf_lokacija, prihvacen, casopis_id, kljucni_pojmovi, cena) values (9, 'Rad 9', 'apstrakt deveti', 1, 'lokacija sedma rada', 1, 3, 'nesto;neko;neki', 130);
 
