@@ -308,6 +308,13 @@
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.LoadBalancerApplication" />
+      <item itemvalue="Application.NaucnaCentralaApplication" />
+      <item itemvalue="Application.PaypalServiceApplication" />
+      <item itemvalue="Application.SellersApplication" />
+      <item itemvalue="Application.ZuulServiceApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.PaypalServiceApplication" />
