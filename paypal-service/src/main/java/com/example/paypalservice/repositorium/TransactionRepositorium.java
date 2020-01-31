@@ -11,7 +11,7 @@ public interface TransactionRepositorium extends JpaRepository<PaypalTransaction
 
     List<PaypalTransaction> findAll();
     PaypalTransaction findOneById(Integer Id);
-
+    PaypalTransaction findOneByPaymentId(String Id);
 
 
 }
