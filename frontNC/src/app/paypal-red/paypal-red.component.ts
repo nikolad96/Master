@@ -51,6 +51,8 @@ export class PaypalRedComponent implements OnInit {
         console.log(err);
       });
   }
-
+  redirect(){
+    window.location.href = '/';
+  }
 
 }

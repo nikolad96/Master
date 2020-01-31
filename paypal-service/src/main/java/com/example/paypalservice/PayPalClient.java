@@ -5,9 +5,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.example.paypalservice.model.PaypalTransaction;
+import com.example.paypalservice.model.TransactionStatus;
+import com.example.paypalservice.repositorium.TransactionRepositorium;
+import com.example.paypalservice.service.TransactionService;
 import com.paypal.api.payments.*;
 import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.PayPalRESTException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +20,12 @@ import javax.servlet.http.HttpServletRequest;
 
 @Component
 public class PayPalClient {
+
+    @Autowired
+    TransactionRepositorium transactionRepositorium;
+
+    @Autowired
+    TransactionService transactionService;
 
     String clientId = "AcRXzhEMmFYWTWl9qfPnVoTK4iOZjJEq-XM6NfYGP4B-zMkXCiZuxawgWzp8wTHZITgUACSG5Yni8cxP";
     String clientSecret = "EDF_JuZVtbK3acUiDrkRAg-RmmMjtDocJPZoDNcqrIDHqZ2Q-C98FW3bAiNfMgrUpQ5sWco1n5epcA2_";
@@ -42,12 +53,25 @@ public class PayPalClient {
         redirectUrls.setReturnUrl("https://localhost:4200/paypal/red");
         payment.setRedirectUrls(redirectUrls);
         Payment createdPayment;
+
+        PaypalTransaction paypalTransaction = new PaypalTransaction();
         try {
             String redirectUrl = "";
             APIContext context = new APIContext(clientId, clientSecret, "sandbox");
             createdPayment = payment.create(context);
 
             if(createdPayment!=null){
+                //save transaction
+                paypalTransaction.setAmount(paymentPaypalDTO.getAmount());
+                paypalTransaction.setBuyer_id(paymentPaypalDTO.getBuyer_id());
+                paypalTransaction.setBuyer_name(paymentPaypalDTO.getBuyer_name());
+                paypalTransaction.setSeller_id(paymentPaypalDTO.getSeller_id());
+                paypalTransaction.setSeller_name(paymentPaypalDTO.getSeller_name());
+                paypalTransaction.setTransactionStatus(TransactionStatus.PENDING);
+                paypalTransaction.setPaymentId(createdPayment.getId());
+                transactionRepositorium.save(paypalTransaction);
+
+                //saved
                 List<Links> links = createdPayment.getLinks();
                 System.out.println(links);
                 for (Links link:links) {
@@ -78,6 +102,13 @@ public class PayPalClient {
         transactions.add(transaction);
 
         payment.setTransactions(transactions);
+
+
+        PaypalTransaction paypalTransaction = new PaypalTransaction();
+        paypalTransaction = transactionService.findOneByPaymentId(payPalDTO.getPaymentId());
+        paypalTransaction.setTransactionStatus(TransactionStatus.PAID);
+        transactionRepositorium.save(paypalTransaction);
+
 
         payment.setIntent("sale");
         payment.setId(payPalDTO.getPaymentId());
