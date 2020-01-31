@@ -12,6 +12,7 @@
       <change beforePath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/repositorium/TransactionRepositorium.java" beforeDir="false" afterPath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/repositorium/TransactionRepositorium.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/paypal-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/paypal-service/src/main/resources/application.properties" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,73 +125,18 @@
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
-  <component name="RunManager" selected="Application.PaypalServiceApplication">
-    <configuration name="LoadBalancerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.loadbalancer.LoadBalancerApplication" />
-      <module name="load-balancer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.loadbalancer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NaucnaCentralaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.naucnacentrala.NaucnaCentralaApplication" />
-      <module name="naucna-centrala" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.naucnacentrala.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PaypalServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.paypalservice.PaypalServiceApplication" />
-      <module name="paypal-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.paypalservice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SellersApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.sellers.SellersApplication" />
-      <module name="sellers" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.sellers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ZuulServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.zuulservice.ZuulServiceApplication" />
-      <module name="zuul-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.zuulservice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.PaypalServiceApplication">
     <configuration name="E2E Tests (frontend)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/pravifrontend/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -309,6 +255,7 @@
       <method v="2" />
     </configuration>
     <list>
+<<<<<<< HEAD
       <item itemvalue="Application.LoadBalancerApplication" />
       <item itemvalue="Application.NaucnaCentralaApplication" />
       <item itemvalue="Application.PaypalServiceApplication" />
@@ -324,6 +271,46 @@
         <item itemvalue="Application.LoadBalancerApplication" />
       </list>
     </recent_temporary>
+=======
+      <item itemvalue="JavaScript Debug.Angular Application (pravifrontend)" />
+      <item itemvalue="npm.Angular CLI Server (pravifrontend)" />
+      <item itemvalue="Protractor.E2E Tests (frontend)" />
+      <item itemvalue="Spring Boot.AcquirerBankaApplication" />
+      <item itemvalue="Spring Boot.BankaServiceApplication" />
+      <item itemvalue="Spring Boot.BitcoinServiceApplication" />
+      <item itemvalue="Spring Boot.EurekaApplication" />
+      <item itemvalue="Spring Boot.IssuerBankaApplication" />
+      <item itemvalue="Spring Boot.LoadBalancerApplication" />
+      <item itemvalue="Spring Boot.MasterProjectApplication" />
+      <item itemvalue="Spring Boot.NaucnaCentralaApplication" />
+      <item itemvalue="Spring Boot.NaucniCentarApplication" />
+      <item itemvalue="Spring Boot.PaymentCardCenterApplication" />
+      <item itemvalue="Spring Boot.PaypalServiceApplication" />
+      <item itemvalue="Spring Boot.SellersApplication" />
+      <item itemvalue="Spring Boot.ZuulServiceApplication" />
+    </list>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <option name="contentProportion" value="0.22267759" />
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@37d92ef0" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@37d92ef0" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@fad32a44" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+>>>>>>> 0d627e3b1199e4adc001ae78f6f0a88c558da6cc
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -345,7 +332,8 @@
       <workItem from="1579890200434" duration="35438000" />
       <workItem from="1580231504204" duration="5841000" />
       <workItem from="1580290214710" duration="15540000" />
-      <workItem from="1580311750783" duration="8542000" />
+      <workItem from="1580311750783" duration="9063000" />
+      <workItem from="1580425186050" duration="396000" />
     </task>
     <servers />
   </component>
