@@ -36,7 +36,7 @@ export class KpService {
   }
 
   placanjeBitcoin(radId, casopisId, userId){
-  return this.http.post(this.zuul.path + 'KP/paymentBitcoin'.concat(radId) + '/'.concat(casopisId) + '/'.concat(userId), '') as Observable<any>
+  return this.http.post(this.zuul.path + 'KP/paymentBitcoin/'.concat(radId) + '/'.concat(casopisId) + '/'.concat(userId), '') as Observable<any>
 
 }
 placanjePaypal(radId, casopisId){

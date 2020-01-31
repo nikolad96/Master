@@ -76,17 +76,25 @@ export class OdabirPlacanjaComponent implements OnInit {
       case '3':
         // bitcoin
         console.log('bitcoin');
-        let user: any = this.authService.getUser();
-        this.kpService.placanjeBitcoin(this.rad_id, this.casopis_id, user.username).subscribe(
+        let user: any = this.authService.getUser().subscribe(
           (success) => {
-            console.log(success);
-            window.location.href = success.paymentUrl;
+            this.kpService.placanjeBitcoin(this.rad_id, this.casopis_id, success.username).subscribe(
+              (success2) => {
+                console.log(success2);
+                window.location.href = success2.paymentUrl;
+              },
+
+              (err) => {
+                console.log(err);
+              }
+            );
           },
 
           (err) => {
             console.log(err);
           }
         );
+
         break;
     }
   }

@@ -1,0 +1,1 @@
+insert into seller values (3, 'szx5-PgTdEAggxxp1Fy9zxNZv6VFBWCBELsrtyF7');
