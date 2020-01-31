@@ -33,6 +33,9 @@ public class BitcoinController {
 //    @Autowired
 //    Monitor m;
 
+    @Autowired
+    private RestTemplate cudni_rest;
+
 
 
     @Autowired
@@ -164,7 +167,7 @@ public class BitcoinController {
                         StatusDTO statusDTO = new StatusDTO();
                         statusDTO.setStatus(status);
                         statusDTO.setMessage("Uspesno placeno");
-                        REST_template.postForEntity("https://localhost:8096/KP/paid/" + request.getRad_id() + "/" + request.getSeller_id() + "/" + request.getBuyer_id(), statusDTO, String.class);
+                        cudni_rest.postForEntity("https://localhost:8096/KP/paid/" + request.getRad_id() + "/" + request.getSeller_id() + "/" + request.getBuyer_id(), statusDTO, String.class);
                         timer.cancel();
                     }
 
@@ -177,7 +180,7 @@ public class BitcoinController {
                         StatusDTO statusDTO = new StatusDTO();
                         statusDTO.setStatus(status);
                         statusDTO.setMessage("Neuspesna transakcija");
-                        REST_template.postForEntity("https://localhost:8096/KP/paid/" + request.getRad_id() + "/" + request.getSeller_id() + "/" + request.getBuyer_id(), statusDTO, String.class);
+                        cudni_rest.postForEntity("https://localhost:8096/KP/paid/" + request.getRad_id() + "/" + request.getSeller_id() + "/" + request.getBuyer_id(), statusDTO, String.class);
                         timer.cancel();
                     }
 
@@ -190,7 +193,7 @@ public class BitcoinController {
                         StatusDTO statusDTO = new StatusDTO();
                         statusDTO.setStatus(status);
                         statusDTO.setMessage("Isteklo vreme");
-                        REST_template.postForEntity("https://localhost:8096/KP/paid/" + request.getRad_id() + "/" + request.getSeller_id() + "/" + request.getBuyer_id(), statusDTO, String.class);
+                        cudni_rest.postForEntity("https://localhost:8096/KP/paid/" + request.getRad_id() + "/" + request.getSeller_id() + "/" + request.getBuyer_id(), statusDTO, String.class);
                         timer.cancel();
                     }
 
@@ -204,7 +207,7 @@ public class BitcoinController {
                         StatusDTO statusDTO = new StatusDTO();
                         statusDTO.setStatus(status);
                         statusDTO.setMessage("Otkazali ste transakciju");
-                        REST_template.postForEntity("https://localhost:8096/KP/paid/" + request.getRad_id() + "/" + request.getSeller_id() + "/" + request.getBuyer_id(), statusDTO, String.class);
+                        cudni_rest.postForEntity("https://localhost:8096/KP/paid/" + request.getRad_id() + "/" + request.getSeller_id() + "/" + request.getBuyer_id(), statusDTO, String.class);
                         timer.cancel();
                     }
 
@@ -215,7 +218,7 @@ public class BitcoinController {
                         StatusDTO statusDTO = new StatusDTO();
                         statusDTO.setStatus(status);
                         statusDTO.setMessage("Nesto nije dobro");
-                        REST_template.postForEntity("https://localhost:8096/KP/paid/" + request.getRad_id() + "/" + request.getSeller_id() + "/" + request.getBuyer_id(), statusDTO, String.class);
+                        cudni_rest.postForEntity("https://localhost:8096/KP/paid/" + request.getRad_id() + "/" + request.getSeller_id() + "/" + request.getBuyer_id(), statusDTO, String.class);
                         timer.cancel();
                     }
 
