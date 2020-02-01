@@ -1,9 +1,7 @@
 package com.example.paypalservice;
 
 
-import com.example.paypalservice.dto.SellerDTO;
-import com.example.paypalservice.dto.SubPomDTO;
-import com.example.paypalservice.dto.SubscriptionDTO;
+import com.example.paypalservice.dto.*;
 import com.example.paypalservice.model.PaypalMerchant;
 import com.example.paypalservice.model.Subscription;
 import com.example.paypalservice.repositorium.MerchantRepositorium;
@@ -65,6 +63,18 @@ public class PayPalController {
         return x;
     }
 
+
+    @RequestMapping(value = "/newSeller", method = RequestMethod.POST)
+    public ResponseEntity<CustomerResponseDTO> newSeller( @RequestBody CustomerRequestDTO dto){
+
+       PaypalMerchant m = new PaypalMerchant();
+       m.setId(dto.getSellerId());
+       m.setSellerId(dto.getSellerId());
+
+        merchantRepositorium.save(m);
+
+        return new ResponseEntity<CustomerResponseDTO>(new CustomerResponseDTO("paypal-new-customer", m.getId()), HttpStatus.OK);
+    }
 
     @RequestMapping(value = "/newSellerData", method = RequestMethod.POST)
     public ResponseEntity<String> newSellerData(@RequestBody SellerDTO dto){

@@ -47,7 +47,7 @@ const Routes = [
   { path: "bank-page/:id_payment", component: BankPageComponent },
   { path: "casopis-placanje/:id_casopis", component: CasopisPlacanjeComponent },
   { path: "bank-new-customer/:id_customer", component: BankNewCustomerComponent },
-  { path: "paypal-new-customer/:id_customer", component:BitcoinNewCustomerComponent},
+  { path: "paypal-new-customer/:id_customer", component:PaypalNewCustomerComponent},
   { path: "bitcoin-new-customer/:id_customer", component:BitcoinNewCustomerComponent},
   { path: 'paypal', component: PaypalComponent},
   { path: 'paypal/red/:rad_id', component: PaypalRedComponent},
