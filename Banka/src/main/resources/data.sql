@@ -1,5 +1,5 @@
-insert into customer (id, merchant_id, merchant_password, name) values (1, 'milica', 'milica', 'Milica Makaric');
-insert into customer (id, merchant_id, merchant_password, name) values (2, 'taca', 'taca', 'Tamara Makaric');
+insert into customer (id, merchant_id, merchant_password, name) values (1, 'milica', 'milica', 'Casopis prvi');
+insert into customer (id, merchant_id, merchant_password, name) values (2, 'taca', 'taca', 'Casopis drugi');
 
 insert into bank (id, name) values (1, 'Erste bank');
 insert into bank (id, name) values (2, 'UniCredit bank');
