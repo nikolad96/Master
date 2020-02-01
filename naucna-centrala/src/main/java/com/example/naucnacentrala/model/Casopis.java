@@ -43,8 +43,19 @@ public class Casopis {
     @OneToMany(mappedBy = "casopis", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Rad> radovi = new ArrayList<>();
 
+    @OneToMany(mappedBy = "casopis", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Subscription> pretplate = new ArrayList<>();
+
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Korisnik> korisniciPlatili = new ArrayList<>();
+
+    public List<Subscription> getPretplate() {
+        return pretplate;
+    }
+
+    public void setPretplate(List<Subscription> pretplate) {
+        this.pretplate = pretplate;
+    }
 
     public Casopis() {
     }

@@ -1,0 +1,24 @@
+<div style="color:cornflowerblue; text-align: center;">
+    <h2>Naucna centrala</h2>
+</div>
+
+<div class="container">
+    <h4>Unesite neophodne podatke:</h4>
+    <br>
+    <form [formGroup]="form" >
+
+        <div class="form-group">
+            <label for="clientId">Coingate API token:</label>
+            <input formControlName="clientId" type="text" class="form-control" id="clientId" required placeholder="Enter clientId">
+        </div>
+
+        
+        <div class="form-group">
+            <label for="clientSecret">Coingate API token:</label>
+            <input formControlName="clientSecret" type="text" class="form-control" id="clientSecret" required placeholder="Enter clientSecret">
+        </div>
+
+
+        <button [disabled]="form.invalid" type="submit" (click)="onSubmit()" class="btn btn-primary">Posalji</button>
+    </form>
+</div>

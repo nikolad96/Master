@@ -1,0 +1,2 @@
+insert into paypal_merchant (id, seller_id, client_id, client_secret) values (1, 1,'AcRXzhEMmFYWTWl9qfPnVoTK4iOZjJEq-XM6NfYGP4B-zMkXCiZuxawgWzp8wTHZITgUACSG5Yni8cxP', 'EDF_JuZVtbK3acUiDrkRAg-RmmMjtDocJPZoDNcqrIDHqZ2Q-C98FW3bAiNfMgrUpQ5sWco1n5epcA2_');
+insert into paypal_merchant (id, seller_id, client_id, client_secret) values (2, 2,'AcRXzhEMmFYWTWl9qfPnVoTK4iOZjJEq-XM6NfYGP4B-zMkXCiZuxawgWzp8wTHZITgUACSG5Yni8cxP', 'EDF_JuZVtbK3acUiDrkRAg-RmmMjtDocJPZoDNcqrIDHqZ2Q-C98FW3bAiNfMgrUpQ5sWco1n5epcA2_');

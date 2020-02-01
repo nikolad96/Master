@@ -27,6 +27,10 @@ import { BitcoinNewCustomerComponent } from './bitcoin-new-customer/bitcoin-new-
 import { PaypalComponent } from './paypal/paypal.component';
 import { PaypalRedComponent } from './paypal-red/paypal-red.component';
 import { PaypalCancelComponent } from './paypal-cancel/paypal-cancel.component';
+import { PaypalNewCustomerComponent } from './paypal-new-customer/paypal-new-customer.component';
+import { CreatePlanComponent } from './create-plan/create-plan.component';
+import { SubReturnComponent } from './sub-return/sub-return.component';
+import { PlanCancelComponent } from './plan-cancel/plan-cancel.component';
 
 const Routes = [
   { path: "", component: MainPageComponent },
@@ -43,10 +47,14 @@ const Routes = [
   { path: "bank-page/:id_payment", component: BankPageComponent },
   { path: "casopis-placanje/:id_casopis", component: CasopisPlacanjeComponent },
   { path: "bank-new-customer/:id_customer", component: BankNewCustomerComponent },
+  { path: "paypal-new-customer/:id_customer", component:BitcoinNewCustomerComponent},
   { path: "bitcoin-new-customer/:id_customer", component:BitcoinNewCustomerComponent},
   { path: 'paypal', component: PaypalComponent},
-  { path: 'paypal/red', component: PaypalRedComponent},
-  { path: 'paypal/cancel', component: PaypalCancelComponent}
+  { path: 'paypal/red/:rad_id', component: PaypalRedComponent},
+  { path: 'paypal/cancel', component: PaypalCancelComponent},
+  { path: 'sub/return/:sellerId', component: SubReturnComponent},
+  { path: 'sub/cancel', component: PlanCancelComponent},
+  { path: 'plan/create/:sellerId', component: CreatePlanComponent}
 ]
 
 @NgModule({
@@ -69,7 +77,11 @@ const Routes = [
     BitcoinNewCustomerComponent,
     PaypalComponent,
     PaypalRedComponent,
-    PaypalCancelComponent
+    PaypalCancelComponent,
+    PaypalNewCustomerComponent,
+    CreatePlanComponent,
+    SubReturnComponent,
+    PlanCancelComponent
   ],
   imports: [
     BrowserModule,

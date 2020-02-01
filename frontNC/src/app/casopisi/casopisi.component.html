@@ -18,6 +18,7 @@
                 <td>{{rad.naslov}}</td>&nbsp;&nbsp;&nbsp;
                 <td *ngIf="!rad.kupljen"><button class="btn btn-light" (click)="kupiRad(casopis.id, rad.id)">Kupi</button></td>
                 <td *ngIf="rad.kupljen"><button class="btn btn-light" (click)="preuzmiRad(rad.id)">Preuzmi</button></td>
+                <td *ngIf="!rad.kupljen"><button class="btn btn-light" (click)="subscribe(casopis.id)">Pretplati se na casopis</button></td>
             </tr>
             <br>
             <!-- <tr>
