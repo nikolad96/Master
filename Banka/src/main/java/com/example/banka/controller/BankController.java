@@ -237,11 +237,17 @@ public class BankController {
     public ResponseEntity<?> executePayment(@RequestBody CardRequestDTO cardRequestDTO) {
 
         Transaction transaction = transactionService.findOneByMerchantOrderId(cardRequestDTO.getPaymentId());
-        Account account = accountService.findOneByPan(cardRequestDTO.getPan());
+        Customer acquirer = transaction.getCustomer();
+        Account accountAcquirer = acquirer.getAccount();
 
-        account.setBalance(account.getBalance() - transaction.getAmount());
-        account.setReserved(account.getReserved() - transaction.getAmount());
-        account = accountService.save(account);
+        Account accountIssuer = accountService.findOneByPan(cardRequestDTO.getPan());
+
+        accountIssuer.setBalance(accountIssuer.getBalance() - transaction.getAmount());
+        accountIssuer.setReserved(accountIssuer.getReserved() - transaction.getAmount());
+        accountIssuer = accountService.save(accountIssuer);
+
+        accountAcquirer.setBalance(accountAcquirer.getBalance() + transaction.getAmount());
+        accountAcquirer = accountService.save(accountAcquirer);
 
         transaction.setState(TransactionState.SUCCESS);
         transaction = transactionService.save(transaction);

@@ -319,6 +319,8 @@ public class KPController {
 
                 r.setKorisniciPlatili(korisnici);
 
+                radService.save(r);
+
                 return new ResponseEntity<>(HttpStatus.OK);
             case "invalid":
                 break;

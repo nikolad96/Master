@@ -1,2 +1,2 @@
-insert into customer (id, seller_id, merchant_id, merchant_password, name) values (1, 1, 'milica', 'milica', 'Milica Makaric');
-insert into customer (id, seller_id, merchant_id, merchant_password, name) values (2, 2, 'taca', 'taca', 'Tamara Makaric');
+insert into customer (id, seller_id, merchant_id, merchant_password, name) values (1, 1, 'milica', 'milica', 'Casopis prvi');
+insert into customer (id, seller_id, merchant_id, merchant_password, name) values (2, 2, 'taca', 'taca', 'Casopis drugi');
