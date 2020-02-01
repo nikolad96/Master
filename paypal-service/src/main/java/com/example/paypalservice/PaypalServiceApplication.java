@@ -3,6 +3,7 @@ package com.example.paypalservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -16,7 +17,7 @@ import java.util.Date;
 import java.util.Properties;
 //import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-//@EnableEurekaClient
+@EnableEurekaClient
 @SpringBootApplication
 public class PaypalServiceApplication {
 

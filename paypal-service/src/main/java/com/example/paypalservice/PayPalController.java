@@ -3,11 +3,15 @@ package com.example.paypalservice;
 
 import com.example.paypalservice.dto.*;
 import com.example.paypalservice.model.PaypalMerchant;
+import com.example.paypalservice.model.PaypalTransaction;
 import com.example.paypalservice.model.Subscription;
+import com.example.paypalservice.model.TransactionStatus;
 import com.example.paypalservice.repositorium.MerchantRepositorium;
 import com.example.paypalservice.repositorium.TransactionRepositorium;
 import com.example.paypalservice.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -84,6 +88,8 @@ public class PayPalController {
 
         merchantRepositorium.save(m);
 
+        updateSeller(m);
+
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -97,6 +103,11 @@ public class PayPalController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    private void updateSeller(PaypalMerchant merchant) {
+        HttpEntity<UpdateSellerDTO> entity = new HttpEntity<UpdateSellerDTO>(new UpdateSellerDTO(merchant.getSellerId(), "paypal"));
+        ResponseEntity<String> responseEntity = restTemplate.exchange("https://localhost:8091/sellers/updateSeller",
+                HttpMethod.PUT, entity, String.class);
+    }
     @RequestMapping(value = "/executeSubscription", method = RequestMethod.POST)
     public ResponseEntity<Map<String, Object>> executeSubscription(HttpServletRequest request, @RequestBody SubPomDTO subPomDTO){
         PaypalMerchant m = merchantRepositorium.findOneBySellerId(subPomDTO.getId());
@@ -120,10 +131,10 @@ public class PayPalController {
         response.put("status", "failed");
         System.out.println("Transaction Canceled");
 //        PaypalTransaction paypalTransaction = new PaypalTransaction();
-//        paypalTransaction = transactionService.findOneByPaymentId(payPalDTO.getPaymentId());
+//        paypalTransaction = transactionService.findOneByPaymentId(paymentId);
 //        paypalTransaction.setTransactionStatus(TransactionStatus.CANCELLED);
 //        transactionRepositorium.save(paypalTransaction);
-//        System.err.println(e.getDetails());
+
         return response;
     }
 

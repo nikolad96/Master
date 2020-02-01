@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
 
 import com.example.paypalservice.dto.SellerDTO;
 import com.example.paypalservice.model.PaypalMerchant;
@@ -90,6 +91,41 @@ public class PayPalClient {
                 paypalTransaction.setTransactionStatus(TransactionStatus.PENDING);
                 paypalTransaction.setPaymentId(createdPayment.getId());
                 transactionRepositorium.save(paypalTransaction);
+
+                final PaypalTransaction finalTransaction = paypalTransaction;
+                CompletableFuture<Object> completableFuture = CompletableFuture.supplyAsync(() -> {
+
+                    Timer timer = new Timer();
+                    long pocetak = System.currentTimeMillis();
+
+                    //na svakih 10 sekundi proverava da li se promenio status transakcije
+                    //nakon 5min, transakcija automatski postaje neuspesna
+                    timer.schedule(new TimerTask(){
+
+                        @Override
+                        public void run(){
+
+                            System.out.println("--pocetak provere--");
+                            long trenutno = System.currentTimeMillis();
+                            PaypalTransaction transactionHelp = transactionRepositorium.findOneById(finalTransaction.getId());
+
+                            if(!transactionHelp.getTransactionStatus().equals(TransactionStatus.PENDING)){
+                                System.out.println("--transakcija je uspesna--");
+                                timer.cancel();
+                            }
+
+
+                            if(trenutno - pocetak > 300000){
+                                System.out.println("--proslo 5min -> neuspesna transakcija--");
+                                transactionHelp.setTransactionStatus(TransactionStatus.CANCELLED);
+                                transactionHelp = transactionRepositorium.save(transactionHelp);
+                                timer.cancel();
+                            }
+                        }
+                    },0,10000);
+
+                    return "end";
+                });
 
                 //saved
                 List<Links> links = createdPayment.getLinks();
