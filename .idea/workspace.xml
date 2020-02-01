@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1cb43b3f-1e91-4f85-8025-0a39056cbe8c" name="Default Changelist" comment="banka">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/resources/data.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -282,11 +281,6 @@
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@7c2e5558" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4bd2cc10" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@7c2e5558" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@365f0db9" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
@@ -317,7 +311,7 @@
       <workItem from="1580290214710" duration="15540000" />
       <workItem from="1580311750783" duration="9063000" />
       <workItem from="1580425186050" duration="587000" />
-      <workItem from="1580467682174" duration="24090000" />
+      <workItem from="1580467682174" duration="25272000" />
     </task>
     <servers />
   </component>
