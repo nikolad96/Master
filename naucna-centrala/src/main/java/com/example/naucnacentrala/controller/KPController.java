@@ -19,7 +19,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -95,14 +99,27 @@ public class KPController {
                             break;
                         }
                     }
+                    System.out.println("casopis: " + c.getId() + "; size pretplate: " + c.getPretplate().size());
                     for(Subscription s : c.getPretplate()){
+                        System.out.println("s username: " + s.getUsername() + "; korisnik: " + korisnik.getUsername());
                         if(s.getUsername().equals(korisnik.getUsername())) {
-                            System.out.println("Pretplacen na casopis:"+ c.getNaziv());
-                            kupljen = true;
-                            break;
+                            try{
+                                System.out.println("provera datuma");
+                                System.out.println("startDate: " + s.getStartDate());
+                                System.out.println("endDate: " + s.getEndDate());
+                                if(!isExpired(s.getStartDate(), s.getEndDate())){
+
+                                    kupljen = true;
+                                    break;
+                                }
+                            }catch(Exception e){
+                                System.out.println("usao u catch");
+                                kupljen = false;
+                            }
                         }
 
                     }
+
                     radDto.setKupljen(kupljen);
                     radovi.add(radDto);
                 }
@@ -364,6 +381,44 @@ public class KPController {
 
         return restTemplate.postForEntity("https://localhost:8091/sellers/newSellerPayment", newSellerDTO, CustomerResponseDTO.class);
 
+    }
+
+    public boolean isExpired(String startDateString, String endDateString) throws ParseException {
+
+        Date startDate = new SimpleDateFormat("yyyy-MM-dd").parse(startDateString.substring(0, 10));
+        System.out.println("startDate: " + startDate + "; startDateString: " + startDateString.substring(0, 10));
+
+        Date endDate = new SimpleDateFormat("yyyy-MM-dd").parse(endDateString.substring(0, 10));
+        System.out.println("endDate: " + endDate + "; endDateString: " + endDateString.substring(0, 10));
+
+        Date today = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+
+        if(today.before(endDate) && startDate.before(today)){
+            System.out.println("dobar je datum");
+            return false;
+        }
+
+//        String todayString = dateFormat.format(today);
+
+//        int yearToday = Integer.parseInt(todayString.substring(0,4));
+//        int monthToday = Integer.parseInt(todayString.substring(5, 7));
+//        int dayToday = Integer.parseInt(todayString.substring(8, 10));
+//        System.out.println("yearToday:" + yearToday + "; monthToday: " + monthToday + "; dayToday: " + dayToday);
+//
+//        int yearStart = Integer.parseInt(startDate.substring(0,4));
+//        int monthStart = Integer.parseInt(startDate.substring(5, 7));
+//        int dayStart = Integer.parseInt(startDate.substring(8, 10));
+//        System.out.println("yearStart:" + yearStart + "; monthStart: " + monthStart + "; dayStart: " + dayStart);
+//
+//        int yearEnd = Integer.parseInt(endDate.substring(0,4));
+//        int monthEnd = Integer.parseInt(endDate.substring(5, 7));
+//        int dayEnd = Integer.parseInt(endDate.substring(8, 10));
+//        System.out.println("yearEnd:" + yearEnd + "; monthEnd: " + monthEnd + "; dayEnd: " + dayEnd);
+
+
+        System.out.println("nije dobar datum");
+        return true;
     }
 
 }
