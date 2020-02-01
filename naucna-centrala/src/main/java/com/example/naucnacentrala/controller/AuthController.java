@@ -53,8 +53,10 @@ public class AuthController {
         System.out.println("usao u metodu auth/login");
         final Authentication authentication = manager
                 .authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
+        System.out.println("ULOGOVAN:");
+        System.out.println(authentication.getName());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
 
-//        SecurityContextHolder.getContext().setAuthentication(authentication);
 //
 //        Collection<GrantedAuthority> authorities = (Collection<GrantedAuthority>)
 //                SecurityContextHolder.getContext().getAuthentication().getAuthorities();

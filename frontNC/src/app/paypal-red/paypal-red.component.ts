@@ -16,6 +16,7 @@ export class PaypalRedComponent implements OnInit {
   url: string;
   paypalDTO: PaypalDTO;
   message: string;
+  radId: number;
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {
 
@@ -34,14 +35,23 @@ export class PaypalRedComponent implements OnInit {
         this.paypalDTO.paymentId =  this.paymentId;
         console.log(this.payerId);
         console.log(this.paymentId);
+        this.route.params
+        .subscribe(params => {
+          console.log(params);
+          
+          this.radId =  params.rad_id;
+          console.log(this.radId);
+          this.completePayment(this.paymentId, this.payerId);
+        });
+  
       });
+     
 
-
-    this.completePayment(this.paymentId, this.payerId);
+   
   }
 
   completePayment(paymentId, payerId) {
-    return this.http.post(this.url + 'paypal/complete/payment' , this.paypalDTO )
+    return this.http.post(this.url + 'paypal/complete/payment/'.concat(this.radId.toString()) , this.paypalDTO )
       .subscribe((response: any) => {
         console.log(response);
         this.message = 'Payment successfull';

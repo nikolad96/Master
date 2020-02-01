@@ -8,6 +8,7 @@ import { KpService } from '../services/kp/kp.service';
 })
 export class CasopisiComponent implements OnInit {
 
+  
   private casopisi = [];
   private nacini_placanja = [];
   private izabrani_rad_id;
@@ -29,6 +30,7 @@ export class CasopisiComponent implements OnInit {
 
 
   ngOnInit() {
+    
   }
 
   kupiRad(casopisId, radId){
@@ -37,6 +39,9 @@ export class CasopisiComponent implements OnInit {
     window.location.href = '/odabir_placanja'.concat('/' + casopisId + '/' + radId);
   }
 
+  subscribe(casopisId){
+    window.location.href = '/plan/create/'.concat(casopisId);
+  }
   preuzmiRad(radId){
     // TODO
     console.log('preuzmi rad: ' + radId);

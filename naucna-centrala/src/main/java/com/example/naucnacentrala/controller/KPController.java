@@ -4,6 +4,7 @@ import com.example.naucnacentrala.dto.*;
 import com.example.naucnacentrala.model.*;
 import com.example.naucnacentrala.repository.CasopisRepository;
 import com.example.naucnacentrala.repository.KorisnikRepository;
+import com.example.naucnacentrala.repository.SubscriptionRepositorium;
 import com.example.naucnacentrala.security.TokenUtils;
 import com.example.naucnacentrala.service.*;
 import com.example.naucnacentrala.utils.Utils;
@@ -11,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -38,6 +41,9 @@ public class KPController {
 
     @Autowired
     private RadService radService;
+
+    @Autowired
+    private SubscriptionRepositorium subscriptionRepositorium;
 
     @Autowired
     private KupovinaService kupovinaService;
@@ -88,6 +94,14 @@ public class KPController {
                             kupljen = true;
                             break;
                         }
+                    }
+                    for(Subscription s : c.getPretplate()){
+                        if(s.getUsername().equals(korisnik.getUsername())) {
+                            System.out.println("Pretplacen na casopis:"+ c.getNaziv());
+                            kupljen = true;
+                            break;
+                        }
+
                     }
                     radDto.setKupljen(kupljen);
                     radovi.add(radDto);
@@ -198,6 +212,18 @@ public class KPController {
         return new ResponseEntity<>("[NC]: Kupovina update-ovana", HttpStatus.OK);
     }
 
+    @RequestMapping(value  = "/paypalPaid/{radId}", method = RequestMethod.GET)
+    private ResponseEntity<String> paypalPaid(@PathVariable("radId") Integer radId){
+        System.out.println("USAO U PAYPAL PAID");
+        Rad rad = radService.findOneById(radId);
+        Korisnik korisnik = korisnikService.findOneByUsername("realmace");
+        List<Korisnik> korisnici = rad.getKorisniciPlatili();
+        korisnici.add(korisnik);
+        rad.setKorisniciPlatili(korisnici);
+        Rad r = radService.save(rad);
+        return new ResponseEntity<>("[NC]: Kupovina update-ovana", HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/paymentBitcoin/{radId}/{casopisId}/{userId}", method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity<PaymentResponseDTO> paymentBitcoin(@PathVariable("radId") Integer radId, @PathVariable("casopisId") Integer casopisId, @PathVariable("userId") String userId){
         PaymentBitcoinDTO request = new PaymentBitcoinDTO();
@@ -239,6 +265,43 @@ public class KPController {
         ResponseEntity<PaymentResponseDTO> paymentResponse = restTemplate.postForEntity("https://localhost:8087/paypal/payment", paymentPaypalDTO, PaymentResponseDTO.class);
 
         return paymentResponse;
+
+    }
+
+
+    @RequestMapping(value = "/sendSubscription", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<SubscriptionDTO> getSubscriptions(@RequestBody SubscriptionDTO subscriptionDTO){
+        PaymentPaypalDTO paymentPaypalDTO = new PaymentPaypalDTO();
+
+        Subscription s = new Subscription();
+        s.setDescription(subscriptionDTO.getDescription());
+        s.setEndDate(subscriptionDTO.getEndDate());
+        s.setId(subscriptionDTO.getId());
+        s.setStartDate(subscriptionDTO.getStartDate());
+        s.setSellerId(subscriptionDTO.getSellerId());
+        s.setUsername(subscriptionDTO.getUsername());
+        s.setState(subscriptionDTO.getState());
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        System.out.println("U CONTROLLERU JE");
+        System.out.println(username);
+        List<Subscription> pretplate = new ArrayList<>();
+        s.setUsername("realmace");
+        Casopis c = casopisService.findOneById(subscriptionDTO.getSellerId());
+
+        s.setCasopis(c);
+        pretplate = c.getPretplate();
+        pretplate.add(s);
+        c.setPretplate(pretplate);
+        casopisService.save(c);
+        subscriptionRepositorium.save(s);
+
+
+
+
+
+        return new ResponseEntity<SubscriptionDTO>(subscriptionDTO , HttpStatus.OK);
 
     }
 

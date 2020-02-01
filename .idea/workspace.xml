@@ -130,7 +130,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.BitcoinServiceApplication">
+  <component name="RunManager">
     <configuration name="E2E Tests (frontend)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/pravifrontend/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -249,24 +249,6 @@
       <envs />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="JavaScript Debug.Angular Application (pravifrontend)" />
-      <item itemvalue="npm.Angular CLI Server (pravifrontend)" />
-      <item itemvalue="Protractor.E2E Tests (frontend)" />
-      <item itemvalue="Spring Boot.AcquirerBankaApplication" />
-      <item itemvalue="Spring Boot.BankaServiceApplication" />
-      <item itemvalue="Spring Boot.BitcoinServiceApplication" />
-      <item itemvalue="Spring Boot.EurekaApplication" />
-      <item itemvalue="Spring Boot.IssuerBankaApplication" />
-      <item itemvalue="Spring Boot.LoadBalancerApplication" />
-      <item itemvalue="Spring Boot.MasterProjectApplication" />
-      <item itemvalue="Spring Boot.NaucnaCentralaApplication" />
-      <item itemvalue="Spring Boot.NaucniCentarApplication" />
-      <item itemvalue="Spring Boot.PaymentCardCenterApplication" />
-      <item itemvalue="Spring Boot.PaypalServiceApplication" />
-      <item itemvalue="Spring Boot.SellersApplication" />
-      <item itemvalue="Spring Boot.ZuulServiceApplication" />
-    </list>
   </component>
   <component name="ServiceViewManager">
     <option name="allServicesViewState">
@@ -378,5 +360,9 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="992" y="417" key="MultipleFileMergeDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1580245552764" />
+    <state x="1010" y="492" key="git4idea.merge.GitPullDialog" timestamp="1580520152695">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1010" y="492" key="git4idea.merge.GitPullDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1580520152695" />
   </component>
 </project>
