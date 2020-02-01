@@ -197,7 +197,13 @@ public class SellersController {
 
             }else if(paymentMethod.getName().equals("paypal")){
                 System.out.println("paypal");
+                System.out.println("SELLERID:");
+                System.out.println(dto.getSellerId());
+                HttpEntity<CustomerRequestDTO> httpRequest = new HttpEntity<CustomerRequestDTO>(new CustomerRequestDTO(dto.getSellerId(), dto.getName()));
+                ResponseEntity<CustomerResponseDTO> response = restTemplate.postForEntity("https://localhost:8087/paypal/newSeller", httpRequest, CustomerResponseDTO.class);
 
+                customerResponseDTO.setCustomerId(response.getBody().getCustomerId());
+                customerResponseDTO.setRedirectionUrl(response.getBody().getRedirectionUrl());
             }
 
             return new ResponseEntity<CustomerResponseDTO>(customerResponseDTO, HttpStatus.OK);

@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1cb43b3f-1e91-4f85-8025-0a39056cbe8c" name="Default Changelist" comment="banka">
+      <change afterPath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/dto/CustomerRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/dto/CustomerResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Banka/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Banka/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontNC/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontNC/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/PayPalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/PayPalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/model/PaypalMerchant.java" beforeDir="false" afterPath="$PROJECT_DIR$/paypal-service/src/main/java/com/example/paypalservice/model/PaypalMerchant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/controller/SellersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sellers/src/main/java/com/example/sellers/controller/SellersController.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -120,18 +124,73 @@
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.SellersApplication">
+    <configuration name="LoadBalancerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.loadbalancer.LoadBalancerApplication" />
+      <module name="load-balancer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.loadbalancer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NaucnaCentralaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.naucnacentrala.NaucnaCentralaApplication" />
+      <module name="naucna-centrala" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.naucnacentrala.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PaypalServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.paypalservice.PaypalServiceApplication" />
+      <module name="paypal-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.paypalservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SellersApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.sellers.SellersApplication" />
+      <module name="sellers" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.sellers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZuulServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.zuulservice.ZuulServiceApplication" />
+      <module name="zuul-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.zuulservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="E2E Tests (frontend)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/pravifrontend/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -250,32 +309,22 @@
       <envs />
       <method v="2" />
     </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="allServicesViewState">
-      <serviceView>
-        <option name="contentProportion" value="0.22267759" />
-        <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@7c2e5558" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@7c2e5558" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4bd2cc10" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@7c2e5558" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@365f0db9" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-          </expand>
-          <select />
-        </treeState>
-      </serviceView>
-    </option>
+    <list>
+      <item itemvalue="Application.LoadBalancerApplication" />
+      <item itemvalue="Application.ZuulServiceApplication" />
+      <item itemvalue="Application.NaucnaCentralaApplication" />
+      <item itemvalue="Application.SellersApplication" />
+      <item itemvalue="Application.PaypalServiceApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SellersApplication" />
+        <item itemvalue="Application.PaypalServiceApplication" />
+        <item itemvalue="Application.NaucnaCentralaApplication" />
+        <item itemvalue="Application.ZuulServiceApplication" />
+        <item itemvalue="Application.LoadBalancerApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -342,22 +391,22 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1060" y="456" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1580245631977" />
-    <state width="2517" height="399" key="GridCell.Tab.0.bottom" timestamp="1580424753038">
+    <state width="2517" height="293" key="GridCell.Tab.0.bottom" timestamp="1580547102961">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1580424753038" />
-    <state width="2517" height="399" key="GridCell.Tab.0.center" timestamp="1580424753038">
+    <state width="2517" height="293" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1580547102961" />
+    <state width="2517" height="293" key="GridCell.Tab.0.center" timestamp="1580547102961">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1580424753038" />
-    <state width="2517" height="399" key="GridCell.Tab.0.left" timestamp="1580424753038">
+    <state width="2517" height="293" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1580547102961" />
+    <state width="2517" height="293" key="GridCell.Tab.0.left" timestamp="1580547102961">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1580424753038" />
-    <state width="2517" height="399" key="GridCell.Tab.0.right" timestamp="1580424753038">
+    <state width="2517" height="293" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1580547102961" />
+    <state width="2517" height="293" key="GridCell.Tab.0.right" timestamp="1580547102961">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1580424753038" />
+    <state width="2517" height="293" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1580547102961" />
     <state x="810" y="356" key="Maven.ArtifactSearchDialog" timestamp="1580423468441">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
